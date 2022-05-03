@@ -67,6 +67,12 @@ class Subrace
      */
     private $trait;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Race::class, inversedBy="subraces")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $race;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +194,18 @@ class Subrace
     public function setTrait(?string $trait): self
     {
         $this->trait = $trait;
+
+        return $this;
+    }
+
+    public function getRace(): ?Race
+    {
+        return $this->race;
+    }
+
+    public function setRace(?Race $race): self
+    {
+        $this->race = $race;
 
         return $this;
     }

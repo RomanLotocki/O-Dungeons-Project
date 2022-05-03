@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RaceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Race
      * @ORM\Column(type="text")
      */
     private $quickDescription;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Subrace::class, mappedBy="race", orphanRemoval=true)
+     */
+    private $subraces;
+
+    public function __construct()
+    {
+        $this->subraces = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,36 @@ class Race
     public function setQuickDescription(string $quickDescription): self
     {
         $this->quickDescription = $quickDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Subrace>
+     */
+    public function getSubraces(): Collection
+    {
+        return $this->subraces;
+    }
+
+    public function addSubrace(Subrace $subrace): self
+    {
+        if (!$this->subraces->contains($subrace)) {
+            $this->subraces[] = $subrace;
+            $subrace->setRace($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubrace(Subrace $subrace): self
+    {
+        if ($this->subraces->removeElement($subrace)) {
+            // set the owning side to null (unless already changed)
+            if ($subrace->getRace() === $this) {
+                $subrace->setRace(null);
+            }
+        }
 
         return $this;
     }
