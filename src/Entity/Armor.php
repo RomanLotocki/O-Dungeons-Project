@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArmorRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Armor
      * @ORM\Column(type="float", options={"default": 0})
      */
     private $weight;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=PlayableClass::class, mappedBy="armors")
+     */
+    private $playableClasses;
+
+    public function __construct()
+    {
+        $this->playableClasses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,33 @@ class Armor
     public function setWeight(float $weight): self
     {
         $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlayableClass>
+     */
+    public function getPlayableClasses(): Collection
+    {
+        return $this->playableClasses;
+    }
+
+    public function addPlayableClass(PlayableClass $playableClass): self
+    {
+        if (!$this->playableClasses->contains($playableClass)) {
+            $this->playableClasses[] = $playableClass;
+            $playableClass->addArmor($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayableClass(PlayableClass $playableClass): self
+    {
+        if ($this->playableClasses->removeElement($playableClass)) {
+            $playableClass->removeArmor($this);
+        }
 
         return $this;
     }

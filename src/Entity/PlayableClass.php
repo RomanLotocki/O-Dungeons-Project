@@ -54,11 +54,17 @@ class PlayableClass
      */
     private $abilities;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Armor::class, inversedBy="playableClasses")
+     */
+    private $armors;
+
     public function __construct()
     {
         $this->subclasses = new ArrayCollection();
         $this->items = new ArrayCollection();
         $this->abilities = new ArrayCollection();
+        $this->armors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +194,30 @@ class PlayableClass
     public function removeAbility(Ability $ability): self
     {
         $this->abilities->removeElement($ability);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Armor>
+     */
+    public function getArmors(): Collection
+    {
+        return $this->armors;
+    }
+
+    public function addArmor(Armor $armor): self
+    {
+        if (!$this->armors->contains($armor)) {
+            $this->armors[] = $armor;
+        }
+
+        return $this;
+    }
+
+    public function removeArmor(Armor $armor): self
+    {
+        $this->armors->removeElement($armor);
 
         return $this;
     }
