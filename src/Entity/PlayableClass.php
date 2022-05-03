@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlayableClassRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class PlayableClass
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageUrl;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Subclass::class, mappedBy="playableClass", orphanRemoval=true)
+     */
+    private $subclasses;
+
+    public function __construct()
+    {
+        $this->subclasses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,36 @@ class PlayableClass
     public function setImageUrl(?string $imageUrl): self
     {
         $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Subclass>
+     */
+    public function getSubclasses(): Collection
+    {
+        return $this->subclasses;
+    }
+
+    public function addSubclass(Subclass $subclass): self
+    {
+        if (!$this->subclasses->contains($subclass)) {
+            $this->subclasses[] = $subclass;
+            $subclass->setPlayableClass($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubclass(Subclass $subclass): self
+    {
+        if ($this->subclasses->removeElement($subclass)) {
+            // set the owning side to null (unless already changed)
+            if ($subclass->getPlayableClass() === $this) {
+                $subclass->setPlayableClass(null);
+            }
+        }
 
         return $this;
     }

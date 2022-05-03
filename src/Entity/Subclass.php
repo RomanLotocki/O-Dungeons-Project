@@ -27,6 +27,12 @@ class Subclass
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=PlayableClass::class, inversedBy="subclasses")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $playableClass;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +58,18 @@ class Subclass
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPlayableClass(): ?PlayableClass
+    {
+        return $this->playableClass;
+    }
+
+    public function setPlayableClass(?PlayableClass $playableClass): self
+    {
+        $this->playableClass = $playableClass;
 
         return $this;
     }
