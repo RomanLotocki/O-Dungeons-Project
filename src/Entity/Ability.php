@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AbilityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +53,16 @@ class Ability
      * @ORM\Column(type="string", length=255)
      */
     private $duration;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=PlayableClass::class, mappedBy="abilities")
+     */
+    private $playableClasses;
+
+    public function __construct()
+    {
+        $this->playableClasses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -137,6 +149,33 @@ class Ability
     public function setDuration(string $duration): self
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlayableClass>
+     */
+    public function getPlayableClasses(): Collection
+    {
+        return $this->playableClasses;
+    }
+
+    public function addPlayableClass(PlayableClass $playableClass): self
+    {
+        if (!$this->playableClasses->contains($playableClass)) {
+            $this->playableClasses[] = $playableClass;
+            $playableClass->addAbility($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayableClass(PlayableClass $playableClass): self
+    {
+        if ($this->playableClasses->removeElement($playableClass)) {
+            $playableClass->removeAbility($this);
+        }
 
         return $this;
     }
