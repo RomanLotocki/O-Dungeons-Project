@@ -35,8 +35,8 @@ class Background
     /**
      * @ORM\Column(type="integer")
      */
-    private $nb_language;
-    
+    private $nbLanguage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,12 +80,12 @@ class Background
 
     public function getNbLanguage(): ?int
     {
-        return $this->nb_language;
+        return $this->nbLanguage;
     }
 
-    public function setNbLanguage(int $nb_language): self
+    public function setNbLanguage(int $nbLanguage): self
     {
-        $this->nb_language = $nb_language;
+        $this->nbLanguage = $nbLanguage;
 
         return $this;
     }
