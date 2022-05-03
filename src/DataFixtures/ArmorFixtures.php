@@ -17,7 +17,7 @@ class ArmorFixtures extends Fixture
             $armor = new Armor;
 
             $armor->setName($faker->word);
-            $armor->setArmorType($faker->numberBetween(1, 6));
+            $armor->setArmorType($faker->word);
             $armor->setArmorClass($faker->word);
             $armor->setStrength($faker->randomDigit);
             $armor->setDiscretion($faker->randomElement(['Désavantage', 'Avantage']));
