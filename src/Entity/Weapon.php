@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\WeaponRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Weapon
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $property;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=PlayableClass::class, mappedBy="weapons")
+     */
+    private $playableClasses;
+
+    public function __construct()
+    {
+        $this->playableClasses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,33 @@ class Weapon
     public function setProperty(?string $property): self
     {
         $this->property = $property;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlayableClass>
+     */
+    public function getPlayableClasses(): Collection
+    {
+        return $this->playableClasses;
+    }
+
+    public function addPlayableClass(PlayableClass $playableClass): self
+    {
+        if (!$this->playableClasses->contains($playableClass)) {
+            $this->playableClasses[] = $playableClass;
+            $playableClass->addWeapon($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayableClass(PlayableClass $playableClass): self
+    {
+        if ($this->playableClasses->removeElement($playableClass)) {
+            $playableClass->removeWeapon($this);
+        }
 
         return $this;
     }
