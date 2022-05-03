@@ -7,7 +7,7 @@ use App\Entity\Avatar;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
-class AvatarFixture extends Fixture
+class AvatarFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
