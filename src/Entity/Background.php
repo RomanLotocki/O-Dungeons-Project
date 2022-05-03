@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BackgroundRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Background
      * @ORM\Column(type="integer", options={"default": 0})
      */
     private $nbLanguage;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Item::class, inversedBy="backgrounds")
+     */
+    private $items;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,30 @@ class Background
     public function setNbLanguage(int $nbLanguage): self
     {
         $this->nbLanguage = $nbLanguage;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item): self
+    {
+        if (!$this->items->contains($item)) {
+            $this->items[] = $item;
+        }
+
+        return $this;
+    }
+
+    public function removeItem(Item $item): self
+    {
+        $this->items->removeElement($item);
 
         return $this;
     }
