@@ -34,9 +34,15 @@ class Item
      */
     private $backgrounds;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=PlayableClass::class, mappedBy="items")
+     */
+    private $playableClasses;
+
     public function __construct()
     {
         $this->backgrounds = new ArrayCollection();
+        $this->playableClasses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -90,6 +96,33 @@ class Item
     {
         if ($this->backgrounds->removeElement($background)) {
             $background->removeItem($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlayableClass>
+     */
+    public function getPlayableClasses(): Collection
+    {
+        return $this->playableClasses;
+    }
+
+    public function addPlayableClass(PlayableClass $playableClass): self
+    {
+        if (!$this->playableClasses->contains($playableClass)) {
+            $this->playableClasses[] = $playableClass;
+            $playableClass->addItem($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayableClass(PlayableClass $playableClass): self
+    {
+        if ($this->playableClasses->removeElement($playableClass)) {
+            $playableClass->removeItem($this);
         }
 
         return $this;

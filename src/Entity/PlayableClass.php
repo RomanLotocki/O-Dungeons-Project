@@ -44,9 +44,15 @@ class PlayableClass
      */
     private $subclasses;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Item::class, inversedBy="playableClasses")
+     */
+    private $items;
+
     public function __construct()
     {
         $this->subclasses = new ArrayCollection();
+        $this->items = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,6 +134,30 @@ class PlayableClass
                 $subclass->setPlayableClass(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item): self
+    {
+        if (!$this->items->contains($item)) {
+            $this->items[] = $item;
+        }
+
+        return $this;
+    }
+
+    public function removeItem(Item $item): self
+    {
+        $this->items->removeElement($item);
 
         return $this;
     }
