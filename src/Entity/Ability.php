@@ -19,42 +19,50 @@ class Ability
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("browse_abilities")
+     * @Groups("read_abilities")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_abilities")
+     * @Groups("read_abilities")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("read_abilities")
      */
     private $quickDescription;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("read_abilities")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("read_abilities")
      */
     private $incantationTime;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("read_abilities")
      */
     private $abilityRange;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("read_abilities")
      */
     private $component;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("read_abilities")
      */
     private $duration;
 
