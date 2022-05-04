@@ -18,7 +18,7 @@ doctrine:
         dql:
             numeric_functions:
                 rand: DoctrineExtensions\Query\Mysql\Rand
-                
+
 when@test:
     doctrine:
         dbal:
