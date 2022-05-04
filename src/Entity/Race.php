@@ -6,6 +6,7 @@ use App\Repository\RaceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=RaceRepository::class)
@@ -16,26 +17,34 @@ class Race
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("browse_race")
+     * @Groups("read_race")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("browse_race")
+     * @Groups("read_race")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("read_race")
      */
     private $fullDescription;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("browse_race")
+     * @Groups("read_race")
      */
     private $quickDescription;
 
     /**
      * @ORM\OneToMany(targetEntity=Subrace::class, mappedBy="race", orphanRemoval=true)
+     * @Groups("read_race")
      */
     private $subraces;
 

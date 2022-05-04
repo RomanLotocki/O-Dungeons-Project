@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SubraceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=SubraceRepository::class)
@@ -14,56 +15,69 @@ class Subrace
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("read_race")
+     * @Groups("browse_subraces")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("read_race")
+     * @Groups("browse_subraces")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("read_race")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("read_race")
      */
     private $imageUrl;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
+     * @Groups("read_race")
      */
     private $strength;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
+     * @Groups("read_race")
      */
     private $dexterity;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
+     * @Groups("read_race")
      */
     private $constitution;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
+     * @Groups("read_race")
      */
     private $wisdom;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
+     * @Groups("read_race")
      */
     private $intelligence;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
+     * @Groups("read_race")
      */
     private $charisma;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("read_race")
      */
     private $trait;
 
