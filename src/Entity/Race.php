@@ -19,6 +19,7 @@ class Race
      * @ORM\Column(type="integer")
      * @Groups("browse_race")
      * @Groups("read_race")
+     * @Groups("read_subraces")
      */
     private $id;
 
@@ -26,6 +27,7 @@ class Race
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_race")
      * @Groups("read_race")
+     * @Groups("read_subraces")
      */
     private $name;
 
