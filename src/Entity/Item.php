@@ -18,18 +18,21 @@ class Item
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("read_class")
+     * @Groups("read_backgrounds")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
+     * @Groups("read_backgrounds")
      */
     private $name;
 
     /**
      * @ORM\Column(type="float")
      * @Groups("read_class")
+     * @Groups("read_backgrounds")
      */
     private $weight;
 

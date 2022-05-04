@@ -54,7 +54,7 @@ class PlayableClassController extends AbstractController
     public function read(PlayableClass $class = null): JsonResponse
     {
         if ($class === null) {
-            return $this->json("La classe demandé n'a pas été trouvée", Response::HTTP_NOT_FOUND);
+            return $this->json("La classe demandée n'a pas été trouvée", Response::HTTP_NOT_FOUND);
         }
 
         return $this->json($class, Response::HTTP_OK, [], ["groups" => "read_class"]);
