@@ -6,6 +6,8 @@ use App\Repository\AbilityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=AbilityRepository::class)
@@ -16,11 +18,13 @@ class Ability
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("browse_abilities")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("browse_abilities")
      */
     private $name;
 

@@ -6,6 +6,7 @@ use App\Repository\PlayableClassRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PlayableClassRepository::class)
@@ -16,36 +17,47 @@ class PlayableClass
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("browse_class")
+     * @Groups("read_class")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("browse_class")
+     * @Groups("read_class")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("browse_class")
+     * @Groups("read_class")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups("read_class")
      */
     private $lifeDice;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("browse_class")
+     * @Groups("read_class")
      */
     private $imageUrl;
 
     /**
      * @ORM\OneToMany(targetEntity=Subclass::class, mappedBy="playableClass", orphanRemoval=true)
+     * @Groups("read_class")
      */
     private $subclasses;
 
     /**
      * @ORM\ManyToMany(targetEntity=Item::class, inversedBy="playableClasses")
+     * @Groups("read_class")
      */
     private $items;
 
@@ -56,11 +68,13 @@ class PlayableClass
 
     /**
      * @ORM\ManyToMany(targetEntity=Armor::class, inversedBy="playableClasses")
+     * @Groups("read_class")
      */
     private $armors;
 
     /**
      * @ORM\ManyToMany(targetEntity=Weapon::class, inversedBy="playableClasses")
+     * @Groups("read_class")
      */
     private $weapons;
 
