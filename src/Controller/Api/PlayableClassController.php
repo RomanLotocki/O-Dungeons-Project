@@ -33,12 +33,12 @@ class PlayableClassController extends AbstractController
     {
         $classes = $classRepo->findAll();
 
-        return $this->json([
+        return $this->json(
             $classes,
             Response::HTTP_OK,
             [],
             ["groups" => "browse_class"]
-        ]);
+        );
     }
 
     /**
