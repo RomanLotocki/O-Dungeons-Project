@@ -47,22 +47,22 @@ class PlayableClassRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return PlayableClass[] Returns an array of PlayableClass objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return PlayableClass Returns PlayableClass object
+    */    
+    public function findRandomOne()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        // For using rand from doctrine extension we need to use DQL
+        $em = $this->getEntityManager();
+        $query =$em->createQuery('SELECT classEntity
+            FROM App\Entity\PlayableClass classEntity
+            ORDER BY RAND()
+            ')
+            ->setMaxResults(1);
+
+        return $query->getResult();
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?PlayableClass
