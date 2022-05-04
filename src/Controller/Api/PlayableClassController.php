@@ -10,6 +10,7 @@ use Nelmio\ApiDocBundle\Annotation\Model;
 use App\Entity\PlayableClass;
 use App\Entity\Ability;
 use App\Repository\PlayableClassRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/api/classes", name="app_api_classes_")
@@ -29,7 +30,7 @@ class PlayableClassController extends AbstractController
      *     )
      * )
      */
-    public function browse(PlayableClassRepository $classRepo): Response
+    public function browse(PlayableClassRepository $classRepo): JsonResponse
     {
         $classes = $classRepo->findAll();
 
@@ -50,7 +51,7 @@ class PlayableClassController extends AbstractController
      *      @Model(type=PlayableClass::class, groups={"read_class"})
      * )
      */
-    public function read(PlayableClass $class = null): Response
+    public function read(PlayableClass $class = null): JsonResponse
     {
         if ($class === null) {
             return $this->json("La classe demandé n'a pas été trouvée", Response::HTTP_NOT_FOUND);
@@ -71,7 +72,7 @@ class PlayableClassController extends AbstractController
      *      )
      * )
      */
-    public function readAbilities(PlayableClass $class = null): Response
+    public function readAbilities(PlayableClass $class = null): JsonResponse
     {
         if ($class === null) {
             return $this->json("La classe demandé n'a pas été trouvée", Response::HTTP_NOT_FOUND);
@@ -80,5 +81,21 @@ class PlayableClassController extends AbstractController
         $abilities = $class->getAbilities();
 
         return $this->json($abilities, Response::HTTP_OK, [], ["groups" => "browse_abilities"]);
+    }
+
+    /**
+     * Récupère une classe au hasard
+     * @Route("/random", name="random_one", methods={"GET"})
+     * @OA\Response(
+     *      response=200,
+     *      description="Retourne une classe au hasard",
+     *      @Model(type=PlayableClass::class, groups={"browse_class"})
+     * )
+     */
+    public function randomOne(PlayableClassRepository $classRepo): JsonResponse
+    {
+        $class = $classRepo->findRandomOne();
+
+        return $this->json($class, Response::HTTP_OK, [], ["groups" => "browse_class"]);
     }
 }
