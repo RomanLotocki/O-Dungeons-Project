@@ -22,7 +22,7 @@ class SubraceFixtures extends Fixture implements DependentFixtureInterface
 
             $subrace->setName($faker->word());
             $subrace->setDescription($faker->sentences(3, true));
-            $subrace->setImageUrl($faker->url());
+            $subrace->setImageUrl("https://picsum.photos/id/".rand(100, 1000)."/200/300");
             $subrace->setStrength($faker->randomDigit());
             $subrace->setDexterity($faker->randomDigit());
             $subrace->setConstitution($faker->randomDigit());

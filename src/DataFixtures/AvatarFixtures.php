@@ -16,7 +16,7 @@ class AvatarFixtures extends Fixture
         for ($i=0; $i < 10; $i++) {
             $avatar = new Avatar();
             $avatar->setName($faker->lastName());
-            $avatar->setImageUrl($faker->url());
+            $avatar->setImageUrl("https://picsum.photos/id/".rand(100, 1000)."/200/300");
 
             $manager->persist($avatar);
         }

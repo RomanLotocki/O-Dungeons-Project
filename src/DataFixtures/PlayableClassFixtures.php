@@ -32,7 +32,7 @@ class PlayableClassFixtures extends Fixture implements DependentFixtureInterface
             $playableClass->setName($faker->word());
             $playableClass->setDescription($faker->sentences(3, true));
             $playableClass->setLifeDice('d'.$faker->randomDigit());
-            $playableClass->setImageUrl($faker->url());
+            $playableClass->setImageUrl("https://picsum.photos/id/".rand(100, 1000)."/200/300");
             
             for ($j=0; $j < rand(2, 6); $j++) {
                 $playableClass->addItem($items[$faker->unique()->numberBetween(0, count($items) - 1)]);
