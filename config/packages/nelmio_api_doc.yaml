@@ -4,6 +4,67 @@ nelmio_api_doc:
             title: O'Dungeons
             description: L'API en français pour la création de personnages de donjons et dragons 
             version: 0.1.0
+        # https://swagger.io/docs/specification/authentication/bearer-authentication/
+        components:
+            securitySchemes:
+                bearerAuth:            # arbitrary name for the security scheme this will be use in annotations @Security(name="bearerAuth")
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            - bearerAuth: []
+        paths: # documentation de la route pour obtenir le token lexkit
+            /api/login_check:
+                post:
+                    summary: Auth method
+                    description: authenticate method
+                    # https://swagger.io/docs/specification/grouping-operations-with-tags/
+                    tags:
+                        - O'Dungeons API Auth
+                    # https://swagger.io/docs/specification/describing-parameters/
+                    requestBody:
+                        description: JSON Object
+                        required: true
+                        content: 
+                            application/json:
+                                schema:
+                                    type: object
+                                    properties:
+                                        username:
+                                            type: string
+                                        password:
+                                            type: string
+                    responses:
+                        '200':
+                            description: JWT Token and user
+                            content:
+                                application/json:
+                                    schema: 
+                                        type: object
+                                        properties:
+                                            token:
+                                                type: string
+                                            user:
+                                                type: object
+                                                properties:
+                                                    id:
+                                                        type: int
+                                                    email:
+                                                        type: string
+                                                    lastName:
+                                                        type: string
+                                                    firstName:
+                                                        type: string
+                                                    avatar:
+                                                        type: object
+                                                        properties:
+                                                            id:
+                                                                type: int
+                                                            name:
+                                                                type: string
+                                                            image_url:
+                                                                type: string
     areas: # to filter documented areas
         path_patterns:
             - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
+    
