@@ -16,6 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/api/users", name="app_api_users_")
@@ -42,7 +43,7 @@ class UserController extends AbstractController
         ValidatorInterface $validator,
         UserPasswordHasherInterface $hasher,
         JWTTokenManagerInterface $JWTManager
-    ): Response
+    ): JsonResponse
     {
         try {
             $user = $serializer->deserialize($request->getContent(), User::class, 'json');
@@ -71,5 +72,23 @@ class UserController extends AbstractController
         $em->flush();
 
         return $this->json(['token' => $JWTManager->create($user), 'user' => $user], Response::HTTP_CREATED, [], ["groups" => "read_user"]);
+    }
+
+    /**
+     * Récupère l'utilisateur avec son id
+     * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
+     * @OA\Response(
+     *      response=200,
+     *      description="Retourne l'utilisateur demandé via l'id",
+     *      @Model(type=User::class, groups={"read_user"})
+     * )
+     */
+    public function read(User $user = null) : JsonResponse
+    {
+        if ($user === null) {
+            return $this->json("L'utilisateur demandé n'a pas été trouvé", Response::HTTP_NOT_FOUND);
+        }
+        
+        return $this->json($user, Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 }
