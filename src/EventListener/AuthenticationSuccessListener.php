@@ -29,11 +29,11 @@ class AuthenticationSuccessListener
             'email' => $user->getUserIdentifier(),
             'lastName' => $user->getLastName(),
             'firstName' => $user->getFirstName(),
-            'avatar' =>[ 
+            'avatar' => $user->getAvatar() !== null ? [
                 'id' => $user->getAvatar()->getId(),
                 'name' => $user->getAvatar()->getName(),
                 'image_url' => $user->getAvatar()->getImageUrl()
-            ]
+            ]: null
         ];
 
         $event->setData($data);
