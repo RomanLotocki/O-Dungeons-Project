@@ -18,18 +18,21 @@ class Avatar
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("browse_avatars")
+     * @Groups("read_user")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_avatars")
+     * @Groups("read_user")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_avatars")
+     * @Groups("read_user")
      */
     private $imageUrl;
 
