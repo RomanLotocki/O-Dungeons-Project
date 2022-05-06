@@ -8,11 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/api/subraces", name="app_api_subraces_")
  * @OA\Tag(name="O'Dungeons Api: Sous-races")
+ * @Security(name=null)
  */
 class SubraceController extends AbstractController
 {

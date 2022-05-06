@@ -10,10 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 
 /**
  * @Route("/api/backgrounds", name="app_api_backgrounds_")
  * @OA\Tag(name="O'Dungeons Api: Historiques")
+ * @Security(name=null)
  */
 class BackgroundController extends AbstractController
 {

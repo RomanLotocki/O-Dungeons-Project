@@ -9,10 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Nelmio\ApiDocBundle\Annotation\Security;
 
 /**
  * @Route("/api/abilities", name="app_api_abilities_")
  * @OA\Tag(name="O'Dungeons Api: Pouvoirs")
+ * @Security(name=null)
  */
 class AbilityController extends AbstractController
 {

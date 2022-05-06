@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 use App\Entity\User;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use App\Form\UserAddType;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -35,6 +36,7 @@ class UserController extends AbstractController
      * @OA\RequestBody(
      *      @Model(type=UserAddType::class)
      * )
+     * @Security(name=null)
      */
     public function add(
         Request $request,
@@ -90,7 +92,7 @@ class UserController extends AbstractController
         }
         
         $this->denyAccessUnlessGranted('PROFIL_VIEW', $user);
-        
+
         return $this->json($user, Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 }

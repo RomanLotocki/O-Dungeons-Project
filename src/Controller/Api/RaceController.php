@@ -7,6 +7,7 @@ use App\Entity\Subrace;
 use OpenApi\Annotations as OA;
 use App\Repository\RaceRepository;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,6 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
  * @Route("/api/races", name="app_api_races_")
  * @OA\Tag(name="O'Dungeons Api: Races")
+ * @Security(name=null)
  */
 class RaceController extends AbstractController
 {

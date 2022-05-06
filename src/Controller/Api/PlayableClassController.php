@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use App\Entity\PlayableClass;
 use App\Entity\Ability;
 use App\Repository\PlayableClassRepository;
@@ -15,6 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * @Route("/api/classes", name="app_api_classes_")
  * @OA\Tag(name="O'Dungeons Api: Classes")
+ * @Security(name=null)
  */
 class PlayableClassController extends AbstractController
 {
