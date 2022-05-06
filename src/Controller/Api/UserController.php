@@ -89,6 +89,8 @@ class UserController extends AbstractController
             return $this->json("L'utilisateur demandé n'a pas été trouvé", Response::HTTP_NOT_FOUND);
         }
         
+        $this->denyAccessUnlessGranted('PROFIL_VIEW', $user);
+        
         return $this->json($user, Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 }
