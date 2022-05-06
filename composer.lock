@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "f28f2e095fbb6b9276b8ec59239abdb1",
+
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
