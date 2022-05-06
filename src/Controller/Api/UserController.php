@@ -159,7 +159,12 @@ class UserController extends AbstractController
      *      @Model(type=User::class, groups={"read_user"})      
      * )
      * @OA\RequestBody(
-     *      @Model(type=UserEditType::class)
+     *      @OA\JsonContent(
+     *          example={
+     *             "oldPassword": "old",
+     *             "newPassword": "new"
+     *         }
+     *      )      
      * )
      */
     public function editPassword(
