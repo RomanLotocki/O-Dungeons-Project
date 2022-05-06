@@ -10,6 +10,7 @@ use App\Entity\User;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use App\Form\UserAddType;
+use App\Form\UserEditType;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -94,5 +95,57 @@ class UserController extends AbstractController
         $this->denyAccessUnlessGranted('PROFIL_VIEW', $user);
 
         return $this->json($user, Response::HTTP_OK, [], ["groups" => "read_user"]);
+    }
+
+    /**
+     * @Route("/{id}", name="edit", methods={"PUT"}, requirements={"id": "\d+"})
+     * 
+     * @OA\Response(
+     *      response=200,
+     *      description="Retourne l'utilisateur modifié",
+     *      @Model(type=User::class, groups={"read_user"})      
+     * )
+     * @OA\RequestBody(
+     *      @Model(type=UserEditType::class)
+     * )
+     */
+    public function edit(
+        Request $request,
+        SerializerInterface $serializer,
+        EntityManagerInterface $em,
+        ValidatorInterface $validator,
+        User $user = null,
+        JWTTokenManagerInterface $JWTManager
+    ): JsonResponse
+    {
+        if ($user === null) {
+            return $this->json("Utilisateur non trouvé", Response::HTTP_NOT_FOUND);
+        }
+
+        try {
+            $userNew = $serializer->deserialize($request->getContent(), User::class, 'json');
+        } catch (Exception $e) {
+            return $this->json(
+                "JSON mal formé",
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        };
+
+        $user->setEmail($userNew->getEmail());
+        $user->setRoles($userNew->getRoles());
+        $user->setLastName($userNew->getLastName());
+        $user->setFirstName($userNew->getFirstName());
+        $user->setAvatar($userNew->getAvatar());
+        $errorList = $validator->validate($user);
+        
+        if (count($errorList)>0) {
+            return $this->json($errorList, Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
+
+        $em->flush();
+
+        return $this->json(['token' => $JWTManager->create($user), 'user' => $user], Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 }

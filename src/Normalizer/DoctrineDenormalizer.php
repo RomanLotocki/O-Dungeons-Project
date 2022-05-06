@@ -23,10 +23,6 @@ class DoctrineDenormalizer implements DenormalizerInterface
      */
     public function supportsDenormalization($data, $type, $format = null)
     {
-        // Exemple pour Movie::genres
-        // "genres" : [1,2]
-        // $data = 1 puis 2 (foreach)
-        // $type = App\Entity\Genre (FQCN)
         return strpos($type, 'App\\Entity\\') === 0 && (is_numeric($data));
     }
 
