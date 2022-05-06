@@ -61,6 +61,16 @@ class RaceRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    public function findFiveLast()
+    {
+        return $this->createQueryBuilder('r')
+            ->orderBy('r.id', 'DESC')
+            ->getQuery()
+            ->setMaxResults(5)
+            ->getResult()
+        ;
+    }   
+
     // /**
     //  * @return Race[] Returns an array of Race objects
     //  */

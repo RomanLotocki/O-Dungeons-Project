@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur O'Dungeons{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2>Les 5 dernières classes</h2>
+        <ul class="list-unstyled">
+            {% for class in classes %}
+                <li>{{class.name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="row">
+        <h2>Les 5 dernières races</h2>
+        <ul class="list-unstyled">
+            {% for races in races %}
+                <li>{{races.name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

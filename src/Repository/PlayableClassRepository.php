@@ -62,7 +62,16 @@ class PlayableClassRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
-    
+
+    public function findFiveLast()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->setMaxResults(5)
+            ->getResult()
+        ;
+    }   
 
     /*
     public function findOneBySomeField($value): ?PlayableClass
