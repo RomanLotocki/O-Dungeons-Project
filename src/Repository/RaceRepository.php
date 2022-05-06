@@ -47,6 +47,20 @@ class RaceRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Race Returns Race object
+    */    
+    public function findRandomOne(){
+        $em = $this->getEntityManager();
+        $query =$em->createQuery('SELECT raceEntity
+            FROM App\Entity\Race raceEntity
+            ORDER BY RAND()
+            ')
+            ->setMaxResults(1);
+
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Race[] Returns an array of Race objects
     //  */

@@ -7,13 +7,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use App\Entity\PlayableClass;
 use App\Entity\Ability;
 use App\Repository\PlayableClassRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/api/classes", name="app_api_classes_")
  * @OA\Tag(name="O'Dungeons Api: Classes")
+ * @Security(name=null)
  */
 class PlayableClassController extends AbstractController
 {
@@ -29,16 +32,16 @@ class PlayableClassController extends AbstractController
      *     )
      * )
      */
-    public function browse(PlayableClassRepository $classRepo): Response
+    public function browse(PlayableClassRepository $classRepo): JsonResponse
     {
         $classes = $classRepo->findAll();
 
-        return $this->json([
+        return $this->json(
             $classes,
             Response::HTTP_OK,
             [],
             ["groups" => "browse_class"]
-        ]);
+        );
     }
 
     /**
@@ -50,10 +53,10 @@ class PlayableClassController extends AbstractController
      *      @Model(type=PlayableClass::class, groups={"read_class"})
      * )
      */
-    public function read(PlayableClass $class = null): Response
+    public function read(PlayableClass $class = null): JsonResponse
     {
         if ($class === null) {
-            return $this->json("La classe demandé n'a pas été trouvée", Response::HTTP_NOT_FOUND);
+            return $this->json("La classe demandée n'a pas été trouvée", Response::HTTP_NOT_FOUND);
         }
 
         return $this->json($class, Response::HTTP_OK, [], ["groups" => "read_class"]);
@@ -71,7 +74,7 @@ class PlayableClassController extends AbstractController
      *      )
      * )
      */
-    public function readAbilities(PlayableClass $class = null): Response
+    public function readAbilities(PlayableClass $class = null): JsonResponse
     {
         if ($class === null) {
             return $this->json("La classe demandé n'a pas été trouvée", Response::HTTP_NOT_FOUND);
@@ -80,5 +83,21 @@ class PlayableClassController extends AbstractController
         $abilities = $class->getAbilities();
 
         return $this->json($abilities, Response::HTTP_OK, [], ["groups" => "browse_abilities"]);
+    }
+
+    /**
+     * Récupère une classe au hasard
+     * @Route("/random", name="random_one", methods={"GET"})
+     * @OA\Response(
+     *      response=200,
+     *      description="Retourne une classe au hasard",
+     *      @Model(type=PlayableClass::class, groups={"browse_class"})
+     * )
+     */
+    public function randomOne(PlayableClassRepository $classRepo): JsonResponse
+    {
+        $class = $classRepo->findRandomOne();
+
+        return $this->json($class, Response::HTTP_OK, [], ["groups" => "browse_class"]);
     }
 }
