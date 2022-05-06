@@ -19,6 +19,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator;
 
 /**
  * @Route("/api/users", name="app_api_users_")
@@ -140,6 +141,68 @@ class UserController extends AbstractController
         
         if (count($errorList)>0) {
             return $this->json($errorList, Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
+
+        $em->flush();
+
+        return $this->json(['token' => $JWTManager->create($user), 'user' => $user], Response::HTTP_OK, [], ["groups" => "read_user"]);
+    }
+
+    /**
+     * @Route("/{id}/password", name="editPassword", methods={"PATCH"}, requirements={"id": "\d+"})
+     * 
+     * @OA\Response(
+     *      response=200,
+     *      description="Retourne l'utilisateur modifié",
+     *      @Model(type=User::class, groups={"read_user"})      
+     * )
+     * @OA\RequestBody(
+     *      @Model(type=UserEditType::class)
+     * )
+     */
+    public function editPassword(
+        Request $request,
+        EntityManagerInterface $em,
+        ValidatorInterface $validator,
+        User $user = null,
+        JWTTokenManagerInterface $JWTManager,
+        UserPasswordHasherInterface $hasher
+    ): JsonResponse
+    {
+        if ($user === null) {
+            return $this->json("Utilisateur non trouvé", Response::HTTP_NOT_FOUND);
+        }
+
+        try {
+            $passwords = json_decode($request->getContent());
+        } catch (Exception $e) {
+            return $this->json(
+                "JSON mal formé",
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        };
+        
+        if($hasher->isPasswordValid($user, $passwords->oldPassword)){
+
+            $user->setPassword($passwords->newPassword);
+
+            $errorList = $validator->validate($user);
+                    
+            if (count($errorList)>0) {
+                return $this->json($errorList, Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+
+            $hashedPassword = $hasher->hashPassword(
+                $user,
+                $passwords->newPassword
+            );
+    
+            $user->setPassword($hashedPassword);
+        }
+        else {
+            return $this->json("Invalid credentials.", Response::HTTP_UNAUTHORIZED);
         }
 
         $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
