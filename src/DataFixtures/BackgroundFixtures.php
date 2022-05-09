@@ -26,7 +26,7 @@ class BackgroundFixtures extends Fixture implements DependentFixtureInterface
             $background->setDescription($faker->paragraph());
             
             for ($j=1; $j < rand(2, 6); $j++) {
-                $background->addItem($items[$faker->unique()->numberBetween(0, count($items) - 1)]);
+                $background->addItem($items[$faker->numberBetween(0, count($items) - 1)]);
             }
 
             $manager->persist($background);
