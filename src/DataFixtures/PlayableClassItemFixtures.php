@@ -344,13 +344,6 @@ class PlayableClassItemFixtures extends Fixture implements DependentFixtureInter
         $relation = new PlayableClassItem;
         $relation->setQuantity(1);
         $relation->setPlayableClass($playableClassRepo->findOneBy(["name" => "Roublard"]));
-        $relation->setItem($itemRepo->findOneBy(["name" => "Piton"]));
-
-        $manager->persist($relation);
-
-        $relation = new PlayableClassItem;
-        $relation->setQuantity(1);
-        $relation->setPlayableClass($playableClassRepo->findOneBy(["name" => "Roublard"]));
         $relation->setItem($itemRepo->findOneBy(["name" => "Marteau"]));
 
         $manager->persist($relation);
