@@ -376,6 +376,158 @@ class ItemFixtures extends Fixture
         $item73->setWeight(0);
         $manager->persist($item73);
 
+        $item74 = new Item;
+        $item74->setName('Pelle');
+        $item74->setWeight(2.5);
+        $manager->persist($item74);
+
+        $item75 = new Item;
+        $item75->setName('Perche (3 m)');
+        $item75->setWeight(3.5);
+        $manager->persist($item75);
+
+        $item76 = new Item;
+        $item76->setName('Pied-de-biche');
+        $item76->setWeight(2.5);
+        $manager->persist($item76);
+
+        $item77 = new Item;
+        $item77->setName('Pierre à aiguiser');
+        $item77->setWeight(0.5);
+        $manager->persist($item77);
+
+        $item78 = new Item;
+        $item78->setName('Pioche de mineur');
+        $item78->setWeight(5);
+        $manager->persist($item78);
+
+        $item79 = new Item;
+        $item79->setName('Piton');
+        $item79->setWeight(0.125);
+        $manager->persist($item79);
+
+        $item80 = new Item;
+        $item80->setName('Pointes en fer (10)');
+        $item80->setWeight(2.5);
+        $manager->persist($item80);
+
+        $item81 = new Item;
+        $item81->setName('Porte-plume');
+        $item81->setWeight(0);
+        $manager->persist($item81);
+
+        $item82 = new Item;
+        $item82->setName('Potion de guérison');
+        $item82->setWeight(0.25);
+        $manager->persist($item82);
+
+        $item83 = new Item;
+        $item83->setName('Rations (1 jour)');
+        $item83->setWeight(1);
+        $manager->persist($item83);
+
+        $item84 = new Item;
+        $item84->setName('Sablier');
+        $item84->setWeight(0.5);
+        $manager->persist($item84);
+
+        $item85 = new Item;
+        $item85->setName('Sac');
+        $item85->setWeight(0.25);
+        $manager->persist($item85);
+
+        $item86 = new Item;
+        $item86->setName('Sac à dos');
+        $item86->setWeight(2.5);
+        $manager->persist($item86);
+
+        $item87 = new Item;
+        $item87->setName('Sac de couchage');
+        $item87->setWeight(3.5);
+        $manager->persist($item87);
+
+        $item88 = new Item;
+        $item88->setName('Sacoche');
+        $item88->setWeight(0.5);
+        $manager->persist($item88);
+
+        $item89 = new Item;
+        $item89->setName('Sacoche à composants');
+        $item89->setWeight(1);
+        $manager->persist($item89);
+
+        $item90 = new Item;
+        $item90->setName('Savon');
+        $item90->setWeight(0);
+        $manager->persist($item90);
+
+        $item91 = new Item;
+        $item91->setName('Seau');
+        $item91->setWeight(1);
+        $manager->persist($item91);
+
+        $item92 = new Item;
+        $item92->setName('Selle d\'équitation');
+        $item92->setWeight(12.5);
+        $manager->persist($item92);
+
+        $item93 = new Item;
+        $item93->setName('Sifflet');
+        $item93->setWeight(0);
+        $manager->persist($item93);
+
+        $item94 = new Item;
+        $item94->setName('Amulette (Symbole sacré)');
+        $item94->setWeight(0.5);
+        $manager->persist($item94);
+
+        $item95 = new Item;
+        $item95->setName('Emblème (Symbole sacré)');
+        $item95->setWeight(0);
+        $manager->persist($item95);
+
+        $item96 = new Item;
+        $item96->setName('Reliquaire (Symbole sacré)');
+        $item96->setWeight(1);
+        $manager->persist($item96);
+
+        $item97 = new Item;
+        $item97->setName('Tente, 2 places');
+        $item97->setWeight(10);
+        $manager->persist($item97);
+
+        $item98 = new Item;
+        $item98->setName('Tenue de voyage');
+        $item98->setWeight(2);
+        $manager->persist($item98);
+
+        $item99 = new Item;
+        $item99->setName('Tonneau');
+        $item99->setWeight(35);
+        $manager->persist($item99);
+
+        $item100 = new Item;
+        $item100->setName('Torche');
+        $item100->setWeight(0.5);
+        $manager->persist($item100);
+
+        $item101 = new Item;
+        $item101->setName('Trousse de soins');
+        $item101->setWeight(1.5);
+        $manager->persist($item101);
+
+        $item102 = new Item;
+        $item102->setName('Vêtements de qualité');
+        $item102->setWeight(3);
+        $manager->persist($item102);
+
+        $item103 = new Item;
+        $item103->setName('Vêtements ordinaires');
+        $item103->setWeight(1.5);
+        $manager->persist($item103);
+
+
+
 
         $manager->flush();
     }

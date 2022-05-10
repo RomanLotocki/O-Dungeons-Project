@@ -42,14 +42,14 @@ class Item
     private $backgrounds;
 
     /**
-     * @ORM\ManyToMany(targetEntity=PlayableClass::class, mappedBy="items")
+     * @ORM\OneToMany(targetEntity=PlayableClassItem::class, mappedBy="item", orphanRemoval=true)
      */
-    private $playableClasses;
+    private $playableClassItems;
 
     public function __construct()
     {
         $this->backgrounds = new ArrayCollection();
-        $this->playableClasses = new ArrayCollection();
+        $this->playableClassItems = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -109,27 +109,30 @@ class Item
     }
 
     /**
-     * @return Collection<int, PlayableClass>
+     * @return Collection<int, PlayableClassItem>
      */
-    public function getPlayableClasses(): Collection
+    public function getPlayableClassItems(): Collection
     {
-        return $this->playableClasses;
+        return $this->playableClassItems;
     }
 
-    public function addPlayableClass(PlayableClass $playableClass): self
+    public function addPlayableClassItem(PlayableClassItem $playableClassItem): self
     {
-        if (!$this->playableClasses->contains($playableClass)) {
-            $this->playableClasses[] = $playableClass;
-            $playableClass->addItem($this);
+        if (!$this->playableClassItems->contains($playableClassItem)) {
+            $this->playableClassItems[] = $playableClassItem;
+            $playableClassItem->setItem($this);
         }
 
         return $this;
     }
 
-    public function removePlayableClass(PlayableClass $playableClass): self
+    public function removePlayableClassItem(PlayableClassItem $playableClassItem): self
     {
-        if ($this->playableClasses->removeElement($playableClass)) {
-            $playableClass->removeItem($this);
+        if ($this->playableClassItems->removeElement($playableClassItem)) {
+            // set the owning side to null (unless already changed)
+            if ($playableClassItem->getItem() === $this) {
+                $playableClassItem->setItem(null);
+            }
         }
 
         return $this;

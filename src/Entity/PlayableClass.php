@@ -56,12 +56,6 @@ class PlayableClass
     private $subclasses;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Item::class, inversedBy="playableClasses")
-     * @Groups("read_class")
-     */
-    private $items;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Ability::class, inversedBy="playableClasses")
      */
     private $abilities;
@@ -78,13 +72,18 @@ class PlayableClass
      */
     private $weapons;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PlayableClassItem::class, mappedBy="playableClass", orphanRemoval=true)
+     */
+    private $playableClassItems;
+
     public function __construct()
     {
         $this->subclasses = new ArrayCollection();
-        $this->items = new ArrayCollection();
         $this->abilities = new ArrayCollection();
         $this->armors = new ArrayCollection();
         $this->weapons = new ArrayCollection();
+        $this->playableClassItems = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -171,30 +170,6 @@ class PlayableClass
     }
 
     /**
-     * @return Collection<int, Item>
-     */
-    public function getItems(): Collection
-    {
-        return $this->items;
-    }
-
-    public function addItem(Item $item): self
-    {
-        if (!$this->items->contains($item)) {
-            $this->items[] = $item;
-        }
-
-        return $this;
-    }
-
-    public function removeItem(Item $item): self
-    {
-        $this->items->removeElement($item);
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Ability>
      */
     public function getAbilities(): Collection
@@ -262,6 +237,36 @@ class PlayableClass
     public function removeWeapon(Weapon $weapon): self
     {
         $this->weapons->removeElement($weapon);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlayableClassItem>
+     */
+    public function getPlayableClassItems(): Collection
+    {
+        return $this->playableClassItems;
+    }
+
+    public function addPlayableClassItem(PlayableClassItem $playableClassItem): self
+    {
+        if (!$this->playableClassItems->contains($playableClassItem)) {
+            $this->playableClassItems[] = $playableClassItem;
+            $playableClassItem->setPlayableClass($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayableClassItem(PlayableClassItem $playableClassItem): self
+    {
+        if ($this->playableClassItems->removeElement($playableClassItem)) {
+            // set the owning side to null (unless already changed)
+            if ($playableClassItem->getPlayableClass() === $this) {
+                $playableClassItem->setPlayableClass(null);
+            }
+        }
 
         return $this;
     }

@@ -61,7 +61,7 @@ Ténacité naine. Votre maximum de points de vie augmente de 1, et augmente enco
         $mountainDwarf->setIntelligence(0);
         $mountainDwarf->setCharisma(0);
         $mountainDwarf->setTrait("Augmentation de caractéristique. Votre valeur de Constitution augmente de 2. Votre valeur de Force augmente de 2.
-      
+
 Âge. Les nains se développent au même rythme que les humains, mais ils sont considérés comme jeunes jusqu'à l'âge de 50 ans. Ils vivent en moyenne 350 ans.
 
 Taille. Les nains mesurent entre 1,20 m et 1,50 m, pour un poids moyen d'environ 70 kg. Vous êtes de taille M.
