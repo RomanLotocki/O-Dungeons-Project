@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PlayableClassItemsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PlayableClassItemsRepository::class)
@@ -19,6 +20,7 @@ class PlayableClassItem
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("read_class")
      */
     private $quantity;
 
@@ -31,6 +33,7 @@ class PlayableClassItem
     /**
      * @ORM\ManyToOne(targetEntity=Item::class, inversedBy="playableClassItems")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("read_class")
      */
     private $item;
 

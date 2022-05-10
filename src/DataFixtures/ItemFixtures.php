@@ -452,7 +452,7 @@ class ItemFixtures extends Fixture
         $manager->persist($item88);
 
         $item89 = new Item;
-        $item89->setName('Sacoche à composants');
+        $item89->setName('Sacoche à composantes');
         $item89->setWeight(1);
         $manager->persist($item89);
 

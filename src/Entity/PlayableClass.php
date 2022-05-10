@@ -74,6 +74,7 @@ class PlayableClass
 
     /**
      * @ORM\OneToMany(targetEntity=PlayableClassItem::class, mappedBy="playableClass", orphanRemoval=true)
+     * @Groups("read_class")
      */
     private $playableClassItems;
 

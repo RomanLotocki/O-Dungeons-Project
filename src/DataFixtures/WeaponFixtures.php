@@ -150,7 +150,7 @@ class WeaponFixtures extends Fixture
         $manager->persist($cimeterre);
 
         $epeeDeuxMains = new Weapon;
-        $epeeDeuxMains->setName("Épee à deux mains");
+        $epeeDeuxMains->setName("Épée à deux mains");
         $epeeDeuxMains->setType("Armes de guerre de corps à corps");
         $epeeDeuxMains->setDamageDice("2d6");
         $epeeDeuxMains->setDamageType("tranchants");
@@ -160,7 +160,7 @@ class WeaponFixtures extends Fixture
         $manager->persist($epeeDeuxMains);
 
         $epeeCourte = new Weapon;
-        $epeeCourte->setName("Épee courte");
+        $epeeCourte->setName("Épée courte");
         $epeeCourte->setType("Armes de guerre de corps à corps");
         $epeeCourte->setDamageDice("1d6");
         $epeeCourte->setDamageType("perforants");
@@ -170,7 +170,7 @@ class WeaponFixtures extends Fixture
         $manager->persist($epeeCourte);
 
         $epeeLongue = new Weapon;
-        $epeeLongue->setName("Épee longue");
+        $epeeLongue->setName("Épée longue");
         $epeeLongue->setType("Armes de guerre de corps à corps");
         $epeeLongue->setDamageDice("1d8");
         $epeeLongue->setDamageType("tranchants");

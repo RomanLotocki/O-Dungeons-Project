@@ -64,18 +64,18 @@ Vous touchez une créature consentante qui ne porte pas d'armure et une force ma
         
         $manager->persist($armureMage);
     
-        $aspirationAcide = new Ability;
-        $aspirationAcide->setName("Aspiration acide");
-        $aspirationAcide->setQuickDescription("Sort mineur d'invocation");
-        $aspirationAcide->setDescription("Sort mineur d'invocation
+        $aspersionAcide = new Ability;
+        $aspersionAcide->setName("Aspersion acide");
+        $aspersionAcide->setQuickDescription("Sort mineur d'invocation");
+        $aspersionAcide->setDescription("Sort mineur d'invocation
 Vous projetez une bulle d'acide. Choisissez une ou deux créatures que vous voyez à portée. Si vous en choisissez deux, elles doivent être dans un rayon de 1,50 m l'une de l'autre. Chaque cible doit réussir un jet de sauvegarde de Dextérité sous peine de subir 1d6 dégâts d'acide.
 Les dégâts du sort augmentent de 1d6 lorsque vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).");
-        $aspirationAcide->setIncantationTime("1 action");
-        $aspirationAcide->setAbilityRange("18m");
-        $aspirationAcide->setComponent("V, S");
-        $aspirationAcide->setDuration("instantanée");
+        $aspersionAcide->setIncantationTime("1 action");
+        $aspersionAcide->setAbilityRange("18m");
+        $aspersionAcide->setComponent("V, S");
+        $aspersionAcide->setDuration("instantanée");
         
-        $manager->persist($aspirationAcide);
+        $manager->persist($aspersionAcide);
     
         $assistance = new Ability;
         $assistance->setName("Assistance");
@@ -158,7 +158,7 @@ Une barrière invisible de force magique se forme pour vous protéger. Jusqu'au 
         $manager->persist($bouclier);
     
         $bouclierDeLaFoi = new Ability;
-        $bouclierDeLaFoi->setName("Bouclier De La Foi");
+        $bouclierDeLaFoi->setName("Bouclier de la foi");
         $bouclierDeLaFoi->setQuickDescription("Abjuration du 1er niveau");
         $bouclierDeLaFoi->setDescription("Abjuration du 1er niveau
 Un champ scintillant apparaît autour d'une créature de votre choix à portée et lui confère un bonus de +2 à la CA pour toute la durée.");
@@ -235,6 +235,21 @@ Ce sort ne décrypte pas les messages secrets ni les glyphes, tels que les symbo
         
         $manager->persist($comprehensionLangues);
 
+        $deblocage = new Ability;
+        $deblocage->setName("Déblocage");
+        $deblocage->setQuickDescription("Transmutation du 2ème niveau");
+        $deblocage->setDescription("Transmutation du 2ème niveau
+Choisissez un objet que vous voyez à portée. Il peut s'agir d'une porte, d'une boîte, d'un coffre, de menottes, d'un cadenas ou autre objet muni d'un système de fermeture, magique ou non.
+Une cible verrouillée par une serrure ordinaire, barrée ou coincée est aussitôt déverrouillée, débloquée ou décoincée. Si l'objet présente plusieurs verrous, un seul d'entre eux est débloqué.
+Si la cible est fermée par verrou magique, celui-ci est réprimé pendant 10 minutes, durant lesquelles vous pouvez ouvrir et fermer normalement l'objet.
+L'incantation du sort produit sur l'objet cible un cognement sonore, audible jusqu'à 90 m.");
+        $deblocage->setIncantationTime("1 action");
+        $deblocage->setAbilityRange("18m");
+        $deblocage->setComponent("V");
+        $deblocage->setDuration("instantanée");
+        
+        $manager->persist($deblocage);
+
         $deguisement = new Ability;
         $deguisement->setName("Déguisement");
         $deguisement->setQuickDescription("Illusion du 1er niveau");
@@ -302,7 +317,7 @@ La foudre embrase les objets inflammables de la zone qui ne sont portés par per
         $manager->persist($eclair);
 
         $espritGardiens = new Ability;
-        $espritGardiens->setName("Esprits gardien");
+        $espritGardiens->setName("Esprits gardiens");
         $espritGardiens->setQuickDescription("Invocation du 3ème niveau");
         $espritGardiens->setDescription("Invocation du 3ème niveau
 Vous invoquez la protection d'esprits qui viennent voleter dans un rayon de 4,50 m de vous pour toute la durée. Si vous êtes bon ou neutre, ces formes spectrales paraissent angéliques ou féeriques (à votre convenance). Si vous êtes mauvais, elles paraissent démoniaques ou diaboliques.
@@ -448,7 +463,7 @@ Une créature qui consacre son action à examiner le son ou l'image peut compren
         $manager->persist($illusionMineur);
 
         $imageMajeure = new Ability;
-        $imageMajeure->setName("Image majeur");
+        $imageMajeure->setName("Image majeure");
         $imageMajeure->setQuickDescription("Illusion du 3ème niveau");
         $imageMajeure->setDescription("Illusion du 3ème niveau
 Vous créez l'image d'un objet, d'une créature ou autre phénomène visible dont la taille ne dépasse pas celle d'un cube de 6 m d'arête. L'image apparaît en un endroit que vous voyez à portée et persiste pour toute la durée. Elle semble parfaitement réelle, avec les sons, les odeurs et la température attendus. Vous ne pouvez pas créer de températures capables d'infliger des dégâts ou de bruits si forts qu'ils infligent des dégâts de tonnerre ou peuvent assourdir, pas plus qu'une odeur à donner la nausée (comme la puanteur des troglodytes).
@@ -654,8 +669,8 @@ Une créature de votre choix que vous voyez à portée récupère autant de poin
 
         $motGuerisonGroupe = new Ability;
         $motGuerisonGroupe->setName("Mot de guérison de groupe");
-        $motGuerisonGroupe->setQuickDescription("Évocation du 1er niveau");
-        $motGuerisonGroupe->setDescription("Évocation du 1er niveau
+        $motGuerisonGroupe->setQuickDescription("Évocation du 3ème niveau");
+        $motGuerisonGroupe->setDescription("Évocation du 3ème niveau
 Alors que vous proférez des paroles de regain, jusqu'à six créatures de votre choix que vous voyez à portée récupèrent autant de points de vie que 1d4 + votre modificateur de caractéristique d'incantation. Ce sort est sans effet sur les morts-vivants et les créatures artificielles.
 À plus haut niveau. Lorsque vous lancez ce sort par un emplacement du 4° niveau ou supérieur, il soigne 1d4 par niveau d'emplacement au-delà du 3°.");
         $motGuerisonGroupe->setIncantationTime("1 action bonus");
