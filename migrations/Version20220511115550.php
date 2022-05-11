@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220510141509 extends AbstractMigration
+final class Version20220511115550 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -26,7 +26,7 @@ final class Version20220510141509 extends AbstractMigration
         $this->addSql('CREATE TABLE background (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, capacities VARCHAR(50) NOT NULL, description LONGTEXT NOT NULL, nb_language INT DEFAULT 0 NOT NULL, nb_golds INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE background_item (background_id INT NOT NULL, item_id INT NOT NULL, INDEX IDX_E689382FC93D69EA (background_id), INDEX IDX_E689382F126F525E (item_id), PRIMARY KEY(background_id, item_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE item (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, weight DOUBLE PRECISION NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE playable_class (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, life_dice VARCHAR(50) NOT NULL, image_url VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE playable_class (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, life_dice VARCHAR(50) NOT NULL, image_url VARCHAR(255) DEFAULT NULL, quick_description LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE playable_class_ability (playable_class_id INT NOT NULL, ability_id INT NOT NULL, INDEX IDX_35087487D401D3D6 (playable_class_id), INDEX IDX_350874878016D8B2 (ability_id), PRIMARY KEY(playable_class_id, ability_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE playable_class_armor (playable_class_id INT NOT NULL, armor_id INT NOT NULL, INDEX IDX_F2344A87D401D3D6 (playable_class_id), INDEX IDX_F2344A87F5AA3663 (armor_id), PRIMARY KEY(playable_class_id, armor_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE playable_class_weapon (playable_class_id INT NOT NULL, weapon_id INT NOT NULL, INDEX IDX_AEA91CE6D401D3D6 (playable_class_id), INDEX IDX_AEA91CE695B82273 (weapon_id), PRIMARY KEY(playable_class_id, weapon_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

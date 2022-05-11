@@ -31,7 +31,6 @@ class PlayableClass
 
     /**
      * @ORM\Column(type="text")
-     * @Groups("browse_class")
      * @Groups("read_class")
      */
     private $description;
@@ -77,6 +76,12 @@ class PlayableClass
      * @Groups("read_class")
      */
     private $playableClassItems;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Groups("browse_class")
+     */
+    private $quickDescription;
 
     public function __construct()
     {
@@ -268,6 +273,18 @@ class PlayableClass
                 $playableClassItem->setPlayableClass(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getQuickDescription(): ?string
+    {
+        return $this->quickDescription;
+    }
+
+    public function setQuickDescription(string $quickDescription): self
+    {
+        $this->quickDescription = $quickDescription;
 
         return $this;
     }
