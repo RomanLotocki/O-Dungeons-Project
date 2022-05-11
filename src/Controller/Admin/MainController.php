@@ -24,6 +24,7 @@ class MainController extends AbstractController
         return $this->render('admin/main/index.html.twig', [
             'classes' => $classes,
             'races' => $races,
+            'controller' => 'MainController'
         ]);
     }
 }

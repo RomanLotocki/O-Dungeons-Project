@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RaceRepository::class)
@@ -28,12 +29,15 @@ class Race
      * @Groups("browse_race")
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
+     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{value}}), maximum 255")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
      * @Groups("read_race")
+     * @Assert\NotBlank
      */
     private $fullDescription;
 
@@ -41,6 +45,7 @@ class Race
      * @ORM\Column(type="text")
      * @Groups("browse_race")
      * @Groups("read_race")
+     * @Assert\NotBlank
      */
     private $quickDescription;
 

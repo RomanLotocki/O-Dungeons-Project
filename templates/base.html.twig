@@ -26,7 +26,7 @@
                     <div class="collapse navbar-collapse  justify-content-center" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Home</a>
+                                <a class="nav-link {{ controller is same as "MainController" ? "active" : "" }}" href="{{ path('app_admin_home') }}">Home</a>
                             </li>
                             {% if is_granted('ROLE_SUPERADMIN') %}
                                 <li class="nav-item">
@@ -37,7 +37,7 @@
                                 <a class="nav-link" href="#">Classes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Races</a>
+                                <a class="nav-link {{ controller is same as "RaceController" ? "active" : "" }}" href="{{ path('app_admin_races_browser') }}">Races</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Sous-Races</a>

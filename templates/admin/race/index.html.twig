@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des races{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <h2>Liste des races</h2>
+
+    <a class="btn btn-success" href="">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description rapide</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for race in races %}
+            <tr>
+                <td>{{ race.id }}</td>
+                <td>{{ race.name }}</td>
+                <td>{{ race.quickDescription }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_races_read', {"id": race.id}) }}">Détails</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_races_edit', {"id": race.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de race trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+</div>
+{% endblock %}
