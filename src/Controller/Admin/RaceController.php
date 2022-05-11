@@ -6,6 +6,7 @@ use App\Entity\Race;
 use App\Form\RaceType;
 use App\Repository\RaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,7 +72,7 @@ class RaceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/ajouter", name="add", methods={"GET", "POST"}, requirements={"id": "\d+"})
+     * @Route("/ajouter", name="add", methods={"GET", "POST"})
      *
      * @return Response
      */
@@ -98,5 +99,18 @@ class RaceController extends AbstractController
             'controller' => "RaceController",
             'title' => 'Ajouter'
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="delete", methods={"POST"}, requirements={"id": "\d+"})
+     */
+    public function delete(Request $request, Race $race, EntityManagerInterface $em): Response
+    {
+        if($this->isCsrfTokenValid('delete'.$race->getId(), $request->request->get('_token'))){
+            $em->remove($race);
+            $em->flush();
+        }
+        
+        return $this->redirectToRoute('app_admin_races_browser');
     }
 }

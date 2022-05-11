@@ -30,7 +30,7 @@ class Race
      * @Groups("read_race")
      * @Groups("read_subraces")
      * @Assert\NotBlank
-     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{value}}), maximum 255")
+     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{ value }}), maximum 255")
      */
     private $name;
 
@@ -59,6 +59,8 @@ class Race
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_race")
      * @Groups("read_race")
+     * @Assert\NotBlank
+     * @Assert\Url
      */
     private $imageUrl;
 
