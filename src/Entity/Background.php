@@ -53,6 +53,12 @@ class Background
      */
     private $items;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @Groups("read_backgrounds")
+     */
+    private $nbGolds;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -131,6 +137,18 @@ class Background
     public function removeItem(Item $item): self
     {
         $this->items->removeElement($item);
+
+        return $this;
+    }
+
+    public function getNbGolds(): ?int
+    {
+        return $this->nbGolds;
+    }
+
+    public function setNbGolds(int $nbGolds): self
+    {
+        $this->nbGolds = $nbGolds;
 
         return $this;
     }

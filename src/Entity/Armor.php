@@ -65,6 +65,7 @@ class Armor
     public function __construct()
     {
         $this->playableClasses = new ArrayCollection();
+        $this->strength = 0;
     }
 
     public function getId(): ?int
