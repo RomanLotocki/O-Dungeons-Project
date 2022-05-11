@@ -22,6 +22,7 @@ class PlayableClassFixtures extends Fixture implements DependentFixtureInterface
         // ? Barde
         $barde = new PlayableClass;
         $barde->setName("Barde");
+        $barde->setQuickDescription("Qu'il soit poète, érudit ou simple canaille, le barde tisse la magie par la parole et la musique pour galvaniser ses alliés, démobiliser l'adversaire, manipuler l'esprit et soigner les plaies. Les bardes sont les maîtres des chansons, des discours et de la magie qui les imprègne. Ils racontent que le multivers fut façonné par le verbe divin et que l'écho de ces paroles originelles de la création résonne encore à travers le cosmos. La musique des bardes s'efforce de capturer cette réverbération pour ourdir sorts et divers pouvoirs.");
         $barde->setDescription("Qu'il soit poète, érudit ou simple canaille, le barde tisse la magie par la parole et la musique pour galvaniser ses alliés, démobiliser l'adversaire, manipuler l'esprit et soigner les plaies. Les bardes sont les maîtres des chansons, des discours et de la magie qui les imprègne. Ils racontent que le multivers fut façonné par le verbe divin et que l'écho de ces paroles originelles de la création résonne encore à travers le cosmos. La musique des bardes s'efforce de capturer cette réverbération pour ourdir sorts et divers pouvoirs.
 
 L'INSPIRATION DE L'AVENTURE
@@ -73,6 +74,7 @@ Les bardes aiment voyager aux côtés de héros pour être les témoins directs 
         // ? Clerc
         $clerc = new PlayableClass;
         $clerc->setName("Clerc");
+        $clerc->setQuickDescription("Les clercs servent d'intermédiaires entre le monde des mortels et les lointains plans des dieux. Aussi variés que les divinités qu'ils servent, les clercs s'efforcent d'incarner leur œuvre et sont porteurs de magie.");
         $clerc->setDescription("Les clercs servent d'intermédiaires entre le monde des mortels et les lointains plans des dieux. Aussi variés que les divinités qu'ils servent, les clercs s'efforcent d'incarner leur œuvre et sont porteurs de magie.
         
 GUÉRISSEURS ET COMBATTANTS
@@ -128,6 +130,8 @@ Lorsqu'un clerc s'engage sur la voie de l'aventure, c'est généralement pour sa
         // ? Guerrier
         $guerrier = new PlayableClass;
         $guerrier->setName("Guerrier");
+        $guerrier->setQuickDescription("Les chevaliers et leurs longues quêtes, les champions redoutables, les soldats d'élite et les mercenaires roués ; tous ces guerriers partagent une expertise des armes et des armures hors pair.
+Et la mort les connaît, cette mort qu'ils toisent avec défiance chaque fois qu'ils défendent leurs amis et terrassent leurs adversaires.");
         $guerrier->setDescription("Les chevaliers et leurs longues quêtes, les champions redoutables, les soldats d'élite et les mercenaires roués ; tous ces guerriers partagent une expertise des armes et des armures hors pair.
 Et la mort les connaît, cette mort qu'ils toisent avec défiance chaque fois qu'ils défendent leurs amis et terrassent leurs adversaires.
 
@@ -146,6 +150,7 @@ Tout guerrier qui se respecte peut manier efficacement n'importe quelle arme. De
         // ? Magicien
         $magicien = new PlayableClass;
         $magicien->setName("Magicien");
+        $magicien->setQuickDescription("Puisant dans la toile imperceptible de magie qui imprègne le cosmos, le magicien jette des sorts de flammes explosives, d'arcs de foudre, de subtiles tromperies et de contrôle mental implacable.");
         $magicien->setDescription("Puisant dans la toile imperceptible de magie qui imprègne le cosmos, le magicien jette des sorts de flammes explosives, d'arcs de foudre, de subtiles tromperies et de contrôle mental implacable.
 
 ÉRUDITS DES ARCANES
@@ -214,6 +219,7 @@ La vie d'un magicien est rarement ordinaire. Les moins excentriques d'entre eux 
         // ? Roublard
         $roublard = new PlayableClass;
         $roublard->setName("Roublard");
+        $roublard->setQuickDescription("Les roublards comptent sur leur adresse, leur discrétion et les points faibles de l'adversaire pour prendre le dessus dans toutes les situations. Ils semblent toujours savoir trouver la solution au problème, démontrant par là une débrouillardise et une polyvalence qui forment la pierre angulaire de tout groupe d'aventuriers digne de ce nom.");
         $roublard->setDescription("Les roublards comptent sur leur adresse, leur discrétion et les points faibles de l'adversaire pour prendre le dessus dans toutes les situations. Ils semblent toujours savoir trouver la solution au problème, démontrant par là une débrouillardise et une polyvalence qui forment la pierre angulaire de tout groupe d'aventuriers digne de ce nom.
         
 ADRESSE ET PRÉCISION
