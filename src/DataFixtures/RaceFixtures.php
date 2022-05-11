@@ -56,6 +56,7 @@ Résistance naine. Vous êtes avantagé aux jets de sauvegarde contre le poison 
 Langues. Vous parlez, lisez et écrivez le commun et le nain. Le nain est une langue gutturale et percussive, ce qui se retrouve dans l'accent des nains, quel que soit l'idiome parlé.
 
 Variante raciale. Il existe deux variantes raciales principales chez les nains des mondes de D&D : les naïns des collines et les nains des montagnes. Optez pour l'une de ces variantes et ajoutez les traits associés à vos autres traits raciaux.");
+        $dwarf->setImageUrl("https://img2.freepng.fr/20180704/ixa/kisspng-dungeons-dragons-pathfinder-roleplaying-game-d20-5b3ce01f7a3f96.8806170015307161915007.jpg");
 
         $manager->persist($dwarf);
 
@@ -101,6 +102,7 @@ Langues. Vous parlez, lisez et écrivez le commun et l'elfique. Cette langue flu
 De nombreux bardes apprennent cette langue pour pouvoir ajouter des ballades elfiques à leur répertoire.
 
 Variante raciale. Des différends ancestraux entre les elfes ont engendré trois ethnies principales : les hauts-elfes, les elfes sylvestres et les elfes noirs, communément appelés drows.");
+        $elf->setImageUrl("https://img2.freepng.fr/20180621/feh/kisspng-dungeons-dragons-fantasy-elf-character-5b2b24fd717155.4285492115295541734647.jpg");
         
         $manager->persist($elf);
 
@@ -140,6 +142,7 @@ Chanceux. Lorsque vous obtenez un 1 sur le d20 d'un jet d'attaque, un test de ca
 Langues. Vous parlez, lisez et écrivez le commun et le halfelin. Cette langue n'a rien de secret, mais les halfelins n'aiment guère la partager. Leur littérature est plutôt pauvre, car ils écrivent finalement très peu. Leur tradition orale s'avère en revanche très riche. Tous les halfelins ou presque recourent au commun pour converser avec la population des contrées qu'ils habitent ou qu'ils traversent.
 
 Variante raciale. Les deux branches principales de halfelins, les pieds-légers et les robustes tiennent plus de proches cousins que d'ethnies distinctes. Optez pour l'une de ces variantes et ajoutez les traits associés à vos autres traits raciaux.");
+        $halfelin->setImageUrl("https://img2.freepng.fr/20180621/pxq/kisspng-halfling-role-playing-game-ark-survival-evolved-f-halfling-5b2b81d0ecec85.8806318715295779369705.jpg");
         
         $manager->persist($halfelin);
 
@@ -163,6 +166,7 @@ Taille. Les humains affichent des mensurations très variées, leur taille allan
 Vitesse. Votre vitesse de base au sol est de 9 m.
 
 Langues. Vous parlez, lisez et écrivez le commun et une langue supplémentaire de votre choix. Les humains apprennent généralement la langue des peuples qu'ils côtoient le plus, qui peut être un dialecte obscur. Ils adorent émailler leur discours de mots empruntés à d'autres langues : jurons orcs, termes musicaux elfiques, formules militaires naïnes, etc.");
+        $human->setImageUrl("https://img2.freepng.fr/20190623/hra/kisspng-pathfinder-roleplaying-game-dungeons-dragons-war-image-inquisitor-salim-png-pathfinder-adventur-5d0f86aa880598.8146810015612986025572.jpg");
 
         $manager->persist($human);
         
