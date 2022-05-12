@@ -58,7 +58,7 @@ class RaceController extends AbstractController
     {
         if ($race === null)
         {
-            return $this->json("La race démandée n'a pas été trouvée", Response::HTTP_NOT_FOUND);
+            return $this->json("La race demandée n'a pas été trouvée", Response::HTTP_NOT_FOUND);
         }
         return $this->json($race, Response::HTTP_OK, [], ["groups" => "read_race"]);
     }
@@ -86,12 +86,12 @@ class RaceController extends AbstractController
         return $this->json($subraces, Response::HTTP_OK, [], ["groups" => "browse_subraces"]);
     }
 
-        /**
-     * Récupère une race au hasard
+    /**
+     * Récupère deux races au hasard
      * @Route("/random", name="random_one", methods={"GET"})
      * @OA\Response(
      *      response=200,
-     *      description="Retourne une race au hasard",
+     *      description="Retourne deux races au hasard",
      *      @OA\JsonContent(
      *          type="array",
      *          @OA\Items(ref=@Model(type=Race::class, groups={"browse_race"}))
