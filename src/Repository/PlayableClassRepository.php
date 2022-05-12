@@ -50,7 +50,7 @@ class PlayableClassRepository extends ServiceEntityRepository
     /**
      * @return PlayableClass Returns PlayableClass object
     */    
-    public function findRandomOne()
+    public function findRandomTwo()
     {
         // For using rand from doctrine extension we need to use DQL
         $em = $this->getEntityManager();
@@ -58,7 +58,7 @@ class PlayableClassRepository extends ServiceEntityRepository
             FROM App\Entity\PlayableClass classEntity
             ORDER BY RAND()
             ')
-            ->setMaxResults(1);
+            ->setMaxResults(2);
 
         return $query->getResult();
     }
