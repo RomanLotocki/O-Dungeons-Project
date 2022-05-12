@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Weapon{% endblock %}
+
+{% block body %}
+    <h1>Edit Weapon</h1>
+
+    {{ include('admin/weapon/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_weapon_index') }}">back to list</a>
+
+    {{ include('admin/weapon/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les armes{% endblock %}
+
+{% block body %}
+    <h1>Liste des armes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Dégâts de dés</th>
+                <th>Type de dégâts</th>
+                <th>Poids</th>
+                <th>Propriétés</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for weapon in weapons %}
+            <tr>
+                <td>{{ weapon.id }}</td>
+                <td>{{ weapon.name }}</td>
+                <td>{{ weapon.type }}</td>
+                <td>{{ weapon.damageDice }}</td>
+                <td>{{ weapon.damageType }}</td>
+                <td>{{ weapon.weight }}</td>
+                <td>{{ weapon.property }}</td>
+                <td>
+                    <a href="{{ path('app_admin_weapon_read', {'id': weapon.id}) }}">Détails</a>
+                    <a href="{{ path('app_admin_weapon_edit', {'id': weapon.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Pas d'arme trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_weapon_add') }}">Create new</a>
+{% endblock %}
