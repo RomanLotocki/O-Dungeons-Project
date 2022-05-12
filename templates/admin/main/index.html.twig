@@ -15,8 +15,8 @@
     <div class="row">
         <h2>Les 5 dernières races</h2>
         <ul class="list-unstyled">
-            {% for races in races %}
-                <li>{{races.name}}</li>
+            {% for race in races %}
+                <li><a href="{{ path('app_admin_races_read', {"id": race.id}) }}">{{race.name}}</a></li>
             {% endfor %}
         </ul>
     </div>

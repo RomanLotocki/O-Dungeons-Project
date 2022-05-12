@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des avatar{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <h2>Liste des avatar</h2>
+
+    <a class="btn btn-success" href="{{ path('app_admin_avatars_add')}}">Ajouter un avatar</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Lien de l'image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avatar in avatars %}
+            <tr>
+                <td>{{ avatar.id }}</td>
+                <td>{{ avatar.name }}</td>
+                <td>{{ avatar.imageUrl}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_avatars_read', {"id": avatar.id}) }}">Détails</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_avatars_edit', {"id": avatar.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de race trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+</div>
+{% endblock %}
