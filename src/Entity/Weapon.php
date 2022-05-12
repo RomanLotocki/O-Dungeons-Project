@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=WeaponRepository::class)
@@ -24,36 +25,45 @@ class Weapon
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $damageDice;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $damageType;
 
     /**
      * @ORM\Column(type="float", options={"default": 0})
      * @Groups("read_class")
+     * @Assert\Type(
+     *     type="float",
+     *     message="La valeur doit être un nombre supérieur ou égal à 0.")
+     * @Assert\PositiveOrZero
      */
     private $weight;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $property;
 

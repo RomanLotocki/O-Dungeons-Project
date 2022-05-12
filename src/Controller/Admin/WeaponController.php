@@ -32,9 +32,9 @@ class WeaponController extends AbstractController
     }
 
     /**
-     * @Route("/ajouter", name="add", methods={"GET", "POST"})
+     * @Route("/ajouter", name="add", methods={"GET", "POST"}, requirements={"id": "\d+"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $weapon = new Weapon();
         $form = $this->createForm(WeaponType::class, $weapon);
@@ -44,27 +44,29 @@ class WeaponController extends AbstractController
             $entityManager->persist($weapon);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_weapon_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_weapon_read', ["id" => $weapon->getId()], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/weapon/new.html.twig', [
+        return $this->renderForm('admin/weapon/add.html.twig', [
             'weapon' => $weapon,
             'form' => $form,
+            'controller' => 'WeaponController'
         ]);
     }
 
     /**
-     * @Route("/{id}", name="read", methods={"GET"})
+     * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
      */
-    public function show(Weapon $weapon): Response
+    public function read(Weapon $weapon): Response
     {
-        return $this->render('admin/weapon/show.html.twig', [
+        return $this->render('admin/weapon/read.html.twig', [
             'weapon' => $weapon,
+            'controller' => 'WeaponController'
         ]);
     }
 
     /**
-     * @Route("/{id}/modifier", name="edit", methods={"GET", "POST"})
+     * @Route("/{id}/modifier", name="edit", methods={"GET", "POST"}, requirements={"id": "\d+"})
      */
     public function edit(Request $request, Weapon $weapon, EntityManagerInterface $entityManager): Response
     {
@@ -74,12 +76,13 @@ class WeaponController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_weapon_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_weapon_read', ["id" => $weapon->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/weapon/edit.html.twig', [
             'weapon' => $weapon,
             'form' => $form,
+            'controller' => 'WeaponController'
         ]);
     }
 
@@ -93,6 +96,6 @@ class WeaponController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_admin_weapon_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_weapon_browser', [], Response::HTTP_SEE_OTHER);
     }
 }
