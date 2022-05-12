@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/admin/races", name="app_admin_races_")
@@ -103,6 +104,9 @@ class RaceController extends AbstractController
 
     /**
      * @Route("/{id}", name="delete", methods={"POST"}, requirements={"id": "\d+"})
+     * 
+     * This is one way to prevent users who are not granted to access this method/route
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Race $race, EntityManagerInterface $em): Response
     {
