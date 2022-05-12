@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PlayableClass index{% endblock %}
+{% block title %}Liste des classes{% endblock %}
 
 {% block body %}
-    <h1>PlayableClass index</h1>
+    <h1>Liste des classes</h1>
 
+    <a class="btn btn-success" href="{{ path('app_admin_playable_class_new') }}">Ajouter une nouvelle classe</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Description</th>
-                <th>LifeDice</th>
-                <th>ImageUrl</th>
-                <th>QuickDescription</th>
+                <th>Dés de vie</th>
+                <th>Lien de l'image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,10 +25,9 @@
                 <td>{{ playable_class.description }}</td>
                 <td>{{ playable_class.lifeDice }}</td>
                 <td>{{ playable_class.imageUrl }}</td>
-                <td>{{ playable_class.quickDescription }}</td>
                 <td>
-                    <a href="{{ path('app_admin_playable_class_show', {'id': playable_class.id}) }}">show</a>
-                    <a href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('app_admin_playable_class_show', {'id': playable_class.id}) }}">Détail</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +38,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_playable_class_new') }}">Create new</a>
+    
 {% endblock %}

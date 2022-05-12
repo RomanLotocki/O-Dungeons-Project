@@ -40,13 +40,14 @@ class PlayableClassType extends AbstractType
             ])
             ->add('weapons', EntityType::class, [
                 'class' => Weapon::class,
+                'label' => "Armes",
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true
             ])
             ->add('playableClassItems', CollectionType::class, [
                 'entry_type' => PlayableClassItemType::class,
-                'entry_options' => ['label' => false],
+                'label' => false,
                 'allow_add' => true,
                 'allow_delete' => true
             ])

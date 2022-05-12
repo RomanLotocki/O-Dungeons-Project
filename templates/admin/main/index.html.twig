@@ -7,7 +7,7 @@
         <h2>Les 5 dernières classes</h2>
         <ul class="list-unstyled">
             {% for class in classes %}
-                <li>{{class.name}}</li>
+                <li><a href="{{ path('app_admin_playable_class_show', {"id": class.id}) }}">{{class.name}}<a></li>
             {% endfor %}
         </ul>
     </div>

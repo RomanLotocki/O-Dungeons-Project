@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PlayableClass{% endblock %}
+{% block title %}{{ playable_class.name }}{% endblock %}
 
 {% block body %}
-    <h1>PlayableClass</h1>
+    <h1>{{ playable_class.name }}</h1>
 
     <table class="table">
         <tbody>
@@ -12,7 +12,7 @@
                 <td>{{ playable_class.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ playable_class.name }}</td>
             </tr>
             <tr>
@@ -20,23 +20,19 @@
                 <td>{{ playable_class.description }}</td>
             </tr>
             <tr>
-                <th>LifeDice</th>
+                <th>Dés de vie</th>
                 <td>{{ playable_class.lifeDice }}</td>
             </tr>
             <tr>
-                <th>ImageUrl</th>
+                <th>Lien de l'image</th>
                 <td>{{ playable_class.imageUrl }}</td>
-            </tr>
-            <tr>
-                <th>QuickDescription</th>
-                <td>{{ playable_class.quickDescription }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_playable_class_index') }}">back to list</a>
+    <a class="btn btn-primary" href="{{ path('app_admin_playable_class_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">edit</a>
+    <a class="btn btn-warning" href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">Modifier</a>
 
     {{ include('admin/playable_class/_delete_form.html.twig') }}
 {% endblock %}
