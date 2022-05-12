@@ -16,13 +16,10 @@ class PlayableClassItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('quantity', IntegerType::class, [
-                'label' => false
-            ])
+            ->add('quantity', IntegerType::class)
             ->add('item', EntityType::class, [
                 'class' => Item::class,
-                'choice_label' => 'name',
-                'label' => false
+                'choice_label' => 'name'
             ])
         ;
     }

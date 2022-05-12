@@ -1,5 +1,21 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}    
+    {{ form_row(form.lifeDice) }}
+    {{ form_row(form.imageUrl) }}
+    {{ form_row(form.quickDescription) }}
+    {{ form_row(form.abilities) }}
+    {{ form_row(form.armors) }}
+    {{ form_row(form.weapons) }}
+
+    <h3>Objets</h3>
+    <ul class="playableClassItems"
+    data-index="{{ form.playableClassItems|length > 0 ? form.playableClassItems|last.vars.name + 1 : 0 }}"
+    data-prototype="{{ form_widget(form.playableClassItems.vars.prototype)|e('html_attr') }}">
+        {% for playableClassItem in form.playableClassItems %}
+            <li>{{ form_row(playableClassItem.quantity) }}</li>
+            <li>{{ form_row(playableClassItem.item) }}</li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="add_item_link" data-collection-holder-class="tags">Ajouter un objet</button>
 {{ form_end(form) }}
