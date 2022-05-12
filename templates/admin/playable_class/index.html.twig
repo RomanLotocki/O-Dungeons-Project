@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des classes{% endblock %}
+
+{% block body %}
+    <h1>Liste des classes</h1>
+
+    <a class="btn btn-success" href="{{ path('app_admin_playable_class_new') }}">Ajouter une nouvelle classe</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Dés de vie</th>
+                <th>Lien de l'image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for playable_class in playable_classes %}
+            <tr>
+                <td>{{ playable_class.id }}</td>
+                <td>{{ playable_class.name }}</td>
+                <td>{{ playable_class.description }}</td>
+                <td>{{ playable_class.lifeDice }}</td>
+                <td>{{ playable_class.imageUrl }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_playable_class_show', {'id': playable_class.id}) }}">Détail</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
