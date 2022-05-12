@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{subrace.name}}{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <h2>{{subrace.name}} #{{subrace.id}}</h2>
+
+    <h4>Description complete</h4>
+    <p>{{subrace.description|nl2br}}</p>
+
+    <table class="table">
+    <thead>
+            <tr>
+                <th>Force</th>
+                <th>Dextérité</th>
+                <th>Constitution</th>
+                <th>Intelligence</th>
+                <th>Sagesse</th>
+                <th>Charisme</th>
+            </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{{ subrace.strength }}</td>
+                <td>{{ subrace.dexterity }}</td>
+                <td>{{ subrace.constitution }}</td>
+                <td>{{ subrace.intelligence }}</td>
+                <td>{{ subrace.wisdom }}</td>
+                <td>{{ subrace.charisma }}</td>
+    </tbody>
+    </table>
+    
+    <a class="btn btn-primary mb-3" href="{{ path('app_admin_subraces_browser')}}">Retour à la liste</a>
+    <a class="btn btn-warning mb-3" href="{{ path('app_admin_subraces_edit', {"id": subrace.id}) }}">Modifier</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <form class="my-2" method="post" action="{{ path('app_admin_subraces_delete', {'id': subrace.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette sous-race ?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subrace.id) }}">
+        <button class="btn btn-danger">Supprimer</button>
+    </form>
+    {% endif %}
+    
+</div>
+{% endblock %}
