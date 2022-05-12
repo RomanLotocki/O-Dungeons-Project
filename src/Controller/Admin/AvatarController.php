@@ -75,6 +75,7 @@ class AvatarController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($avatar);
             $manager->flush();
 
             return $this->redirectToRoute('app_admin_avatars_read', ['id' => $avatar->getId()]);

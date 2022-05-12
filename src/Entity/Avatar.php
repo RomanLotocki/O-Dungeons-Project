@@ -36,6 +36,7 @@ class Avatar
      * @Groups("browse_avatars")
      * @Groups("read_user")
      * @Assert\Url
+     * @Assert\NotBlank
      */
     private $imageUrl;
 
