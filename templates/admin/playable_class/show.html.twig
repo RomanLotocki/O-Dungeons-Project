@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PlayableClass{% endblock %}
+
+{% block body %}
+    <h1>PlayableClass</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ playable_class.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ playable_class.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ playable_class.description }}</td>
+            </tr>
+            <tr>
+                <th>LifeDice</th>
+                <td>{{ playable_class.lifeDice }}</td>
+            </tr>
+            <tr>
+                <th>ImageUrl</th>
+                <td>{{ playable_class.imageUrl }}</td>
+            </tr>
+            <tr>
+                <th>QuickDescription</th>
+                <td>{{ playable_class.quickDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_playable_class_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">edit</a>
+
+    {{ include('admin/playable_class/_delete_form.html.twig') }}
+{% endblock %}

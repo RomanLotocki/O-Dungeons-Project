@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PlayableClass index{% endblock %}
+
+{% block body %}
+    <h1>PlayableClass index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>LifeDice</th>
+                <th>ImageUrl</th>
+                <th>QuickDescription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for playable_class in playable_classes %}
+            <tr>
+                <td>{{ playable_class.id }}</td>
+                <td>{{ playable_class.name }}</td>
+                <td>{{ playable_class.description }}</td>
+                <td>{{ playable_class.lifeDice }}</td>
+                <td>{{ playable_class.imageUrl }}</td>
+                <td>{{ playable_class.quickDescription }}</td>
+                <td>
+                    <a href="{{ path('app_admin_playable_class_show', {'id': playable_class.id}) }}">show</a>
+                    <a href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_playable_class_new') }}">Create new</a>
+{% endblock %}

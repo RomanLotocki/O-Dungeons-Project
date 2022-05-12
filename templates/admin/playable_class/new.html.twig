@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PlayableClass{% endblock %}
+
+{% block body %}
+    <h1>Create new PlayableClass</h1>
+
+    {{ include('admin/playable_class/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_playable_class_index') }}">back to list</a>
+{% endblock %}

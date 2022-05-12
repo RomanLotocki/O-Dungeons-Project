@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PlayableClass{% endblock %}
+
+{% block body %}
+    <h1>Edit PlayableClass</h1>
+
+    {{ include('admin/playable_class/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_playable_class_index') }}">back to list</a>
+
+    {{ include('admin/playable_class/_delete_form.html.twig') }}
+{% endblock %}

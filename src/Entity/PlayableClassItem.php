@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\PlayableClassItemsRepository;
+use App\Repository\PlayableClassItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ORM\Entity(repositoryClass=PlayableClassItemsRepository::class)
+ * @ORM\Entity(repositoryClass=PlayableClassItemRepository::class)
  */
 class PlayableClassItem
 {
