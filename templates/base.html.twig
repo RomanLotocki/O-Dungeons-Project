@@ -34,13 +34,13 @@
                                 </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Classes</a>
+                                <a class="nav-link {{ controller is same as "PlayableClassController" ? "active" : "" }}" href="{{ path('app_admin_playable_class_index') }}">Classes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ controller is same as "RaceController" ? "active" : "" }}" href="{{ path('app_admin_races_browser') }}">Races</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Sous-Races</a>
+                                <a class="nav-link {{ controller is same as "SubraceController" ? "active" : "" }}" href="{{ path('app_admin_subraces_browser') }}">Sous-Races</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Sous-Classes</a>

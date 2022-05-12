@@ -48,7 +48,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/admin/.+/\d+$, roles: ROLE_ADMIN, methods: [POST]}
+        # This access control is used to only authorize delete actions for ADMIN_ROLE or more.
         - { path: ^/admin, roles: ROLE_MANAGER }
+        
     
     role_hierarchy:
         ROLE_SUPERADMIN: ROLE_ADMIN

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SubraceRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=SubraceRepository::class)
@@ -26,6 +27,13 @@ class Subrace
      * @Groups("read_race")
      * @Groups("browse_subraces")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Le nom de la sous-race doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de la sous-race doit contenir au maximum {{ limit }} caractères"
+     * )
      */
     private $name;
 
@@ -33,6 +41,7 @@ class Subrace
      * @ORM\Column(type="text")
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      */
     private $description;
 
@@ -40,6 +49,7 @@ class Subrace
      * @ORM\Column(type="string", length=255)
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\Url
      */
     private $imageUrl;
 
@@ -47,6 +57,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\PositiveOrZero
      */
     private $strength;
 
@@ -54,6 +65,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\PositiveOrZero
      */
     private $dexterity;
 
@@ -61,6 +73,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\PositiveOrZero
      */
     private $constitution;
 
@@ -68,6 +81,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\PositiveOrZero
      */
     private $wisdom;
 
@@ -75,6 +89,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\PositiveOrZero
      */
     private $intelligence;
 
@@ -82,6 +97,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\PositiveOrZero
      */
     private $charisma;
 
@@ -89,6 +105,8 @@ class Subrace
      * @ORM\Column(type="text", nullable=true)
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
+     * 
      */
     private $trait;
 

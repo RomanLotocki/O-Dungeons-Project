@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PlayableClassRepository::class)
@@ -26,18 +27,23 @@ class PlayableClass
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_class")
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Length(min=1)
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Length(min=3,minMessage="Il faut au minimum trois caractères")
      */
     private $lifeDice;
 
@@ -45,6 +51,8 @@ class PlayableClass
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("browse_class")
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Url
      */
     private $imageUrl;
 
@@ -72,7 +80,7 @@ class PlayableClass
     private $weapons;
 
     /**
-     * @ORM\OneToMany(targetEntity=PlayableClassItem::class, mappedBy="playableClass", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=PlayableClassItem::class, mappedBy="playableClass", orphanRemoval=true, cascade={"persist"})
      * @Groups("read_class")
      */
     private $playableClassItems;
