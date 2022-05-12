@@ -92,12 +92,15 @@ class RaceController extends AbstractController
      * @OA\Response(
      *      response=200,
      *      description="Retourne une race au hasard",
-     *      @Model(type=Race::class, groups={"browse_race"})
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(ref=@Model(type=Race::class, groups={"browse_race"}))
+     *      )
      * )
      */
-    public function randomOne(RaceRepository $raceRepo): JsonResponse
+    public function randomTwo(RaceRepository $raceRepo): JsonResponse
     {
-        $race = $raceRepo->findRandomOne();
+        $race = $raceRepo->findRandomTwo();
 
         return $this->json($race, Response::HTTP_OK, [], ["groups" => "browse_race"]);
     }

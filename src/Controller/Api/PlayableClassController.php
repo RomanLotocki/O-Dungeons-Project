@@ -91,12 +91,15 @@ class PlayableClassController extends AbstractController
      * @OA\Response(
      *      response=200,
      *      description="Retourne une classe au hasard",
-     *      @Model(type=PlayableClass::class, groups={"browse_class"})
+     *      @OA\JsonContent(
+     *        type="array",
+     *        @OA\Items(ref=@Model(type=PlayableClass::class, groups={"browse_class"}))
+     *     )
      * )
      */
-    public function randomOne(PlayableClassRepository $classRepo): JsonResponse
+    public function randomTwo(PlayableClassRepository $classRepo): JsonResponse
     {
-        $class = $classRepo->findRandomOne();
+        $class = $classRepo->findRandomTwo();
 
         return $this->json($class, Response::HTTP_OK, [], ["groups" => "browse_class"]);
     }
