@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des sous-races{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <h2>Liste des sous-races</h2>
+
+    <a class="btn btn-success" href="{{ path('app_admin_subraces_add') }}">Ajouter une sous-race</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Race affiliée</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subrace in subraces %}
+            <tr>
+                <td>{{ subrace.id }}</td>
+                <td>{{ subrace.name }}</td>
+                <td>{{ subrace.race.name }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_subraces_read', {"id": subrace.id}) }}">Détails</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_subraces_edit', {"id": subrace.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de sous-race trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+</div>
+{% endblock %}

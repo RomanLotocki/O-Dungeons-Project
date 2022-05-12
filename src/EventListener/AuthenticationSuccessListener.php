@@ -10,6 +10,7 @@ class AuthenticationSuccessListener
 {
 
     /**
+     * Sends user datas with JWT
      * @param AuthenticationSuccessEvent $event
      */
     public function onAuthenticationSuccessResponse(AuthenticationSuccessEvent $event)
