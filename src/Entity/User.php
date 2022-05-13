@@ -26,6 +26,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
      * @Assert\Email(
      *      message= "L'email '{{ value }}' n'est pas un email valide"
      * )
@@ -36,6 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="json")
      * @var string[]
+     * @Assert\NotBlank
      * @Assert\Choice(choices = {"ROLE_USER", "ROLE_MANAGER", "ROLE_ADMIN", "ROLE_SUPERADMIN"}, multiple = true)
      * @Groups("read_user")
      */
