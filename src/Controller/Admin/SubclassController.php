@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/subclass")
+ * @Route("/admin/sous-classe")
  */
 class SubclassController extends AbstractController
 {

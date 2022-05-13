@@ -30,7 +30,7 @@
                             </li>
                             {% if is_granted('ROLE_SUPERADMIN') %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Utilisateurs</a>
+                                    <a class="nav-link {{ controller is same as "UserController" ? "active" : "" }}" href="{{ path('app_admin_user_index') }}">Utilisateurs</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item">

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/playable/class")
+ * @Route("/admin/classe")
  */
 class PlayableClassController extends AbstractController
 {
