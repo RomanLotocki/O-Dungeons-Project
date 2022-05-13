@@ -1,0 +1,6 @@
+{% if is_granted('ROLE_ADMIN') %}
+<form method="post" action="{{ path('app_admin_ability_delete', {'id': ability.id}) }}" onsubmit="return confirm('Voulez-vous supprimer ce sort définitivement?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ability.id) }}">
+    <button class="btn btn-danger mb-1">Supprimer</button>
+</form>
+{% endif %}
