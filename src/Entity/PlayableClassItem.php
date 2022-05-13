@@ -23,6 +23,7 @@ class PlayableClassItem
      * @ORM\Column(type="integer")
      * @Groups("read_class")
      * @Assert\NotBlank
+     * @Assert\PositiveOrZero
      */
     private $quantity;
 

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SubclassRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=SubclassRepository::class)
@@ -22,12 +23,20 @@ class Subclass
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Le nom de la sous-classe doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de la sous-classe doit contenir au maximum {{ limit }} caractères"
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $description;
 

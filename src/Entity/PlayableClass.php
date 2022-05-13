@@ -28,7 +28,12 @@ class PlayableClass
      * @Groups("browse_class")
      * @Groups("read_class")
      * @Assert\NotBlank
-     * @Assert\Length(min=1)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Le nom de la sous-classe doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de la sous-classe doit contenir au maximum {{ limit }} caractères"
+     * )
      */
     private $name;
 
