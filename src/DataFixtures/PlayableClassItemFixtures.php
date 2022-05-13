@@ -259,12 +259,7 @@ class PlayableClassItemFixtures extends Fixture implements DependentFixtureInter
         $manager->persist($relation);
 
         $relation = new PlayableClassItem;
-        $relation->setQuantity(1);$relation = new PlayableClassItem;
         $relation->setQuantity(1);
-        $relation->setPlayableClass($playableClassRepo->findOneBy(["name" => "Magicien"]));
-        $relation->setItem($itemRepo->findOneBy(["name" => "Parchemin (la feuille)"]));
-
-        $manager->persist($relation);
         $relation->setPlayableClass($playableClassRepo->findOneBy(["name" => "Magicien"]));
         $relation->setItem($itemRepo->findOneBy(["name" => "Encre (bouteille de 30 cl)"]));
 
@@ -279,13 +274,6 @@ class PlayableClassItemFixtures extends Fixture implements DependentFixtureInter
 
         $relation = new PlayableClassItem;
         $relation->setQuantity(10);
-        $relation->setPlayableClass($playableClassRepo->findOneBy(["name" => "Magicien"]));
-        $relation->setItem($itemRepo->findOneBy(["name" => "Parchemin (la feuille)"]));
-
-        $manager->persist($relation);
-
-        $relation = new PlayableClassItem;
-        $relation->setQuantity(1);
         $relation->setPlayableClass($playableClassRepo->findOneBy(["name" => "Magicien"]));
         $relation->setItem($itemRepo->findOneBy(["name" => "Parchemin (la feuille)"]));
 
