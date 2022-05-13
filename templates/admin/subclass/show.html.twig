@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ subclass.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ subclass.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ subclass.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ subclass.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ subclass.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_admin_subclass_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-warning" href="{{ path('app_admin_subclass_edit', {'id': subclass.id}) }}">Modifier</a>
+
+    {{ include('admin/subclass/_delete_form.html.twig') }}
+{% endblock %}

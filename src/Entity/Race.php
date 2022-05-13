@@ -30,7 +30,12 @@ class Race
      * @Groups("read_race")
      * @Groups("read_subraces")
      * @Assert\NotBlank
-     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{ value }}), maximum 255")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Le nom de la race doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de la race doit contenir au maximum {{ limit }} caractères"
+     * )
      */
     private $name;
 

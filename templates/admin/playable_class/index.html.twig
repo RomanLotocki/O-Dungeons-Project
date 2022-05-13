@@ -26,13 +26,13 @@
                 <td>{{ playable_class.lifeDice }}</td>
                 <td>{{ playable_class.imageUrl }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('app_admin_playable_class_show', {'id': playable_class.id}) }}">Détail</a>
+                    <a class="btn btn-primary mb-2" href="{{ path('app_admin_playable_class_show', {'id': playable_class.id}) }}">Détail</a>
                     <a class="btn btn-warning" href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Pas de classe trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
