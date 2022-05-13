@@ -1,4 +1,6 @@
+{% if is_granted('ROLE_ADMIN') %}
 <form class="my-2" method="post" action="{{ path('app_admin_subclass_delete', {'id': subclass.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette sous-classe ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subclass.id) }}">
     <button class="btn btn-danger">Supprimer</button>
 </form>
+{% endif %}

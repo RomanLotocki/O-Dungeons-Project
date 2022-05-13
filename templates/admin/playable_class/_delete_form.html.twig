@@ -1,4 +1,6 @@
+{% if is_granted('ROLE_ADMIN') %}
 <form class="my-2" method="post" action="{{ path('app_admin_playable_class_delete', {'id': playable_class.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette classe ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ playable_class.id) }}">
     <button class="btn btn-danger">Supprimer</button>
 </form>
+{% endif %}
