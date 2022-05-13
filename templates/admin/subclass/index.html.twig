@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des sous-classes{% endblock %}
+
+{% block body %}
+    <h1>Liste des sous-classes</h1>
+
+    <a class="btn btn-success" href="{{ path('app_admin_subclass_new') }}">Ajouter une nouvelle sous-classe</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subclass in subclasses %}
+            <tr>
+                <td>{{ subclass.id }}</td>
+                <td>{{ subclass.name }}</td>
+                <td>{{ subclass.description }}</td>
+                <td>
+                    <a class="btn btn-primary mb-2" href="{{ path('app_admin_subclass_show', {'id': subclass.id}) }}">Détails</a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_subclass_edit', {'id': subclass.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de sous-classe trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

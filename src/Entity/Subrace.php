@@ -50,6 +50,7 @@ class Subrace
      * @Groups("read_race")
      * @Groups("read_subraces")
      * @Assert\Url
+     * @Assert\NotBlank
      */
     private $imageUrl;
 
@@ -57,6 +58,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      */
     private $strength;
@@ -65,6 +67,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      */
     private $dexterity;
@@ -73,6 +76,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      */
     private $constitution;
@@ -81,6 +85,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      */
     private $wisdom;
@@ -89,6 +94,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      */
     private $intelligence;
@@ -97,6 +103,7 @@ class Subrace
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      */
     private $charisma;
@@ -106,7 +113,6 @@ class Subrace
      * @Groups("read_race")
      * @Groups("read_subraces")
      * @Assert\NotBlank
-     * 
      */
     private $trait;
 
