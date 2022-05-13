@@ -44,7 +44,7 @@ class SubclassController extends AbstractController
             $entityManager->persist($subclass);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_subclass_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_subclass_show', ['id' => $subclass->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/subclass/new.html.twig', [
@@ -76,7 +76,7 @@ class SubclassController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_subclass_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_subclass_show', ['id' => $subclass->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/subclass/edit.html.twig', [

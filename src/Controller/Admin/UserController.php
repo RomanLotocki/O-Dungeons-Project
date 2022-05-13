@@ -47,7 +47,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_user_show', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/user/new.html.twig', [
@@ -79,7 +79,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_user_show', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/user/edit.html.twig', [

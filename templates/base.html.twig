@@ -48,6 +48,9 @@
                                 <a class="nav-link {{ controller is same as "SubclassController" ? "active" : "" }}" href="{{ path('app_admin_subclass_index') }}">Sous-Classes</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link {{ controller is same as "BackgroundController" ? "active" : "" }}" href="{{ path('app_admin_background_index') }}">Historiques</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ controller is same as "WeaponController" ? "active" : "" }}" href="{{ path('app_admin_weapon_browser') }}">Armes</a>
                             </li>
                             <li class="nav-item">
@@ -57,18 +60,19 @@
                                 <a class="nav-link {{ controller is same as "AbilityController" ? "active" : "" }}" href="{{ path('app_admin_ability_index') }}">Sorts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ controller is same as "AvatarController" ? "active" : "" }}" href="{{ path('app_admin_avatars_browser') }}">Avatars</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link {{ controller is same as "ItemController" ? "active" : "" }}" href="{{ path('app_admin_item_index') }}">Objets</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ controller is same as "AvatarController" ? "active" : "" }}" href="{{ path('app_admin_avatars_browser') }}">Avatars</a>
+                            </li>
+                            
                         </ul>
                     </div>
                 </div>
             </nav>
             {% endif %}
         </header>
-        <main class="container">
+        <main class="container mb-4">
             {% block body %}{% endblock %}
         </main>
     </body>

@@ -16,7 +16,7 @@
     <a class="btn btn-primary mb-3" href="{{ path('app_admin_races_browser')}}">Retour à la liste</a>
     <a class="btn btn-warning mb-3" href="{{ path('app_admin_races_edit', {"id": race.id}) }}">Modifier</a>
     {% if is_granted('ROLE_ADMIN') %}
-        <form class="my-2" method="post" action="{{ path('app_admin_races_delete', {'id': race.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette race ?');">
+        <form class="mb-3" method="post" action="{{ path('app_admin_races_delete', {'id': race.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette race ?');">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ race.id) }}">
             <button class="btn btn-danger">Supprimer</button>
         </form>

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un historique{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un historique</h1>
+
+    {{ include('admin/background/_form.html.twig') }}
+
+    <a class="btn btn-primary my-2" href="{{ path('app_admin_background_index') }}">Retour à la liste</a>
+{% endblock %}

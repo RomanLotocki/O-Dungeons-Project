@@ -44,7 +44,7 @@ class ItemController extends AbstractController
             $entityManager->persist($item);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_item_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_item_show', ['id' => $item->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/item/new.html.twig', [
@@ -76,7 +76,7 @@ class ItemController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_item_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_item_show', ['id' => $item->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/item/edit.html.twig', [

@@ -44,7 +44,7 @@ class PlayableClassController extends AbstractController
             $entityManager->persist($playableClass);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_playable_class_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_playable_class_show', ['id' => $playableClass->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/playable_class/new.html.twig', [
@@ -76,7 +76,7 @@ class PlayableClassController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_playable_class_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_playable_class_show', ['id' => $playableClass->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/playable_class/edit.html.twig', [

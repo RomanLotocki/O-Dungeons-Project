@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BackgroundRepository::class)
@@ -26,24 +27,28 @@ class Background
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_backgrounds")
      * @Groups("read_backgrounds")
+     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups("read_backgrounds")
+     * @Assert\NotBlank
      */
     private $capacities;
 
     /**
      * @ORM\Column(type="text")
      * @Groups("read_backgrounds")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_backgrounds")
+     * @Assert\PositiveOrZero
      */
     private $nbLanguage;
 
@@ -56,6 +61,7 @@ class Background
     /**
      * @ORM\Column(type="integer")
      * @Groups("read_backgrounds")
+     * @Assert\PositiveOrZero
      */
     private $nbGolds;
 

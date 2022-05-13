@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{background.name}}{% endblock %}
+
+{% block body %}
+    <h1>{{background.name}}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ background.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ background.name }}</td>
+            </tr>
+            <tr>
+                <th>Maîtrises de compétence</th>
+                <td>{{ background.capacities }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ background.description }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de langues</th>
+                <td>{{ background.nbLanguage }}</td>
+            </tr>
+            <tr>
+                <th>Or (pièces)</th>
+                <td>{{ background.nbGolds }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary mb-3" href="{{ path('app_admin_background_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-warning mb-3" href="{{ path('app_admin_background_edit', {'id': background.id}) }}">Modifier</a>
+
+    {{ include('admin/background/_delete_form.html.twig') }}
+{% endblock %}
