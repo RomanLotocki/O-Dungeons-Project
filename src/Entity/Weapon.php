@@ -26,6 +26,7 @@ class Weapon
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
      * @Assert\NotBlank
+     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{ value }}), maximum 255")
      */
     private $name;
 
@@ -63,7 +64,6 @@ class Weapon
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("read_class")
-     * @Assert\NotBlank
      */
     private $property;
 

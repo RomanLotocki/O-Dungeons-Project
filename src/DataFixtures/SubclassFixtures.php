@@ -16,7 +16,7 @@ class SubclassFixtures extends Fixture implements DependentFixtureInterface
         
         $collegeVaillance = new Subclass;
         $collegeVaillance->setName('Collège de la Vaillance');
-        $collegeVaillance->setDescription("Les récits contés par les bardes du Collège de la Vaillance perpétuent les exploits des grands héros d'antan pour inspirer les nouvelles générations. Ils arpentent également le monde pour assister personnellement aux événements et s'assurer que cet héritage ne se perde pas");
+        $collegeVaillance->setDescription("Les récits contés par les bardes du Collège de la Vaillance perpétuent les exploits des grands héros d'antan pour inspirer les nouvelles générations. Ils arpentent également le monde pour assister personnellement aux événements et s'assurer que cet héritage ne se perde pas.");
         $collegeVaillance->setPlayableClass($classRepo->findOneBy(["name" => "Barde"]));
         $manager->persist($collegeVaillance);
 

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle armure{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle armure</h1>
+
+    {{ include('admin/armor/_form.html.twig') }}
+
+    <a class= "btn btn-secondary mb-1" href="{{ path('app_admin_armor_index') }}">Retour à la liste</a>
+{% endblock %}

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArmorRepository::class)
@@ -24,12 +25,16 @@ class Armor
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{ value }}), maximum 255")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{ value }}), maximum 255")
      */
     private $armorType;
 
@@ -42,6 +47,7 @@ class Armor
     /**
      * @ORM\Column(type="integer", options={"default": 0})
      * @Groups("read_class")
+     * @Assert\NotBlank
      */
     private $strength;
 
@@ -54,6 +60,11 @@ class Armor
     /**
      * @ORM\Column(type="float", options={"default": 0})
      * @Groups("read_class")
+     * @Assert\NotBlank
+     * @Assert\Type(
+     *     type="float",
+     *     message="La valeur doit être un nombre supérieur ou égal à 0.")
+     * @Assert\PositiveOrZero
      */
     private $weight;
 
