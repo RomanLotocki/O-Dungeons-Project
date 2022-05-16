@@ -4,12 +4,14 @@ namespace App\Form;
 
 use App\Entity\Race;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class RaceType extends AbstractType
 {
@@ -26,8 +28,17 @@ class RaceType extends AbstractType
             ->add('quickDescription', TextareaType::class, [
                 "label" => "La description rapide de la race"
             ])
-            ->add('imageUrl', UrlType::class, [
-                "label" => "Le lien de l'image de la race"
+            ->add('imageFile', FileType::class, [
+                "label" => "L'image de la race",
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid PNG image',
+                    ])
+                ],
             ])
             ->add('save', SubmitType::class, [
                 "label" => "Sauvegarder cette race"

@@ -6,7 +6,7 @@
 <div class="container pt-5">
     <h2>{{race.name}} #{{race.id}}</h2>
 
-    <img src="{{race.imageUrl}}">
+    <img src="{{asset(race.imageUrl)}}">
     <h3>Description rapide</h3>
     <p>{{race.quickDescription|nl2br}}</p>
 

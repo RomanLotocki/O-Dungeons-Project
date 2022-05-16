@@ -62,8 +62,6 @@ class Race
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Url
      */
     private $imageUrl;
 
@@ -73,6 +71,8 @@ class Race
      * @Groups("read_race")
      */
     private $image;
+
+    private $imageFile;
 
     public function __construct()
     {
@@ -167,8 +167,43 @@ class Race
      */ 
     public function getImage()
     {
-        $this->image = base64_encode(file_get_contents($this->imageUrl));
-
+        if ($this->imageUrl !== null) {
+            $this->image = base64_encode(file_get_contents($this->imageUrl));
+        }
         return $this->image;
+    }
+
+    /**
+     * Set the value of image
+     *
+     * @param  string  $image
+     *
+     * @return  self
+     */ 
+    public function setImage(string $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imageFile
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @return  self
+     */ 
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+
+        return $this;
     }
 }
