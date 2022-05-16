@@ -19,11 +19,6 @@ class PlayableClassItemType extends AbstractType
             ->add('quantity', IntegerType::class, [
                 'label' => 'Nombre d\'objet'
             ])
-            ->add('playableClass', EntityType::class, [
-                'class' => PlayableClass::class,
-                'label' => 'La classe',
-                'choice_label' => 'name'
-            ])
             ->add('item', EntityType::class, [
                 'class' => Item::class,
                 'label' => 'L\'objet',

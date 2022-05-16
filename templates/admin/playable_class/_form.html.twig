@@ -15,7 +15,6 @@
         {% for playableClassItem in form.playableClassItems %}
             <li>
                 {{ form_row(playableClassItem.quantity) }}
-                {{ form_row(playableClassItem.playableClass) }}
                 {{ form_row(playableClassItem.item) }}
             </li>
         {% endfor %}

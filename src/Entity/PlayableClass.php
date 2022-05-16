@@ -55,8 +55,6 @@ class PlayableClass
     /**
      * The image URL to the folder asset
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank
-     * @Assert\Url
      */
     private $imageUrl;
 

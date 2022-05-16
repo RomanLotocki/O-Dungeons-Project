@@ -72,7 +72,8 @@ class PlayableClassType extends AbstractType
                 'entry_type' => PlayableClassItemType::class,
                 'label' => false,
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'by_reference' => false
             ])
         ;
     }

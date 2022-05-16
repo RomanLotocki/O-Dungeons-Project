@@ -53,6 +53,7 @@ class PlayableClassController extends AbstractController
                 $fileName = $slugger->slug($playableClass->getName())->lower().".png";
                 $file = $form['imageFile']->getData();
                 $file->move('asset', $fileName);
+                $playableClass->setImageUrl('asset/'.$fileName);
 
 
                 $entityManager->persist($playableClass);
