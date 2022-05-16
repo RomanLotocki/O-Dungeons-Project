@@ -131,11 +131,18 @@ class RaceController extends AbstractController
      * This is one way to prevent users who are not granted to access this method/route
      * @IsGranted("ROLE_ADMIN")
      */
-    public function delete(Request $request, Race $race, EntityManagerInterface $em): Response
+    public function delete(Request $request, Race $race, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
+        //Pour supprimer le fichier png dans asset lié à la race.
+        $imageFile = $race->getImageUrl();
+        if (file_exists($imageFile)) {
+            unlink($imageFile);
+        }
+
         if($this->isCsrfTokenValid('delete'.$race->getId(), $request->request->get('_token'))){
             $em->remove($race);
             $em->flush();
+            
         }
         
         return $this->redirectToRoute('app_admin_races_browser');

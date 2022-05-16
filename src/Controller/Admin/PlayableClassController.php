@@ -114,6 +114,11 @@ class PlayableClassController extends AbstractController
      */
     public function delete(Request $request, PlayableClass $playableClass, EntityManagerInterface $entityManager): Response
     {
+        $imageFile = $playableClass->getImageUrl();
+        if (file_exists($imageFile)) {
+            unlink($imageFile);
+        }
+        
         if ($this->isCsrfTokenValid('delete'.$playableClass->getId(), $request->request->get('_token'))) {
             $entityManager->remove($playableClass);
             $entityManager->flush();
