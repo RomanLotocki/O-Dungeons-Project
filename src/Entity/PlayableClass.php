@@ -54,12 +54,18 @@ class PlayableClass
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("browse_class")
-     * @Groups("read_class")
      * @Assert\NotBlank
      * @Assert\Url
      */
     private $imageUrl;
+
+    /**
+     * @Groups("browse_class")
+     * @Groups("read_class")
+     *
+     * @var string
+     */
+    private $image;
 
     /**
      * @ORM\OneToMany(targetEntity=Subclass::class, mappedBy="playableClass", orphanRemoval=true)
@@ -300,5 +306,16 @@ class PlayableClass
         $this->quickDescription = $quickDescription;
 
         return $this;
+    }
+
+    /**
+     * Get the value of image
+     *
+     * @return  string
+     */ 
+    public function getImage()
+    {
+        $this->image = base64_encode(file_get_contents($this->imageUrl));
+        return $this->image;
     }
 }

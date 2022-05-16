@@ -62,12 +62,17 @@ class Race
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("browse_race")
-     * @Groups("read_race")
      * @Assert\NotBlank
      * @Assert\Url
      */
     private $imageUrl;
+
+    /**
+     * @var string
+     * @Groups("browse_race")
+     * @Groups("read_race")
+     */
+    private $image;
 
     public function __construct()
     {
@@ -155,5 +160,15 @@ class Race
         $this->imageUrl = $imageUrl;
 
         return $this;
+    }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage()
+    {
+        $this->image = base64_encode(file_get_contents($this->imageUrl));
+
+        return $this->image;
     }
 }

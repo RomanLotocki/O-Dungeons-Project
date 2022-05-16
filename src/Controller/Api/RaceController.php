@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/api/races", name="app_api_races_")
@@ -54,12 +54,13 @@ class RaceController extends AbstractController
      *     )
      * )
      */
-    public function movie(Race $race = null): JsonResponse
+    public function read(Race $race = null, Request $request): JsonResponse
     {
         if ($race === null)
         {
             return $this->json("La race demandée n'a pas été trouvée", Response::HTTP_NOT_FOUND);
         }
+
         return $this->json($race, Response::HTTP_OK, [], ["groups" => "read_race"]);
     }
 
