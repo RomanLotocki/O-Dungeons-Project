@@ -69,6 +69,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $avatar;
 
+    /**
+    * Constructor
+    */
+    public function __construct()
+    {
+        $this->roles = ["ROLE_USER"];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

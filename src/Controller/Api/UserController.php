@@ -133,7 +133,6 @@ class UserController extends AbstractController
         };
 
         $user->setEmail($userNew->getEmail());
-        $user->setRoles($userNew->getRoles());
         $user->setLastName($userNew->getLastName());
         $user->setFirstName($userNew->getFirstName());
         $user->setAvatar($userNew->getAvatar());
