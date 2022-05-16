@@ -38,7 +38,7 @@ class RaceType extends AbstractType
                         ],
                         'mimeTypesMessage' => 'Please upload a valid PNG image',
                     ])
-                ],
+                ]
             ])
             ->add('save', SubmitType::class, [
                 "label" => "Sauvegarder cette race"

@@ -24,8 +24,8 @@
                 <td>{{ playable_class.lifeDice }}</td>
             </tr>
             <tr>
-                <th>Lien de l'image</th>
-                <td>{{ playable_class.imageUrl }}</td>
+                <th>L'image</th>
+                <td><img src="{{ asset(playable_class.imageUrl) }}"></td>
             </tr>
         </tbody>
     </table>

@@ -59,11 +59,13 @@ class RaceController extends AbstractController
 
         // Managing POST method
         if ($form->isSubmitted() && $form->isValid()) {
-            $fileName = $slugger->slug($race->getName())->lower() . ".png";
-            $file = $form['imageFile']->getData();
-            $file->move('asset', $fileName);
+            if ($form['imageFile']->getData() !== null) {
+                $fileName = $slugger->slug($race->getName())->lower() . ".png";
+                $file = $form['imageFile']->getData();
+                $file->move('asset', $fileName);
 
-            $race->setImageUrl('asset/' . $fileName);
+                $race->setImageUrl('asset/' . $fileName);
+            }
 
             $manager->flush();
 
@@ -93,17 +95,25 @@ class RaceController extends AbstractController
 
         // Managing POST method
         if ($form->isSubmitted() && $form->isValid()) {
-            $fileName = $slugger->slug($race->getName())->lower() . ".png";
-            $file = $form['imageFile']->getData();
-            $file->move('asset', $fileName);
+            if ($form['imageFile']->getData() === null) {
+                $this->addFlash(
+                    'error',
+                    'Veuillez téléverser une image'
+                );
+            }
+            else {
+                $fileName = $slugger->slug($race->getName())->lower() . ".png";
+                $file = $form['imageFile']->getData();
+                $file->move('asset', $fileName);
 
-            $race->setImageUrl('asset/' . $fileName);
+                $race->setImageUrl('asset/' . $fileName);
 
-            $manager->persist($race);
+                $manager->persist($race);
 
-            $manager->flush();
+                $manager->flush();
 
-            return $this->redirectToRoute("app_admin_races_read", ["id" => $race->getId()]);
+                return $this->redirectToRoute("app_admin_races_read", ["id" => $race->getId()]);
+            }
         }
 
         // Managing GET method
