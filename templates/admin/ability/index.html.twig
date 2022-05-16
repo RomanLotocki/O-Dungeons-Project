@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sorts{% endblock %}
+
+{% block body %}
+    <h1>Listes des sorts</h1>
+    <a class="btn btn-success" href="{{ path('app_admin_ability_new') }}">Ajouter un sort</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description rapide</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ability in abilities %}
+            <tr>
+                <td>{{ ability.id }}</td>
+                <td>{{ ability.name }}</td>
+                <td>{{ ability.quickDescription }}</td>
+                <td>
+                    <a class= "btn btn-primary mb-1" href="{{ path('app_admin_ability_show', {'id': ability.id}) }}">Détails</a>
+                    <a class= "btn btn-warning mb-1" href="{{ path('app_admin_ability_edit', {'id': ability.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Pas de sort trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

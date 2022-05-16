@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ armor.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ armor.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ armor.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ armor.name }}</td>
+            </tr>
+            <tr>
+                <th>Type d'armure</th>
+                <td>{{ armor.armorType }}</td>
+            </tr>
+            <tr>
+                <th>Classe d'armure</th>
+                <td>{{ armor.armorClass }}</td>
+            </tr>
+            <tr>
+                <th>Force</th>
+                <td>{{ armor.strength }}</td>
+            </tr>
+            <tr>
+                <th>Discrétion</th>
+                <td>{{ armor.discretion }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ armor.weight }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary mb-3" href="{{ path('app_admin_armor_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-warning mb-3" href="{{ path('app_admin_armor_edit', {'id': armor.id}) }}">Modifier</a>
+    
+    {{ include('admin/armor/_delete_form.html.twig') }}
+{% endblock %}

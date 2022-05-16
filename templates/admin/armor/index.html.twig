@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les armures{% endblock %}
+
+{% block body %}
+    <h1>Liste des armures</h1>
+    <a class="btn btn-success" href="{{ path('app_admin_armor_new') }}">Ajouter une armure</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type d'armure</th>
+                <th>Classe d'armure</th>
+                <th>Force</th>
+                <th>Discrétion</th>
+                <th>Poids</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for armor in armors %}
+            <tr>
+                <td>{{ armor.id }}</td>
+                <td>{{ armor.name }}</td>
+                <td>{{ armor.armorType }}</td>
+                <td>{{ armor.armorClass }}</td>
+                <td>{{ armor.strength }}</td>
+                <td>{{ armor.discretion }}</td>
+                <td>{{ armor.weight }}</td>
+                <td>
+                    <a class= "btn btn-primary mb-1" href="{{ path('app_admin_armor_show', {'id': armor.id}) }}">Détails</a>
+                    <a class= "btn btn-warning mb-1" href="{{ path('app_admin_armor_edit', {'id': armor.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Pas d'armure trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

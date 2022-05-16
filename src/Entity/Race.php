@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RaceRepository::class)
@@ -28,12 +29,20 @@ class Race
      * @Groups("browse_race")
      * @Groups("read_race")
      * @Groups("read_subraces")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Le nom de la race doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de la race doit contenir au maximum {{ limit }} caractères"
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
      * @Groups("read_race")
+     * @Assert\NotBlank
      */
     private $fullDescription;
 
@@ -41,6 +50,7 @@ class Race
      * @ORM\Column(type="text")
      * @Groups("browse_race")
      * @Groups("read_race")
+     * @Assert\NotBlank
      */
     private $quickDescription;
 
@@ -52,10 +62,17 @@ class Race
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Url
+     */
+    private $imageUrl;
+
+    /**
+     * @var string
      * @Groups("browse_race")
      * @Groups("read_race")
      */
-    private $imageUrl;
+    private $image;
 
     public function __construct()
     {
@@ -143,5 +160,15 @@ class Race
         $this->imageUrl = $imageUrl;
 
         return $this;
+    }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage()
+    {
+        $this->image = base64_encode(file_get_contents($this->imageUrl));
+
+        return $this->image;
     }
 }

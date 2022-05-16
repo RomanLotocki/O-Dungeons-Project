@@ -30,7 +30,7 @@ L'INSPIRATION DE L'AVENTURE
 Les bardes restent rarement longtemps au même endroit. Cette soif de voyage et de nouveaux récits les porte naturellement vers la carrière d'aventurier. Chaque quête est une occasion d'apprendre, de parfaire ses talents, d'accéder à des cryptes oubliées, de redécouvrir des œuvres magiques, de déchiffrer de vieux manuscrits, de fouler d'étranges contrées ou de croiser des créatures exotiques.
 Les bardes aiment voyager aux côtés de héros pour être les témoins directs de leurs exploits. Un barde qui relate avec brio une histoire extraordinaire qu'il a vécue s'assure une grande renommée auprès de ses pairs. D'ailleurs, à force de conter tant de récits épiques, beaucoup finissent par devenir eux-mêmes les acteurs de ces exploits.");
         $barde->setLifeDice("1d8");
-        $barde->setImageUrl("https://img2.freepng.fr/20180401/gxq/kisspng-dungeons-dragons-pathfinder-roleplaying-game-bar-pathfinder-5ac0fdefa2d766.790187751522597359667.jpg");
+        $barde->setImageUrl("asset/barde.png");
         $barde->addArmor($armorRepo->findOneBy(["name" => "Cuir"]));
         $barde->addWeapon($weaponRepo->findOneBy(["name" => "Rapière"]));
         $barde->addWeapon($weaponRepo->findOneBy(["name" => "Dague"]));
@@ -87,7 +87,7 @@ AGENTS DIVINS
 Les acolytes et ecclésiastiques qui officient dans un temple ou sanctuaire ne sont pas tous clercs. Certains prêtres se contentent de servir au sein d'un lieu de culte et de contribuer à la volonté divine par la prière et le sacrifice, sans jamais recourir à la magie ni aux armes. Dans certaines villes, la prêtrise n'est d'ailleurs qu'une fonction politique qui ne demande aucune communion avec un dieu. Les vrais clercs restent rares.
 Lorsqu'un clerc s'engage sur la voie de l'aventure, c'est généralement pour satisfaire la demande d'un dieu. Ce sentier lui demandera souvent de braver des périls hors des murs de la civilisation. Nombreux sont les clercs tenus de protéger les fidèles de leur divinité, ce qui peut impliquer d'affronter des monstres enragés, de négocier des accords de paix entre nations ou de condamner un portail démoniaque ou diabolique.");
         $clerc->setLifeDice("1d8");
-        $clerc->setImageUrl("https://img2.freepng.fr/20180404/kie/kisspng-dungeons-dragons-aion-pathfinder-roleplaying-gam-female-5ac541a9dab899.2275695015228768418959.jpg");
+        $clerc->setImageUrl("asset/clerc.png");
         $clerc->addArmor($armorRepo->findOneBy(["name" => "Ecailles"]));
         $clerc->addArmor($armorRepo->findOneBy(["name" => "Bouclier"]));
         $clerc->addWeapon($weaponRepo->findOneBy(["name" => "Masse d'armes"]));
@@ -139,7 +139,7 @@ DES SPÉCIALISTES COMPLETS
 
 Tout guerrier qui se respecte peut manier efficacement n'importe quelle arme. De même, il saura se servir d'un bouclier et de tout type d'armure. Outre ces rudiments, chaque guerrier se spécialise dans un style de combat. Certains optent pour l'arc, d'autres préfèrent se battre avec une arme dans chaque main, et d'autres encore apprennent à renforcer leurs talents martiaux de magie. Cette alliance de fondamentaux solides et de discipline de fer en fait des combattants remarquables.");
         $guerrier->setLifeDice("1d10");
-        $guerrier->setImageUrl("https://img2.freepng.fr/20180218/zpe/kisspng-plate-armour-knight-dungeons-dragons-body-armor-ax-warrior-5a8a42cc6415a4.77560945151901050841.jpg");
+        $guerrier->setImageUrl("asset/guerrier.png");
         $guerrier->addArmor($armorRepo->findOneBy(["name" => "Cotte de mailles"]));
         $guerrier->addArmor($armorRepo->findOneBy(["name" => "Bouclier"]));
         $guerrier->addWeapon($weaponRepo->findOneBy(["name" => "Épée longue"]));
@@ -162,7 +162,7 @@ L'ATTRAIT DU SAVOIR
 
 La vie d'un magicien est rarement ordinaire. Les moins excentriques d'entre eux travaillent comme sages ou professeurs au sein d'une bibliothèque ou d'une université, où ils enseignent à d'autres les secrets du multivers. Mais l'attrait du savoir et de la puissance finit par être entendu par les moins aventureux des magiciens, qui renoncent alors à la sécurité des rayonnages et des laboratoires pour plonger au cœur de ruines et de cités perdues. La plupart des magiciens sont convaincus que leurs homologues des civilisations antiques maîtrisaient des arcanes que le temps a oblitérés, des secrets dont la redécouverte pourrait ouvrir les portes d'un pouvoir plus immense que ce qu'offrent toutes les magies contemporaines.");
         $magicien->setLifeDice("1d6");
-        $magicien->setImageUrl("https://img2.freepng.fr/20180701/quz/kisspng-dungeons-dragons-pathfinder-roleplaying-game-d20-5b398d742e91e8.6989429315304984201908.jpg");
+        $magicien->setImageUrl("asset/magicien.png");
         $magicien->addWeapon($weaponRepo->findOneBy(["name" => "Bâton"]));
         // abilities level 0
         $magicien->addAbility($abilityRepo->findOneBy(["name" => "Aspersion acide"]));
@@ -225,7 +225,7 @@ La vie d'un magicien est rarement ordinaire. Les moins excentriques d'entre eux 
 ADRESSE ET PRÉCISION
 Les roublards jouissent d'une expertise à laquelle peu d'aventuriers peuvent prétendre. Beaucoup se consacrent à la discrétion et la tromperie, d'autres soignent des talents comme l'escalade, la détection des pièges et leur désarmement, ou le crochetage des serrures. En matière de combat, les roublards misent davantage sur la ruse que la force brute. Ils préfèrent asséner une attaque précise à l'endroit où elle fera le plus mal, plutôt que de terrasser l'adversaire en le rouant de coups.");
         $roublard->setLifeDice("1d8");
-        $roublard->setImageUrl("https://img2.freepng.fr/20180326/fke/kisspng-dungeons-dragons-pathfinder-roleplaying-game-con-thief-5ab95fbc1d9856.8158358915220981081212.jpg");
+        $roublard->setImageUrl("asset/roublard.png");
         $roublard->addWeapon($weaponRepo->findOneBy(["name" => "Rapière"]));
         $roublard->addWeapon($weaponRepo->findOneBy(["name" => "Arc court"]));
         $roublard->addWeapon($weaponRepo->findOneBy(["name" => "Dague"]));

@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\PlayableClassItems;
+use App\Entity\PlayableClassItem;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<PlayableClassItems>
+ * @extends ServiceEntityRepository<PlayableClassItem>
  *
- * @method PlayableClassItems|null find($id, $lockMode = null, $lockVersion = null)
- * @method PlayableClassItems|null findOneBy(array $criteria, array $orderBy = null)
- * @method PlayableClassItems[]    findAll()
- * @method PlayableClassItems[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PlayableClassItem|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PlayableClassItem|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PlayableClassItem[]    findAll()
+ * @method PlayableClassItem[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PlayableClassItemsRepository extends ServiceEntityRepository
+class PlayableClassItemRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, PlayableClassItems::class);
+        parent::__construct($registry, PlayableClassItem::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(PlayableClassItems $entity, bool $flush = false): void
+    public function add(PlayableClassItem $entity, bool $flush = false): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class PlayableClassItemsRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(PlayableClassItems $entity, bool $flush = false): void
+    public function remove(PlayableClassItem $entity, bool $flush = false): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,7 +48,7 @@ class PlayableClassItemsRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return PlayableClassItems[] Returns an array of PlayableClassItems objects
+//     * @return PlayableClassItem[] Returns an array of PlayableClassItem objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -62,7 +62,7 @@ class PlayableClassItemsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?PlayableClassItems
+//    public function findOneBySomeField($value): ?PlayableClassItem
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')

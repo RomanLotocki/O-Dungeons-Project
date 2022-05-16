@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -27,6 +28,8 @@ class Ability
      * @ORM\Column(type="string", length=255)
      * @Groups("browse_abilities")
      * @Groups("read_abilities")
+     * @Assert\NotBlank
+     * @Assert\Length(max=255, maxMessage="Nombre de caractères autorisés dépassés ({{ value }}), maximum 255")
      */
     private $name;
 
@@ -45,24 +48,28 @@ class Ability
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_abilities")
+     * @Assert\NotBlank
      */
     private $incantationTime;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_abilities")
+     * @Assert\NotBlank
      */
     private $abilityRange;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_abilities")
+     * @Assert\NotBlank
      */
     private $component;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("read_abilities")
+     * @Assert\NotBlank
      */
     private $duration;
 

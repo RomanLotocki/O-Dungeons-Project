@@ -86,11 +86,11 @@ class PlayableClassController extends AbstractController
     }
 
     /**
-     * Récupère une classe au hasard
+     * Récupère deux classes au hasard
      * @Route("/random", name="random_one", methods={"GET"})
      * @OA\Response(
      *      response=200,
-     *      description="Retourne une classe au hasard",
+     *      description="Retourne deux classes au hasard",
      *      @OA\JsonContent(
      *        type="array",
      *        @OA\Items(ref=@Model(type=PlayableClass::class, groups={"browse_class"}))

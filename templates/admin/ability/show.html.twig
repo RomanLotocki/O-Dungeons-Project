@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ability.name}}{% endblock %}
+
+{% block body %}
+    <h1>{{ability.name}}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ability.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ ability.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ ability.description }}</td>
+            </tr>
+            <tr>
+                <th>Temps d'incantation</th>
+                <td>{{ ability.incantationTime }}</td>
+            </tr>
+            <tr>
+                <th>Portée</th>
+                <td>{{ ability.abilityRange }}</td>
+            </tr>
+            <tr>
+                <th>Composantes</th>
+                <td>{{ ability.component }}</td>
+            </tr>
+            <tr>
+                <th>Durée</th>
+                <td>{{ ability.duration }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary mb-3" href="{{ path('app_admin_ability_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-warning mb-3" href="{{ path('app_admin_ability_edit', {'id': ability.id}) }}">Modifier</a>
+
+    {{ include('admin/ability/_delete_form.html.twig') }}
+{% endblock %}

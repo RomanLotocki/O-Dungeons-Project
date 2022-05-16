@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur O'Dungeons{% endblock %}
+
+{% block body %}
+    <div class="row text-center mb-4 border border-1 rounded">
+        <h2 class="bg-light py-2 border-bottom mb-0">Les 5 dernières classes</h2>
+        <div class="list-group list-group-flush px-0">
+            {% for class in classes %}
+                <a class="list-group-item list-group-item-action" href="{{ path('app_admin_playable_class_show', {"id": class.id}) }}">{{class.name}}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row text-center mb-4 border border-1 rounded">
+        <h2 class="bg-light py-2 border-bottom mb-0">Les 5 dernières races</h2>
+        <div class="list-group list-group-flush px-0">            
+            {% for race in races %}
+                <a class="list-group-item list-group-item-action" href="{{ path('app_admin_races_read', {"id": race.id}) }}">{{race.name}}</a>
+            {% endfor %}            
+        </div>
+    </div>
+</div>
+       
+{% endblock %}

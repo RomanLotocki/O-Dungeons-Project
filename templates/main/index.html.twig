@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Backoffice{% endblock %}
+
+{% block titlePage %}
+    <h1>Bienvenue sur le site back de O'Dungeons</h1>
+{% endblock %}
+
+{% block body %}
+<h2 class="my-2">Cliquer sur le bouton pour accéder au :</h2>
+<a class="btn btn-primary" href={{ path('app_admin_home') }}>Backoffice</a>
+<h2 class="my-2">Cliquer sur le bouton pour accéder au :</h2>
+<a class="btn btn-primary" href={{ path('app.swagger_ui') }}>Doc API</a>
+{% endblock %}

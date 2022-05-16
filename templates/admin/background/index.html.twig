@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les historiques{% endblock %}
+
+{% block body %}
+    <h1>Liste des historiques</h1>
+    <a class="btn btn-success" href="{{ path('app_admin_background_new') }}">Ajouter un historique</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Maîtrises de compétence</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for background in backgrounds %}
+            <tr>
+                <td>{{ background.id }}</td>
+                <td>{{ background.name }}</td>
+                <td>{{ background.capacities }}</td>
+                <td>
+                    <a class="btn btn-primary mb-1" href="{{ path('app_admin_background_show', {'id': background.id}) }}">Détails</a>
+                    <a class="btn btn-warning mb-1" href="{{ path('app_admin_background_edit', {'id': background.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'historique trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

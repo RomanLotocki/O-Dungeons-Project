@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'historique {{ background.name }}{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'historique {{ background.name }}</h1>
+
+    {{ include('admin/background/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a class="btn btn-primary my-2" href="{{ path('app_admin_background_index') }}">Retour à la liste</a>
+
+    {{ include('admin/background/_delete_form.html.twig') }}
+{% endblock %}
