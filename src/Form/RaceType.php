@@ -41,7 +41,8 @@ class RaceType extends AbstractType
                 ]
             ])
             ->add('save', SubmitType::class, [
-                "label" => "Sauvegarder cette race"
+                "label" => "Sauvegarder cette race",
+                "attr" => ["class" => "btn-success"]
             ])
         ;
     }

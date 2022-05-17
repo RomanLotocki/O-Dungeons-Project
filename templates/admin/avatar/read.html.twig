@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des races{% endblock %}
+{% block title %}{{avatar.name}} #{{avatar.id}}{% endblock %}
 
 {% block body %}
 <div class="container pt-5">
@@ -8,8 +8,8 @@
 
     <img src="{{avatar.imageUrl}}" class="rounded d-block mb-3">
     
-    <a class="btn btn-primary mb-3" href="{{ path('app_admin_avatars_browser')}}">Retour à la liste</a>
-    <a class="btn btn-warning mb-3" href="{{ path('app_admin_avatars_edit', {"id": avatar.id}) }}">Modifier</a>
+    <a class="btn btn-primary mb-2" href="{{ path('app_admin_avatars_browser')}}">Retour à la liste</a>
+    <a class="btn btn-warning mb-2" href="{{ path('app_admin_avatars_edit', {"id": avatar.id}) }}">Modifier</a>
     {% if is_granted('ROLE_ADMIN') %}
         <form class="my-2" method="post" action="{{ path('app_admin_avatars_delete', {'id': avatar.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette race ?');">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ avatar.id) }}">

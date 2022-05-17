@@ -38,9 +38,9 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary mb-3" href="{{ path('app_admin_armor_index') }}">Retour à la liste</a>
+    <a class="btn btn-primary mb-2" href="{{ path('app_admin_armor_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-warning mb-3" href="{{ path('app_admin_armor_edit', {'id': armor.id}) }}">Modifier</a>
+    <a class="btn btn-warning mb-2" href="{{ path('app_admin_armor_edit', {'id': armor.id}) }}">Modifier</a>
     
     {{ include('admin/armor/_delete_form.html.twig') }}
 {% endblock %}

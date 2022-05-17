@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('app_admin_subclass_index') }}">Retour à la liste</a>
+    <a class="btn btn-primary mb-2" href="{{ path('app_admin_subclass_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-warning" href="{{ path('app_admin_subclass_edit', {'id': subclass.id}) }}">Modifier</a>
+    <a class="btn btn-warning mb-2" href="{{ path('app_admin_subclass_edit', {'id': subclass.id}) }}">Modifier</a>
 
     {{ include('admin/subclass/_delete_form.html.twig') }}
 {% endblock %}
