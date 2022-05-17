@@ -8,7 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -28,6 +27,7 @@ class RaceType extends AbstractType
             ->add('quickDescription', TextareaType::class, [
                 "label" => "La description rapide de la race"
             ])
+            // Same explanation as the PlayableClassType
             ->add('imageFile', FileType::class, [
                 "label" => "L'image de la race",
                 'constraints' => [

@@ -13,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -32,8 +31,10 @@ class PlayableClassType extends AbstractType
             ->add('lifeDice', TextType::class, [
                 "label" => "Le dès de vie de la classe"
             ])
+            // Generates a file field, in our form, to upload a new PNG image
             ->add('imageFile', FileType::class, [
                 "label" => "L'image de la classe",
+                // This is managing the contraints about the uploaded file
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',
@@ -68,11 +69,18 @@ class PlayableClassType extends AbstractType
                 'multiple' => true,
                 'expanded' => true
             ])
+            // Allows us to render multiple forms. We use it to handle the relation between PlayableClass and Item through the entity PlayableClassItem
             ->add('playableClassItems', CollectionType::class, [
+                // The type of form we want to render. Each form represents a relation 
                 'entry_type' => PlayableClassItemType::class,
                 'label' => false,
+                // Allows us to add a new form
                 'allow_add' => true,
+                // Allows us to delete a form
                 'allow_delete' => true,
+                // At the creation of a relation, this allows us to use the method PlayableClass::addPlayableClassItem instead of PlayableClassItemRepository::add
+                // Because of this, each new relation is related to this PlayableClass
+                // Same way for delete
                 'by_reference' => false
             ])
         ;

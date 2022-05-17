@@ -53,13 +53,13 @@ class PlayableClass
     private $lifeDice;
 
     /**
-     * The image URL to the folder asset
+     * The image URL to the folder asset (this is the part send in DB)
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageUrl;
 
     /**
-     * The image encode in base64
+     * The image encode in base64 (only used in JSON response)
      * @Groups("browse_class")
      * @Groups("read_class")
      *
@@ -68,7 +68,7 @@ class PlayableClass
     private $image;
 
     /**
-     * The image file
+     * The image file (only used in form for uploading)
      */
     private $imageFile;
 
