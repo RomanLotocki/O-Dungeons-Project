@@ -24,15 +24,15 @@
                 <td>{{ playable_class.lifeDice }}</td>
             </tr>
             <tr>
-                <th>Lien de l'image</th>
-                <td>{{ playable_class.imageUrl }}</td>
+                <th>L'image</th>
+                <td><img src="{{ asset(playable_class.imageUrl) }}"></td>
             </tr>
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('app_admin_playable_class_index') }}">Retour à la liste</a>
+    <a class="btn btn-primary mb-2" href="{{ path('app_admin_playable_class_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-warning" href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">Modifier</a>
+    <a class="btn btn-warning mb-2" href="{{ path('app_admin_playable_class_edit', {'id': playable_class.id}) }}">Modifier</a>
 
     {{ include('admin/playable_class/_delete_form.html.twig') }}
 {% endblock %}

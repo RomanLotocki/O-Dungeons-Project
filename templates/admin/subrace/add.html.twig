@@ -5,5 +5,11 @@
 {% block body %}
     {{form(form, {'attr': {'novalidate': 'novalidate'}})}}
 
+    {% if is_granted('ROLE_ADMIN') and app.request.pathInfo matches '{.+/modifier$}' %}
+        <form class="mb-2" method="post" action="{{ path('app_admin_subraces_delete', {'id': subrace.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette sous-race ?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subrace.id) }}">
+            <button class="btn btn-danger">Supprimer</button>
+        </form>
+    {% endif %}
     <a class="btn btn-primary mb-3" href="{{ path('app_admin_subraces_browser')}}">Retour à la liste</a>
 {% endblock %}

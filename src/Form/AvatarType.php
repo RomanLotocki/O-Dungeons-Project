@@ -22,7 +22,8 @@ class AvatarType extends AbstractType
                 "label" => "Le lien de l'image qui servira d'avatar"
             ])
             ->add('save', SubmitType::class, [
-                "label" => "Sauvegarder cet avatar"
+                "label" => "Sauvegarder cet avatar",
+                "attr" => ["class" => "btn-success"]
             ])
         ;
     }

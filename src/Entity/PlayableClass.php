@@ -53,19 +53,24 @@ class PlayableClass
     private $lifeDice;
 
     /**
+     * The image URL to the folder asset (this is the part send in DB)
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank
-     * @Assert\Url
      */
     private $imageUrl;
 
     /**
+     * The image encode in base64 (only used in JSON response)
      * @Groups("browse_class")
      * @Groups("read_class")
      *
      * @var string
      */
     private $image;
+
+    /**
+     * The image file (only used in form for uploading)
+     */
+    private $imageFile;
 
     /**
      * @ORM\OneToMany(targetEntity=Subclass::class, mappedBy="playableClass", orphanRemoval=true)
@@ -317,5 +322,25 @@ class PlayableClass
     {
         $this->image = base64_encode(file_get_contents($this->imageUrl));
         return $this->image;
+    }
+
+    /**
+     * Get the
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the
+     *
+     * @return  self
+     */ 
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+
+        return $this;
     }
 }

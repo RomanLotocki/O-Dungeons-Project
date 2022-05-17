@@ -4,6 +4,11 @@
 
 {% block body %}
     <h1>Ajouter une classe</h1>
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger mt-2" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     {{ include('admin/playable_class/_form.html.twig') }}
 

@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/admin/races", name="app_admin_races_")
@@ -51,13 +52,21 @@ class RaceController extends AbstractController
      *
      * @return Response
      */
-    public function edit(Request $request, Race $race, EntityManagerInterface $manager): Response
+    public function edit(Request $request, Race $race, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(RaceType::class, $race);
         $form->handleRequest($request);
 
         // Managing POST method
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($form['imageFile']->getData() !== null) {
+                $fileName = $slugger->slug($race->getName())->lower() . ".png";
+                $file = $form['imageFile']->getData();
+                $file->move('asset', $fileName);
+
+                $race->setImageUrl('asset/' . $fileName);
+            }
+
             $manager->flush();
 
             return $this->redirectToRoute("app_admin_races_read", ["id" => $race->getId()]);
@@ -77,7 +86,7 @@ class RaceController extends AbstractController
      *
      * @return Response
      */
-    public function add(Request $request, EntityManagerInterface $manager): Response
+    public function add(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
         $race = new Race;
 
@@ -86,11 +95,25 @@ class RaceController extends AbstractController
 
         // Managing POST method
         if ($form->isSubmitted() && $form->isValid()) {
-            $manager->persist($race);
+            if ($form['imageFile']->getData() === null) {
+                $this->addFlash(
+                    'error',
+                    'Veuillez téléverser une image'
+                );
+            }
+            else {
+                $fileName = $slugger->slug($race->getName())->lower() . ".png";
+                $file = $form['imageFile']->getData();
+                $file->move('asset', $fileName);
 
-            $manager->flush();
+                $race->setImageUrl('asset/' . $fileName);
 
-            return $this->redirectToRoute("app_admin_races_read", ["id" => $race->getId()]);
+                $manager->persist($race);
+
+                $manager->flush();
+
+                return $this->redirectToRoute("app_admin_races_read", ["id" => $race->getId()]);
+            }
         }
 
         // Managing GET method
@@ -110,9 +133,16 @@ class RaceController extends AbstractController
      */
     public function delete(Request $request, Race $race, EntityManagerInterface $em): Response
     {
+        //Pour supprimer le fichier png dans asset.
+        $imageFile = $race->getImageUrl();
+        if (file_exists($imageFile)) {
+            unlink($imageFile);
+        }
+
         if($this->isCsrfTokenValid('delete'.$race->getId(), $request->request->get('_token'))){
             $em->remove($race);
             $em->flush();
+            
         }
         
         return $this->redirectToRoute('app_admin_races_browser');

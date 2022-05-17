@@ -31,10 +31,10 @@
     </tbody>
     </table>
     
-    <a class="btn btn-primary mb-3" href="{{ path('app_admin_subraces_browser')}}">Retour à la liste</a>
-    <a class="btn btn-warning mb-3" href="{{ path('app_admin_subraces_edit', {"id": subrace.id}) }}">Modifier</a>
+    <a class="btn btn-primary mb-2" href="{{ path('app_admin_subraces_browser')}}">Retour à la liste</a>
+    <a class="btn btn-warning mb-2" href="{{ path('app_admin_subraces_edit', {"id": subrace.id}) }}">Modifier</a>
     {% if is_granted('ROLE_ADMIN') %}
-    <form class="my-2" method="post" action="{{ path('app_admin_subraces_delete', {'id': subrace.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette sous-race ?');">
+    <form class="mb-2" method="post" action="{{ path('app_admin_subraces_delete', {'id': subrace.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette sous-race ?');">
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subrace.id) }}">
         <button class="btn btn-danger">Supprimer</button>
     </form>

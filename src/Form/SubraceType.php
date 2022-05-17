@@ -56,7 +56,8 @@ class SubraceType extends AbstractType
                 "expanded" => false
             ])
             ->add('save', SubmitType::class, [
-                "label" => "Sauvegarder"
+                "label" => "Sauvegarder",
+                "attr" => ["class" => "btn-success"]
             ])
         ;
     }
