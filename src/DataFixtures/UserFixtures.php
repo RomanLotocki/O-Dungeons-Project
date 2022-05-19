@@ -21,7 +21,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $avatarRepo = $manager->getRepository(Avatar::class);
-        $avatars = $avatarRepo->findAll();
+        $avatar = $avatarRepo->findOneBy(["name" => "Default"]);
 
         // ? USER
         $user = new User();
@@ -36,7 +36,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setFirstName('User');
         $user->setLastName('User');
         $user->setRoles(['ROLE_USER']);
-        $user->setAvatar($avatars[rand(0, count($avatars) - 1)]);
+        $user->setAvatar($avatar);
 
         $manager->persist($user);
 
@@ -52,7 +52,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setFirstName('Manager');
         $user->setLastName('Manager');
         $user->setRoles(['ROLE_MANAGER']);
-        $user->setAvatar($avatars[rand(0, count($avatars) - 1)]);
+        $user->setAvatar($avatar);
 
         $manager->persist($user);
 
@@ -69,7 +69,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setFirstName('Admin');
         $user->setLastName('Admin');
         $user->setRoles(['ROLE_ADMIN']);
-        $user->setAvatar($avatars[rand(0, count($avatars) - 1)]);
+        $user->setAvatar($avatar);
 
         $manager->persist($user);
 
@@ -88,7 +88,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setFirstName("SuperAdmin");
         $user->setLastName("SuperAdmin");
         $user->setRoles(['ROLE_SUPERADMIN']);
-        $user->setAvatar($avatars[rand(0, count($avatars) - 1)]);
+        $user->setAvatar($avatar);
 
         $manager->persist($user);
 

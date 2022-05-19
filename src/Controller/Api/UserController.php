@@ -11,6 +11,7 @@ use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use App\Form\UserAddType;
 use App\Form\UserEditType;
+use App\Repository\AvatarRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,7 +47,8 @@ class UserController extends AbstractController
         EntityManagerInterface $em,
         ValidatorInterface $validator,
         UserPasswordHasherInterface $hasher,
-        JWTTokenManagerInterface $JWTManager
+        JWTTokenManagerInterface $JWTManager,
+        AvatarRepository $avatarRepository
     ): JsonResponse
     {
         try {
@@ -70,6 +72,7 @@ class UserController extends AbstractController
             $plaintextPassword
         );
 
+        $user->setAvatar($avatarRepository->findOneBy(["name" => ["Default"]]));
         $user->setPassword($hashedPassword);
 
         $em->persist($user);
@@ -146,7 +149,7 @@ class UserController extends AbstractController
 
         $em->flush();
 
-        return $this->json(['token' => $JWTManager->create($user), 'user' => $user], Response::HTTP_OK, [], ["groups" => "read_user"]);
+        return $this->json(['user' => $user], Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 
     /**
