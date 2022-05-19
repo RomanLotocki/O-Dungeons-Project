@@ -218,4 +218,55 @@ class UserController extends AbstractController
 
         return $this->json(['token' => $JWTManager->create($user), 'user' => $user], Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
+
+    /**
+     * @Route("/{id}/avatar", name="editAvatar", methods={"PATCH"}, requirements={"id": "\d+"})
+     *
+     * @OA\Response(
+     *      response=200,
+     *      description="Retourne l'utilisateur modifié",
+     *      @Model(type=User::class, groups={"read_user"})      
+     * )
+     * @OA\RequestBody(
+     *      @OA\JsonContent(
+     *          example={
+     *             "avatar": 1,
+     *         }
+     *      )      
+     * )
+     */
+    public function editAvatar(
+        User $user,
+        AvatarRepository $avatarRepository,
+        EntityManagerInterface $em,
+        Request $request
+    ) {
+        if ($user === null) {
+            return $this->json("Utilisateur non trouvé", Response::HTTP_NOT_FOUND);
+        }
+
+        try {
+            $avatar = $avatarRepository->find(json_decode($request->getContent())->avatar);
+        } catch (Exception $e) {
+            return $this->json(
+                "JSON mal formé",
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        if ($avatar === null) {
+            return $this->json(
+                "Avatar non trouvé",
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        $user->setAvatar($avatar);
+
+        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
+
+        $em->flush();
+
+        return $this->json($user, Response::HTTP_OK, [], ["groups" => ["read_user"]]);
+    }
 }
