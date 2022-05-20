@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/Apothéose/projet-17-o-dungeons-back/src/Entity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/var/www/html/Apothéose/projet-17-o-dungeons-back/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Entity</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Ability.php.html#16">App\Entity\Ability</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#15">App\Entity\Armor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#15">App\Entity\Avatar</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#15">App\Entity\Background</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#13">App\Entity\PlayableClassItem</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#13">App\Entity\Subclass</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#13">App\Entity\Subrace</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#15">App\Entity\Weapon</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#15">App\Entity\PlayableClass</a></td><td class="text-right">3%</td></tr>
+       <tr><td><a href="Race.php.html#15">App\Entity\Race</a></td><td class="text-right">6%</td></tr>
+       <tr><td><a href="User.php.html#17">App\Entity\User</a></td><td class="text-right">24%</td></tr>
+       <tr><td><a href="Item.php.html#15">App\Entity\Item</a></td><td class="text-right">34%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="PlayableClass.php.html#15">App\Entity\PlayableClass</a></td><td class="text-right">1417</td></tr>
+       <tr><td><a href="Ability.php.html#16">App\Entity\Ability</a></td><td class="text-right">462</td></tr>
+       <tr><td><a href="Race.php.html#15">App\Entity\Race</a></td><td class="text-right">382</td></tr>
+       <tr><td><a href="Armor.php.html#15">App\Entity\Armor</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Weapon.php.html#15">App\Entity\Weapon</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Background.php.html#15">App\Entity\Background</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Avatar.php.html#15">App\Entity\Avatar</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Item.php.html#15">App\Entity\Item</a></td><td class="text-right">97</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Ability.php.html#81"><abbr title="App\Entity\Ability::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#78"><abbr title="App\Entity\Subclass::getPlayableClass">getPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#188"><abbr title="App\Entity\Race::setImage">setImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#198"><abbr title="App\Entity\Race::getImageFile">getImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#208"><abbr title="App\Entity\Race::setImageFile">setImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#49"><abbr title="App\Entity\Subclass::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#54"><abbr title="App\Entity\Subclass::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#59"><abbr title="App\Entity\Subclass::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#66"><abbr title="App\Entity\Subclass::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#71"><abbr title="App\Entity\Subclass::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subclass.php.html#83"><abbr title="App\Entity\Subclass::setPlayableClass">setPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#163"><abbr title="App\Entity\Race::setImageUrl">setImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#126"><abbr title="App\Entity\Subrace::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#131"><abbr title="App\Entity\Subrace::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#136"><abbr title="App\Entity\Subrace::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#143"><abbr title="App\Entity\Subrace::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#148"><abbr title="App\Entity\Subrace::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#155"><abbr title="App\Entity\Subrace::getImageUrl">getImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#160"><abbr title="App\Entity\Subrace::setImageUrl">setImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#167"><abbr title="App\Entity\Subrace::getStrength">getStrength</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#173"><abbr title="App\Entity\Race::getImage">getImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#158"><abbr title="App\Entity\Race::getImageUrl">getImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#179"><abbr title="App\Entity\Subrace::getDexterity">getDexterity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#72"><abbr title="App\Entity\PlayableClassItem::getItem">getItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#321"><abbr title="App\Entity\PlayableClass::getImage">getImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#330"><abbr title="App\Entity\PlayableClass::getImageFile">getImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#340"><abbr title="App\Entity\PlayableClass::setImageFile">setImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#43"><abbr title="App\Entity\PlayableClassItem::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#48"><abbr title="App\Entity\PlayableClassItem::getQuantity">getQuantity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#53"><abbr title="App\Entity\PlayableClassItem::setQuantity">setQuantity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#60"><abbr title="App\Entity\PlayableClassItem::getPlayableClass">getPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#65"><abbr title="App\Entity\PlayableClassItem::setPlayableClass">setPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClassItem.php.html#77"><abbr title="App\Entity\PlayableClassItem::setItem">setItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#146"><abbr title="App\Entity\Race::removeSubrace">removeSubrace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#82"><abbr title="App\Entity\Race::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#97"><abbr title="App\Entity\Race::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#104"><abbr title="App\Entity\Race::getFullDescription">getFullDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#109"><abbr title="App\Entity\Race::setFullDescription">setFullDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#116"><abbr title="App\Entity\Race::getQuickDescription">getQuickDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#121"><abbr title="App\Entity\Race::setQuickDescription">setQuickDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#131"><abbr title="App\Entity\Race::getSubraces">getSubraces</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Race.php.html#136"><abbr title="App\Entity\Race::addSubrace">addSubrace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#172"><abbr title="App\Entity\Subrace::setStrength">setStrength</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#184"><abbr title="App\Entity\Subrace::setDexterity">setDexterity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#304"><abbr title="App\Entity\PlayableClass::getQuickDescription">getQuickDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#109"><abbr title="App\Entity\Weapon::getDamageDice">getDamageDice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#195"><abbr title="App\Entity\User::getAvatar">getAvatar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#200"><abbr title="App\Entity\User::setAvatar">setAvatar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#75"><abbr title="App\Entity\Weapon::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#80"><abbr title="App\Entity\Weapon::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#85"><abbr title="App\Entity\Weapon::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#90"><abbr title="App\Entity\Weapon::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#97"><abbr title="App\Entity\Weapon::getType">getType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#102"><abbr title="App\Entity\Weapon::setType">setType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#114"><abbr title="App\Entity\Weapon::setDamageDice">setDamageDice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#183"><abbr title="App\Entity\User::getFirstName">getFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#121"><abbr title="App\Entity\Weapon::getDamageType">getDamageType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#126"><abbr title="App\Entity\Weapon::setDamageType">setDamageType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#133"><abbr title="App\Entity\Weapon::getWeight">getWeight</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#138"><abbr title="App\Entity\Weapon::setWeight">setWeight</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#145"><abbr title="App\Entity\Weapon::getProperty">getProperty</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#150"><abbr title="App\Entity\Weapon::setProperty">setProperty</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#160"><abbr title="App\Entity\Weapon::getPlayableClasses">getPlayableClasses</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#165"><abbr title="App\Entity\Weapon::addPlayableClass">addPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#188"><abbr title="App\Entity\User::setFirstName">setFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#176"><abbr title="App\Entity\User::setLastName">setLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#191"><abbr title="App\Entity\Subrace::getConstitution">getConstitution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#244"><abbr title="App\Entity\Subrace::setTrait">setTrait</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#196"><abbr title="App\Entity\Subrace::setConstitution">setConstitution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#203"><abbr title="App\Entity\Subrace::getWisdom">getWisdom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#208"><abbr title="App\Entity\Subrace::setWisdom">setWisdom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#215"><abbr title="App\Entity\Subrace::getIntelligence">getIntelligence</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#220"><abbr title="App\Entity\Subrace::setIntelligence">setIntelligence</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#227"><abbr title="App\Entity\Subrace::getCharisma">getCharisma</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#232"><abbr title="App\Entity\Subrace::setCharisma">setCharisma</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#239"><abbr title="App\Entity\Subrace::getTrait">getTrait</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#251"><abbr title="App\Entity\Subrace::getRace">getRace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#171"><abbr title="App\Entity\User::getLastName">getLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Subrace.php.html#256"><abbr title="App\Entity\Subrace::setRace">setRace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#77"><abbr title="App\Entity\User::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#82"><abbr title="App\Entity\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#87"><abbr title="App\Entity\User::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#92"><abbr title="App\Entity\User::setEmail">setEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#112"><abbr title="App\Entity\User::getUsername">getUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#129"><abbr title="App\Entity\User::setRoles">setRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#144"><abbr title="App\Entity\User::setPassword">setPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#309"><abbr title="App\Entity\PlayableClass::setQuickDescription">setQuickDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#292"><abbr title="App\Entity\PlayableClass::removePlayableClassItem">removePlayableClassItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#86"><abbr title="App\Entity\Ability::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#152"><abbr title="App\Entity\Armor::setWeight">setWeight</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#104"><abbr title="App\Entity\Armor::setArmorType">setArmorType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#111"><abbr title="App\Entity\Armor::getArmorClass">getArmorClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#116"><abbr title="App\Entity\Armor::setArmorClass">setArmorClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#123"><abbr title="App\Entity\Armor::getStrength">getStrength</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#128"><abbr title="App\Entity\Armor::setStrength">setStrength</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#135"><abbr title="App\Entity\Armor::getDiscretion">getDiscretion</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#140"><abbr title="App\Entity\Armor::setDiscretion">setDiscretion</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#147"><abbr title="App\Entity\Armor::getWeight">getWeight</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#162"><abbr title="App\Entity\Armor::getPlayableClasses">getPlayableClasses</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#92"><abbr title="App\Entity\Armor::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#167"><abbr title="App\Entity\Armor::addPlayableClass">addPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#177"><abbr title="App\Entity\Armor::removePlayableClass">removePlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#48"><abbr title="App\Entity\Avatar::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#53"><abbr title="App\Entity\Avatar::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#58"><abbr title="App\Entity\Avatar::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#63"><abbr title="App\Entity\Avatar::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#70"><abbr title="App\Entity\Avatar::getImageUrl">getImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#75"><abbr title="App\Entity\Avatar::setImageUrl">setImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#99"><abbr title="App\Entity\Armor::getArmorType">getArmorType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#87"><abbr title="App\Entity\Armor::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#90"><abbr title="App\Entity\Avatar::addUser">addUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#139"><abbr title="App\Entity\Ability::getAbilityRange">getAbilityRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#91"><abbr title="App\Entity\Ability::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#96"><abbr title="App\Entity\Ability::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#103"><abbr title="App\Entity\Ability::getQuickDescription">getQuickDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#108"><abbr title="App\Entity\Ability::setQuickDescription">setQuickDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#115"><abbr title="App\Entity\Ability::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#120"><abbr title="App\Entity\Ability::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#127"><abbr title="App\Entity\Ability::getIncantationTime">getIncantationTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#132"><abbr title="App\Entity\Ability::setIncantationTime">setIncantationTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#144"><abbr title="App\Entity\Ability::setAbilityRange">setAbilityRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#82"><abbr title="App\Entity\Armor::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#151"><abbr title="App\Entity\Ability::getComponent">getComponent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#156"><abbr title="App\Entity\Ability::setComponent">setComponent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#163"><abbr title="App\Entity\Ability::getDuration">getDuration</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#168"><abbr title="App\Entity\Ability::setDuration">setDuration</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#178"><abbr title="App\Entity\Ability::getPlayableClasses">getPlayableClasses</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#183"><abbr title="App\Entity\Ability::addPlayableClass">addPlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Ability.php.html#193"><abbr title="App\Entity\Ability::removePlayableClass">removePlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Armor.php.html#76"><abbr title="App\Entity\Armor::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#85"><abbr title="App\Entity\Avatar::getUsers">getUsers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Avatar.php.html#100"><abbr title="App\Entity\Avatar::removeUser">removeUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#282"><abbr title="App\Entity\PlayableClass::addPlayableClassItem">addPlayableClassItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#205"><abbr title="App\Entity\PlayableClass::getAbilities">getAbilities</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#141"><abbr title="App\Entity\PlayableClass::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#148"><abbr title="App\Entity\PlayableClass::getLifeDice">getLifeDice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#153"><abbr title="App\Entity\PlayableClass::setLifeDice">setLifeDice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#160"><abbr title="App\Entity\PlayableClass::getImageUrl">getImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#165"><abbr title="App\Entity\PlayableClass::setImageUrl">setImageUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#175"><abbr title="App\Entity\PlayableClass::getSubclasses">getSubclasses</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#180"><abbr title="App\Entity\PlayableClass::addSubclass">addSubclass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#190"><abbr title="App\Entity\PlayableClass::removeSubclass">removeSubclass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#210"><abbr title="App\Entity\PlayableClass::addAbility">addAbility</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#129"><abbr title="App\Entity\PlayableClass::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#219"><abbr title="App\Entity\PlayableClass::removeAbility">removeAbility</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#229"><abbr title="App\Entity\PlayableClass::getArmors">getArmors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#234"><abbr title="App\Entity\PlayableClass::addArmor">addArmor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#243"><abbr title="App\Entity\PlayableClass::removeArmor">removeArmor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#253"><abbr title="App\Entity\PlayableClass::getWeapons">getWeapons</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#258"><abbr title="App\Entity\PlayableClass::addWeapon">addWeapon</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#267"><abbr title="App\Entity\PlayableClass::removeWeapon">removeWeapon</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#277"><abbr title="App\Entity\PlayableClass::getPlayableClassItems">getPlayableClassItems</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#136"><abbr title="App\Entity\PlayableClass::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PlayableClass.php.html#110"><abbr title="App\Entity\PlayableClass::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#68"><abbr title="App\Entity\Background::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#119"><abbr title="App\Entity\Background::setNbLanguage">setNbLanguage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#73"><abbr title="App\Entity\Background::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#78"><abbr title="App\Entity\Background::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#83"><abbr title="App\Entity\Background::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#90"><abbr title="App\Entity\Background::getCapacities">getCapacities</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#95"><abbr title="App\Entity\Background::setCapacities">setCapacities</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#102"><abbr title="App\Entity\Background::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#107"><abbr title="App\Entity\Background::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#114"><abbr title="App\Entity\Background::getNbLanguage">getNbLanguage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#129"><abbr title="App\Entity\Background::getItems">getItems</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Item.php.html#134"><abbr title="App\Entity\Item::removePlayableClassItem">removePlayableClassItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#134"><abbr title="App\Entity\Background::addItem">addItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#143"><abbr title="App\Entity\Background::removeItem">removeItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#150"><abbr title="App\Entity\Background::getNbGolds">getNbGolds</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Background.php.html#155"><abbr title="App\Entity\Background::setNbGolds">setNbGolds</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Item.php.html#92"><abbr title="App\Entity\Item::getBackgrounds">getBackgrounds</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Item.php.html#97"><abbr title="App\Entity\Item::addBackground">addBackground</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Item.php.html#107"><abbr title="App\Entity\Item::removeBackground">removeBackground</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Item.php.html#119"><abbr title="App\Entity\Item::getPlayableClassItems">getPlayableClassItems</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Item.php.html#124"><abbr title="App\Entity\Item::addPlayableClassItem">addPlayableClassItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Weapon.php.html#175"><abbr title="App\Entity\Weapon::removePlayableClass">removePlayableClass</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="PlayableClass.php.html#190"><abbr title="App\Entity\PlayableClass::removeSubclass">removeSubclass</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Race.php.html#146"><abbr title="App\Entity\Race::removeSubrace">removeSubrace</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Avatar.php.html#100"><abbr title="App\Entity\Avatar::removeUser">removeUser</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="PlayableClass.php.html#292"><abbr title="App\Entity\PlayableClass::removePlayableClassItem">removePlayableClassItem</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Item.php.html#134"><abbr title="App\Entity\Item::removePlayableClassItem">removePlayableClassItem</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Ability.php.html#183"><abbr title="App\Entity\Ability::addPlayableClass">addPlayableClass</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Weapon.php.html#165"><abbr title="App\Entity\Weapon::addPlayableClass">addPlayableClass</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Race.php.html#173"><abbr title="App\Entity\Race::getImage">getImage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Race.php.html#136"><abbr title="App\Entity\Race::addSubrace">addSubrace</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PlayableClass.php.html#282"><abbr title="App\Entity\PlayableClass::addPlayableClassItem">addPlayableClassItem</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PlayableClass.php.html#258"><abbr title="App\Entity\PlayableClass::addWeapon">addWeapon</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PlayableClass.php.html#234"><abbr title="App\Entity\PlayableClass::addArmor">addArmor</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PlayableClass.php.html#180"><abbr title="App\Entity\PlayableClass::addSubclass">addSubclass</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="PlayableClass.php.html#210"><abbr title="App\Entity\PlayableClass::addAbility">addAbility</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Ability.php.html#193"><abbr title="App\Entity\Ability::removePlayableClass">removePlayableClass</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Item.php.html#124"><abbr title="App\Entity\Item::addPlayableClassItem">addPlayableClassItem</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Item.php.html#107"><abbr title="App\Entity\Item::removeBackground">removeBackground</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Item.php.html#97"><abbr title="App\Entity\Item::addBackground">addBackground</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Background.php.html#134"><abbr title="App\Entity\Background::addItem">addItem</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Avatar.php.html#90"><abbr title="App\Entity\Avatar::addUser">addUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Armor.php.html#177"><abbr title="App\Entity\Armor::removePlayableClass">removePlayableClass</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Armor.php.html#167"><abbr title="App\Entity\Armor::addPlayableClass">addPlayableClass</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Weapon.php.html#175"><abbr title="App\Entity\Weapon::removePlayableClass">removePlayableClass</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.15</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> and <a href="https://phpunit.de/">PHPUnit 9.5.20</a> at Fri May 20 8:35:56 UTC 2022.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([8,2,0,1,1,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([176,0,0,0,0,0,0,0,0,0,0,15], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,21,"<a href=\"Ability.php.html#16\">App\\Entity\\Ability<\/a>"],[0,19,"<a href=\"Armor.php.html#15\">App\\Entity\\Armor<\/a>"],[0,12,"<a href=\"Avatar.php.html#15\">App\\Entity\\Avatar<\/a>"],[0,16,"<a href=\"Background.php.html#15\">App\\Entity\\Background<\/a>"],[34.61538461538461,17,"<a href=\"Item.php.html#15\">App\\Entity\\Item<\/a>"],[3.225806451612903,39,"<a href=\"PlayableClass.php.html#15\">App\\Entity\\PlayableClass<\/a>"],[0,7,"<a href=\"PlayableClassItem.php.html#13\">App\\Entity\\PlayableClassItem<\/a>"],[6.451612903225806,21,"<a href=\"Race.php.html#15\">App\\Entity\\Race<\/a>"],[0,7,"<a href=\"Subclass.php.html#13\">App\\Entity\\Subclass<\/a>"],[0,23,"<a href=\"Subrace.php.html#13\">App\\Entity\\Subrace<\/a>"],[24,18,"<a href=\"User.php.html#17\">App\\Entity\\User<\/a>"],[0,19,"<a href=\"Weapon.php.html#15\">App\\Entity\\Weapon<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Ability.php.html#81\">App\\Entity\\Ability::__construct<\/a>"],[0,1,"<a href=\"Ability.php.html#86\">App\\Entity\\Ability::getId<\/a>"],[0,1,"<a href=\"Ability.php.html#91\">App\\Entity\\Ability::getName<\/a>"],[0,1,"<a href=\"Ability.php.html#96\">App\\Entity\\Ability::setName<\/a>"],[0,1,"<a href=\"Ability.php.html#103\">App\\Entity\\Ability::getQuickDescription<\/a>"],[0,1,"<a href=\"Ability.php.html#108\">App\\Entity\\Ability::setQuickDescription<\/a>"],[0,1,"<a href=\"Ability.php.html#115\">App\\Entity\\Ability::getDescription<\/a>"],[0,1,"<a href=\"Ability.php.html#120\">App\\Entity\\Ability::setDescription<\/a>"],[0,1,"<a href=\"Ability.php.html#127\">App\\Entity\\Ability::getIncantationTime<\/a>"],[0,1,"<a href=\"Ability.php.html#132\">App\\Entity\\Ability::setIncantationTime<\/a>"],[0,1,"<a href=\"Ability.php.html#139\">App\\Entity\\Ability::getAbilityRange<\/a>"],[0,1,"<a href=\"Ability.php.html#144\">App\\Entity\\Ability::setAbilityRange<\/a>"],[0,1,"<a href=\"Ability.php.html#151\">App\\Entity\\Ability::getComponent<\/a>"],[0,1,"<a href=\"Ability.php.html#156\">App\\Entity\\Ability::setComponent<\/a>"],[0,1,"<a href=\"Ability.php.html#163\">App\\Entity\\Ability::getDuration<\/a>"],[0,1,"<a href=\"Ability.php.html#168\">App\\Entity\\Ability::setDuration<\/a>"],[0,1,"<a href=\"Ability.php.html#178\">App\\Entity\\Ability::getPlayableClasses<\/a>"],[0,2,"<a href=\"Ability.php.html#183\">App\\Entity\\Ability::addPlayableClass<\/a>"],[0,2,"<a href=\"Ability.php.html#193\">App\\Entity\\Ability::removePlayableClass<\/a>"],[0,1,"<a href=\"Armor.php.html#76\">App\\Entity\\Armor::__construct<\/a>"],[0,1,"<a href=\"Armor.php.html#82\">App\\Entity\\Armor::getId<\/a>"],[0,1,"<a href=\"Armor.php.html#87\">App\\Entity\\Armor::getName<\/a>"],[0,1,"<a href=\"Armor.php.html#92\">App\\Entity\\Armor::setName<\/a>"],[0,1,"<a href=\"Armor.php.html#99\">App\\Entity\\Armor::getArmorType<\/a>"],[0,1,"<a href=\"Armor.php.html#104\">App\\Entity\\Armor::setArmorType<\/a>"],[0,1,"<a href=\"Armor.php.html#111\">App\\Entity\\Armor::getArmorClass<\/a>"],[0,1,"<a href=\"Armor.php.html#116\">App\\Entity\\Armor::setArmorClass<\/a>"],[0,1,"<a href=\"Armor.php.html#123\">App\\Entity\\Armor::getStrength<\/a>"],[0,1,"<a href=\"Armor.php.html#128\">App\\Entity\\Armor::setStrength<\/a>"],[0,1,"<a href=\"Armor.php.html#135\">App\\Entity\\Armor::getDiscretion<\/a>"],[0,1,"<a href=\"Armor.php.html#140\">App\\Entity\\Armor::setDiscretion<\/a>"],[0,1,"<a href=\"Armor.php.html#147\">App\\Entity\\Armor::getWeight<\/a>"],[0,1,"<a href=\"Armor.php.html#152\">App\\Entity\\Armor::setWeight<\/a>"],[0,1,"<a href=\"Armor.php.html#162\">App\\Entity\\Armor::getPlayableClasses<\/a>"],[0,2,"<a href=\"Armor.php.html#167\">App\\Entity\\Armor::addPlayableClass<\/a>"],[0,2,"<a href=\"Armor.php.html#177\">App\\Entity\\Armor::removePlayableClass<\/a>"],[0,1,"<a href=\"Avatar.php.html#48\">App\\Entity\\Avatar::__construct<\/a>"],[0,1,"<a href=\"Avatar.php.html#53\">App\\Entity\\Avatar::getId<\/a>"],[0,1,"<a href=\"Avatar.php.html#58\">App\\Entity\\Avatar::getName<\/a>"],[0,1,"<a href=\"Avatar.php.html#63\">App\\Entity\\Avatar::setName<\/a>"],[0,1,"<a href=\"Avatar.php.html#70\">App\\Entity\\Avatar::getImageUrl<\/a>"],[0,1,"<a href=\"Avatar.php.html#75\">App\\Entity\\Avatar::setImageUrl<\/a>"],[0,1,"<a href=\"Avatar.php.html#85\">App\\Entity\\Avatar::getUsers<\/a>"],[0,2,"<a href=\"Avatar.php.html#90\">App\\Entity\\Avatar::addUser<\/a>"],[0,3,"<a href=\"Avatar.php.html#100\">App\\Entity\\Avatar::removeUser<\/a>"],[0,1,"<a href=\"Background.php.html#68\">App\\Entity\\Background::__construct<\/a>"],[0,1,"<a href=\"Background.php.html#73\">App\\Entity\\Background::getId<\/a>"],[0,1,"<a href=\"Background.php.html#78\">App\\Entity\\Background::getName<\/a>"],[0,1,"<a href=\"Background.php.html#83\">App\\Entity\\Background::setName<\/a>"],[0,1,"<a href=\"Background.php.html#90\">App\\Entity\\Background::getCapacities<\/a>"],[0,1,"<a href=\"Background.php.html#95\">App\\Entity\\Background::setCapacities<\/a>"],[0,1,"<a href=\"Background.php.html#102\">App\\Entity\\Background::getDescription<\/a>"],[0,1,"<a href=\"Background.php.html#107\">App\\Entity\\Background::setDescription<\/a>"],[0,1,"<a href=\"Background.php.html#114\">App\\Entity\\Background::getNbLanguage<\/a>"],[0,1,"<a href=\"Background.php.html#119\">App\\Entity\\Background::setNbLanguage<\/a>"],[0,1,"<a href=\"Background.php.html#129\">App\\Entity\\Background::getItems<\/a>"],[0,2,"<a href=\"Background.php.html#134\">App\\Entity\\Background::addItem<\/a>"],[0,1,"<a href=\"Background.php.html#143\">App\\Entity\\Background::removeItem<\/a>"],[0,1,"<a href=\"Background.php.html#150\">App\\Entity\\Background::getNbGolds<\/a>"],[0,1,"<a href=\"Background.php.html#155\">App\\Entity\\Background::setNbGolds<\/a>"],[100,1,"<a href=\"Item.php.html#54\">App\\Entity\\Item::__construct<\/a>"],[100,1,"<a href=\"Item.php.html#60\">App\\Entity\\Item::getId<\/a>"],[100,1,"<a href=\"Item.php.html#65\">App\\Entity\\Item::getName<\/a>"],[100,1,"<a href=\"Item.php.html#70\">App\\Entity\\Item::setName<\/a>"],[100,1,"<a href=\"Item.php.html#77\">App\\Entity\\Item::getWeight<\/a>"],[100,1,"<a href=\"Item.php.html#82\">App\\Entity\\Item::setWeight<\/a>"],[0,1,"<a href=\"Item.php.html#92\">App\\Entity\\Item::getBackgrounds<\/a>"],[0,2,"<a href=\"Item.php.html#97\">App\\Entity\\Item::addBackground<\/a>"],[0,2,"<a href=\"Item.php.html#107\">App\\Entity\\Item::removeBackground<\/a>"],[0,1,"<a href=\"Item.php.html#119\">App\\Entity\\Item::getPlayableClassItems<\/a>"],[0,2,"<a href=\"Item.php.html#124\">App\\Entity\\Item::addPlayableClassItem<\/a>"],[0,3,"<a href=\"Item.php.html#134\">App\\Entity\\Item::removePlayableClassItem<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#110\">App\\Entity\\PlayableClass::__construct<\/a>"],[100,1,"<a href=\"PlayableClass.php.html#119\">App\\Entity\\PlayableClass::getId<\/a>"],[100,1,"<a href=\"PlayableClass.php.html#124\">App\\Entity\\PlayableClass::getName<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#129\">App\\Entity\\PlayableClass::setName<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#136\">App\\Entity\\PlayableClass::getDescription<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#141\">App\\Entity\\PlayableClass::setDescription<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#148\">App\\Entity\\PlayableClass::getLifeDice<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#153\">App\\Entity\\PlayableClass::setLifeDice<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#160\">App\\Entity\\PlayableClass::getImageUrl<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#165\">App\\Entity\\PlayableClass::setImageUrl<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#175\">App\\Entity\\PlayableClass::getSubclasses<\/a>"],[0,2,"<a href=\"PlayableClass.php.html#180\">App\\Entity\\PlayableClass::addSubclass<\/a>"],[0,3,"<a href=\"PlayableClass.php.html#190\">App\\Entity\\PlayableClass::removeSubclass<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#205\">App\\Entity\\PlayableClass::getAbilities<\/a>"],[0,2,"<a href=\"PlayableClass.php.html#210\">App\\Entity\\PlayableClass::addAbility<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#219\">App\\Entity\\PlayableClass::removeAbility<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#229\">App\\Entity\\PlayableClass::getArmors<\/a>"],[0,2,"<a href=\"PlayableClass.php.html#234\">App\\Entity\\PlayableClass::addArmor<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#243\">App\\Entity\\PlayableClass::removeArmor<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#253\">App\\Entity\\PlayableClass::getWeapons<\/a>"],[0,2,"<a href=\"PlayableClass.php.html#258\">App\\Entity\\PlayableClass::addWeapon<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#267\">App\\Entity\\PlayableClass::removeWeapon<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#277\">App\\Entity\\PlayableClass::getPlayableClassItems<\/a>"],[0,2,"<a href=\"PlayableClass.php.html#282\">App\\Entity\\PlayableClass::addPlayableClassItem<\/a>"],[0,3,"<a href=\"PlayableClass.php.html#292\">App\\Entity\\PlayableClass::removePlayableClassItem<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#304\">App\\Entity\\PlayableClass::getQuickDescription<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#309\">App\\Entity\\PlayableClass::setQuickDescription<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#321\">App\\Entity\\PlayableClass::getImage<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#330\">App\\Entity\\PlayableClass::getImageFile<\/a>"],[0,1,"<a href=\"PlayableClass.php.html#340\">App\\Entity\\PlayableClass::setImageFile<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#43\">App\\Entity\\PlayableClassItem::getId<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#48\">App\\Entity\\PlayableClassItem::getQuantity<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#53\">App\\Entity\\PlayableClassItem::setQuantity<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#60\">App\\Entity\\PlayableClassItem::getPlayableClass<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#65\">App\\Entity\\PlayableClassItem::setPlayableClass<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#72\">App\\Entity\\PlayableClassItem::getItem<\/a>"],[0,1,"<a href=\"PlayableClassItem.php.html#77\">App\\Entity\\PlayableClassItem::setItem<\/a>"],[0,1,"<a href=\"Race.php.html#82\">App\\Entity\\Race::__construct<\/a>"],[100,1,"<a href=\"Race.php.html#87\">App\\Entity\\Race::getId<\/a>"],[100,1,"<a href=\"Race.php.html#92\">App\\Entity\\Race::getName<\/a>"],[0,1,"<a href=\"Race.php.html#97\">App\\Entity\\Race::setName<\/a>"],[0,1,"<a href=\"Race.php.html#104\">App\\Entity\\Race::getFullDescription<\/a>"],[0,1,"<a href=\"Race.php.html#109\">App\\Entity\\Race::setFullDescription<\/a>"],[0,1,"<a href=\"Race.php.html#116\">App\\Entity\\Race::getQuickDescription<\/a>"],[0,1,"<a href=\"Race.php.html#121\">App\\Entity\\Race::setQuickDescription<\/a>"],[0,1,"<a href=\"Race.php.html#131\">App\\Entity\\Race::getSubraces<\/a>"],[0,2,"<a href=\"Race.php.html#136\">App\\Entity\\Race::addSubrace<\/a>"],[0,3,"<a href=\"Race.php.html#146\">App\\Entity\\Race::removeSubrace<\/a>"],[0,1,"<a href=\"Race.php.html#158\">App\\Entity\\Race::getImageUrl<\/a>"],[0,1,"<a href=\"Race.php.html#163\">App\\Entity\\Race::setImageUrl<\/a>"],[0,2,"<a href=\"Race.php.html#173\">App\\Entity\\Race::getImage<\/a>"],[0,1,"<a href=\"Race.php.html#188\">App\\Entity\\Race::setImage<\/a>"],[0,1,"<a href=\"Race.php.html#198\">App\\Entity\\Race::getImageFile<\/a>"],[0,1,"<a href=\"Race.php.html#208\">App\\Entity\\Race::setImageFile<\/a>"],[0,1,"<a href=\"Subclass.php.html#49\">App\\Entity\\Subclass::getId<\/a>"],[0,1,"<a href=\"Subclass.php.html#54\">App\\Entity\\Subclass::getName<\/a>"],[0,1,"<a href=\"Subclass.php.html#59\">App\\Entity\\Subclass::setName<\/a>"],[0,1,"<a href=\"Subclass.php.html#66\">App\\Entity\\Subclass::getDescription<\/a>"],[0,1,"<a href=\"Subclass.php.html#71\">App\\Entity\\Subclass::setDescription<\/a>"],[0,1,"<a href=\"Subclass.php.html#78\">App\\Entity\\Subclass::getPlayableClass<\/a>"],[0,1,"<a href=\"Subclass.php.html#83\">App\\Entity\\Subclass::setPlayableClass<\/a>"],[0,1,"<a href=\"Subrace.php.html#126\">App\\Entity\\Subrace::getId<\/a>"],[0,1,"<a href=\"Subrace.php.html#131\">App\\Entity\\Subrace::getName<\/a>"],[0,1,"<a href=\"Subrace.php.html#136\">App\\Entity\\Subrace::setName<\/a>"],[0,1,"<a href=\"Subrace.php.html#143\">App\\Entity\\Subrace::getDescription<\/a>"],[0,1,"<a href=\"Subrace.php.html#148\">App\\Entity\\Subrace::setDescription<\/a>"],[0,1,"<a href=\"Subrace.php.html#155\">App\\Entity\\Subrace::getImageUrl<\/a>"],[0,1,"<a href=\"Subrace.php.html#160\">App\\Entity\\Subrace::setImageUrl<\/a>"],[0,1,"<a href=\"Subrace.php.html#167\">App\\Entity\\Subrace::getStrength<\/a>"],[0,1,"<a href=\"Subrace.php.html#172\">App\\Entity\\Subrace::setStrength<\/a>"],[0,1,"<a href=\"Subrace.php.html#179\">App\\Entity\\Subrace::getDexterity<\/a>"],[0,1,"<a href=\"Subrace.php.html#184\">App\\Entity\\Subrace::setDexterity<\/a>"],[0,1,"<a href=\"Subrace.php.html#191\">App\\Entity\\Subrace::getConstitution<\/a>"],[0,1,"<a href=\"Subrace.php.html#196\">App\\Entity\\Subrace::setConstitution<\/a>"],[0,1,"<a href=\"Subrace.php.html#203\">App\\Entity\\Subrace::getWisdom<\/a>"],[0,1,"<a href=\"Subrace.php.html#208\">App\\Entity\\Subrace::setWisdom<\/a>"],[0,1,"<a href=\"Subrace.php.html#215\">App\\Entity\\Subrace::getIntelligence<\/a>"],[0,1,"<a href=\"Subrace.php.html#220\">App\\Entity\\Subrace::setIntelligence<\/a>"],[0,1,"<a href=\"Subrace.php.html#227\">App\\Entity\\Subrace::getCharisma<\/a>"],[0,1,"<a href=\"Subrace.php.html#232\">App\\Entity\\Subrace::setCharisma<\/a>"],[0,1,"<a href=\"Subrace.php.html#239\">App\\Entity\\Subrace::getTrait<\/a>"],[0,1,"<a href=\"Subrace.php.html#244\">App\\Entity\\Subrace::setTrait<\/a>"],[0,1,"<a href=\"Subrace.php.html#251\">App\\Entity\\Subrace::getRace<\/a>"],[0,1,"<a href=\"Subrace.php.html#256\">App\\Entity\\Subrace::setRace<\/a>"],[0,1,"<a href=\"User.php.html#77\">App\\Entity\\User::__construct<\/a>"],[0,1,"<a href=\"User.php.html#82\">App\\Entity\\User::getId<\/a>"],[0,1,"<a href=\"User.php.html#87\">App\\Entity\\User::getEmail<\/a>"],[0,1,"<a href=\"User.php.html#92\">App\\Entity\\User::setEmail<\/a>"],[100,1,"<a href=\"User.php.html#104\">App\\Entity\\User::getUserIdentifier<\/a>"],[0,1,"<a href=\"User.php.html#112\">App\\Entity\\User::getUsername<\/a>"],[100,1,"<a href=\"User.php.html#120\">App\\Entity\\User::getRoles<\/a>"],[0,1,"<a href=\"User.php.html#129\">App\\Entity\\User::setRoles<\/a>"],[100,1,"<a href=\"User.php.html#139\">App\\Entity\\User::getPassword<\/a>"],[0,1,"<a href=\"User.php.html#144\">App\\Entity\\User::setPassword<\/a>"],[100,1,"<a href=\"User.php.html#157\">App\\Entity\\User::getSalt<\/a>"],[100,1,"<a href=\"User.php.html#165\">App\\Entity\\User::eraseCredentials<\/a>"],[0,1,"<a href=\"User.php.html#171\">App\\Entity\\User::getLastName<\/a>"],[0,1,"<a href=\"User.php.html#176\">App\\Entity\\User::setLastName<\/a>"],[0,1,"<a href=\"User.php.html#183\">App\\Entity\\User::getFirstName<\/a>"],[0,1,"<a href=\"User.php.html#188\">App\\Entity\\User::setFirstName<\/a>"],[0,1,"<a href=\"User.php.html#195\">App\\Entity\\User::getAvatar<\/a>"],[0,1,"<a href=\"User.php.html#200\">App\\Entity\\User::setAvatar<\/a>"],[0,1,"<a href=\"Weapon.php.html#75\">App\\Entity\\Weapon::__construct<\/a>"],[0,1,"<a href=\"Weapon.php.html#80\">App\\Entity\\Weapon::getId<\/a>"],[0,1,"<a href=\"Weapon.php.html#85\">App\\Entity\\Weapon::getName<\/a>"],[0,1,"<a href=\"Weapon.php.html#90\">App\\Entity\\Weapon::setName<\/a>"],[0,1,"<a href=\"Weapon.php.html#97\">App\\Entity\\Weapon::getType<\/a>"],[0,1,"<a href=\"Weapon.php.html#102\">App\\Entity\\Weapon::setType<\/a>"],[0,1,"<a href=\"Weapon.php.html#109\">App\\Entity\\Weapon::getDamageDice<\/a>"],[0,1,"<a href=\"Weapon.php.html#114\">App\\Entity\\Weapon::setDamageDice<\/a>"],[0,1,"<a href=\"Weapon.php.html#121\">App\\Entity\\Weapon::getDamageType<\/a>"],[0,1,"<a href=\"Weapon.php.html#126\">App\\Entity\\Weapon::setDamageType<\/a>"],[0,1,"<a href=\"Weapon.php.html#133\">App\\Entity\\Weapon::getWeight<\/a>"],[0,1,"<a href=\"Weapon.php.html#138\">App\\Entity\\Weapon::setWeight<\/a>"],[0,1,"<a href=\"Weapon.php.html#145\">App\\Entity\\Weapon::getProperty<\/a>"],[0,1,"<a href=\"Weapon.php.html#150\">App\\Entity\\Weapon::setProperty<\/a>"],[0,1,"<a href=\"Weapon.php.html#160\">App\\Entity\\Weapon::getPlayableClasses<\/a>"],[0,2,"<a href=\"Weapon.php.html#165\">App\\Entity\\Weapon::addPlayableClass<\/a>"],[0,2,"<a href=\"Weapon.php.html#175\">App\\Entity\\Weapon::removePlayableClass<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
