@@ -14,6 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Race;
 
 /**
+ * This is the controller for the BREAD methods managing the PlayableClass entity
  * @Route("/admin/classe")
  */
 class PlayableClassController extends AbstractController
@@ -43,6 +44,7 @@ class PlayableClassController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Checking if the field file input is not empty
             if ($form['imageFile']->getData() === null) {
                 $this->addFlash(
                     'error',
@@ -50,9 +52,12 @@ class PlayableClassController extends AbstractController
                 );
             }
             else {
+                // Creating a file name using the name of the new playableClass
                 $fileName = $slugger->slug($playableClass->getName())->lower().".png";
+                // Getting the file and move it into the asset folder
                 $file = $form['imageFile']->getData();
                 $file->move('asset', $fileName);
+                // Adding the image file path into the DB
                 $playableClass->setImageUrl('asset/'.$fileName);
 
 
@@ -114,6 +119,7 @@ class PlayableClassController extends AbstractController
      */
     public function delete(Request $request, PlayableClass $playableClass, EntityManagerInterface $entityManager): Response
     {
+        // Deleting the image file in the asset folder at the same time as the PlayableClass in the DB.
         $imageFile = $playableClass->getImageUrl();
         if (file_exists($imageFile)) {
             unlink($imageFile);

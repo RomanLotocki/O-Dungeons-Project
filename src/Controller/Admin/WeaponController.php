@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
+ * This is the controller for the BREAD methods managing the Weapon entity
  * @Route("/admin/armes", name="app_admin_weapon_")
  */
 class WeaponController extends AbstractController

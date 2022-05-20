@@ -11,7 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/**
+    /**
+     * This is the controller for the BREAD methods managing the Subrace entity
      * @Route("/admin/sous-races/", name="app_admin_subraces_")
      */
 class SubraceController extends AbstractController

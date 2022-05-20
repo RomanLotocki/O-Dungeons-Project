@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class PlayableClassController extends AbstractController
 {
     /**
-     * Récupère toutes les classes
+     * Return PlayableClasses list
      * @Route("", name="browse", methods={"GET"})
      * @OA\Response(
      *     response=200,
@@ -45,7 +45,7 @@ class PlayableClassController extends AbstractController
     }
 
     /**
-     * Récupère la classe avec cette id
+     * Return a PlayableClass using the id
      * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,
@@ -63,7 +63,7 @@ class PlayableClassController extends AbstractController
     }
 
     /**
-     * Récupère tous les pouvoirs d'une classe
+     * Return all the abilities associated with a playableClass
      * @Route("/{id}/abilities", name="readAbilities", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,
@@ -86,7 +86,7 @@ class PlayableClassController extends AbstractController
     }
 
     /**
-     * Récupère deux classes au hasard
+     * Return two random playableClasses
      * @Route("/random", name="random_one", methods={"GET"})
      * @OA\Response(
      *      response=200,

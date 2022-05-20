@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
+ * This is the controller for the BREAD methods managing the Race entity
  * @Route("/admin/races", name="app_admin_races_")
  */
 class RaceController extends AbstractController

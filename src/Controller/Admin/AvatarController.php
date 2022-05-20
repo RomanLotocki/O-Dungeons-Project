@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * This is the controller for the BREAD methods managing the Avatar entity
  * @Route("/admin/avatars", name="app_admin_avatars_")
  */
 class AvatarController extends AbstractController

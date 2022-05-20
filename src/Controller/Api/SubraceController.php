@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class SubraceController extends AbstractController
 {
     /**
-     * Récupère la sous-race avec cette id
+     * Return a sub-race using the id
      * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,

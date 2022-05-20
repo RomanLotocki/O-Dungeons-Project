@@ -23,12 +23,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator;
 
 /**
+ * Managing Api routes associated to the user entity 
  * @Route("/api/users", name="app_api_users_")
  * @OA\Tag(name="O'Dungeons Api: Utilisateurs")
  */
 class UserController extends AbstractController
 {
     /**
+     * Create a user through API routes
      * @Route("", name="add", methods={"POST"})
      * 
      * @OA\Response(
@@ -51,29 +53,36 @@ class UserController extends AbstractController
         AvatarRepository $avatarRepository
     ): JsonResponse
     {
+        // Get datas from the request content (json format) and try to deserialize it.
         try {
             $user = $serializer->deserialize($request->getContent(), User::class, 'json');
-        } catch (Exception $e) {
+        
+        }
+        // If it is not possible to deserialize, catch and return an error.
+        catch (Exception $e) {
             return $this->json(
                 "JSON mal formé",
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }        
         
+        // Verify if the inputs are valid according to the asserts in the User entity.
         $errorList = $validator->validate($user);
 
         if (count($errorList)>0) {
             return $this->json($errorList, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
+        // Getting and hashing the password before sending in the DB.
         $plaintextPassword = $user->getPassword();
         $hashedPassword = $hasher->hashPassword(
             $user,
             $plaintextPassword
         );
-
-        $user->setAvatar($avatarRepository->findOneBy(["name" => ["Default"]]));
         $user->setPassword($hashedPassword);
+        
+        // By default, the created user has no avatars. Setting a default avatar to the new user.
+        $user->setAvatar($avatarRepository->findOneBy(["name" => ["Default"]]));      
 
         $em->persist($user);
         $em->flush();
@@ -82,7 +91,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * Récupère l'utilisateur avec son id
+     * Return the user data using the id
      * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,
@@ -96,12 +105,14 @@ class UserController extends AbstractController
             return $this->json("L'utilisateur demandé n'a pas été trouvé", Response::HTTP_NOT_FOUND);
         }
         
+        // Authorize this road only for the current user authenticated with JWT
         $this->denyAccessUnlessGranted('PROFIL_VIEW', $user);
 
         return $this->json($user, Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 
     /**
+     * Edit a user through the API
      * @Route("/{id}", name="edit", methods={"PUT"}, requirements={"id": "\d+"})
      * 
      * @OA\Response(
@@ -122,9 +133,12 @@ class UserController extends AbstractController
         JWTTokenManagerInterface $JWTManager
     ): JsonResponse
     {
+        // If the user doesn't exist: return an 404 error.
         if ($user === null) {
             return $this->json("Utilisateur non trouvé", Response::HTTP_NOT_FOUND);
         }
+
+        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
 
         try {
             $userNew = $serializer->deserialize($request->getContent(), User::class, 'json');
@@ -135,6 +149,7 @@ class UserController extends AbstractController
             );
         };
 
+        // Setting the current user datas with the datas sent through the API.
         $user->setEmail($userNew->getEmail());
         $user->setLastName($userNew->getLastName());
         $user->setFirstName($userNew->getFirstName());
@@ -145,14 +160,13 @@ class UserController extends AbstractController
             return $this->json($errorList, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
-
         $em->flush();
 
         return $this->json(['user' => $user], Response::HTTP_OK, [], ["groups" => "read_user"]);
     }
 
     /**
+     * Edit a user password through the API
      * @Route("/{id}/password", name="editPassword", methods={"PATCH"}, requirements={"id": "\d+"})
      * 
      * @OA\Response(
@@ -178,10 +192,14 @@ class UserController extends AbstractController
         UserPasswordHasherInterface $hasher
     ): JsonResponse
     {
+        
+        // Verify if the user exist.
         if ($user === null) {
             return $this->json("Utilisateur non trouvé", Response::HTTP_NOT_FOUND);
         }
-
+        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
+        
+        // Get the users inputs and convert Json datas into a PHP variable.
         try {
             $passwords = json_decode($request->getContent());
         } catch (Exception $e) {
@@ -191,28 +209,32 @@ class UserController extends AbstractController
             );
         };
         
+        // Verify if the old password given by the user is matching with the hashed password in the DB.
         if($hasher->isPasswordValid($user, $passwords->oldPassword)){
 
+            // Replace the old password with the new one.
             $user->setPassword($passwords->newPassword);
 
+            // Verify asserts in the user entity.
             $errorList = $validator->validate($user);
                     
             if (count($errorList)>0) {
                 return $this->json($errorList, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
+            // Hashing the new password.
             $hashedPassword = $hasher->hashPassword(
                 $user,
                 $passwords->newPassword
             );
     
+            // Setting the new hashed password.
             $user->setPassword($hashedPassword);
         }
+        // If the old passwords are not matching.
         else {
             return $this->json("Invalid credentials.", Response::HTTP_UNAUTHORIZED);
         }
-
-        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
 
         $em->flush();
 
@@ -220,6 +242,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * Edit a user avatar through the API
      * @Route("/{id}/avatar", name="editAvatar", methods={"PATCH"}, requirements={"id": "\d+"})
      *
      * @OA\Response(
@@ -241,10 +264,13 @@ class UserController extends AbstractController
         EntityManagerInterface $em,
         Request $request
     ) {
+        // Verify if the user exist.
         if ($user === null) {
             return $this->json("Utilisateur non trouvé", Response::HTTP_NOT_FOUND);
         }
+        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
 
+        // Decode API request content into an object. Get avatar datas through the id sent by the user.
         try {
             $avatar = $avatarRepository->find(json_decode($request->getContent())->avatar);
         } catch (Exception $e) {
@@ -254,6 +280,7 @@ class UserController extends AbstractController
             );
         }
 
+        // Verify if the avatar sent by the user exists in the DB.
         if ($avatar === null) {
             return $this->json(
                 "Avatar non trouvé",
@@ -261,9 +288,8 @@ class UserController extends AbstractController
             );
         }
 
+        // Setting the new avatar for the user.
         $user->setAvatar($avatar);
-
-        $this->denyAccessUnlessGranted("PROFIL_EDIT", $user);
 
         $em->flush();
 

@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 class RaceController extends AbstractController
 {
     /**
+     * Return races list
      * @Route("", name="browse", methods={"GET"})
      * @OA\Response(
      *     response=200,
@@ -45,7 +46,7 @@ class RaceController extends AbstractController
     }
 
     /**
-     * Récupère la classe avec cette id
+     * Return a race using the id
      * @Route("/{id}", name="read", methods={"GET"}, requirements={"id":"\d+"})
      * @OA\Response(
      *     response=200,
@@ -65,7 +66,7 @@ class RaceController extends AbstractController
     }
 
     /**
-     * Récupère toutes les sous-races d'une race
+     * Return all the sub-races associated with a race
      * @Route("/{id}/subraces", name="readSubraces", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,
@@ -88,7 +89,7 @@ class RaceController extends AbstractController
     }
 
     /**
-     * Récupère deux races au hasard
+     * Return two random races
      * @Route("/random", name="random_one", methods={"GET"})
      * @OA\Response(
      *      response=200,

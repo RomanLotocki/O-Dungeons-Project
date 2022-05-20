@@ -20,7 +20,7 @@ use Nelmio\ApiDocBundle\Annotation\Security;
 class BackgroundController extends AbstractController
 {
     /**
-     * Récupère tous les historiques
+     * Return backgrounds list
      * @Route("", name="browse", methods={"GET"})
      * @OA\Response(
      *      response=200,
@@ -39,6 +39,7 @@ class BackgroundController extends AbstractController
     }
 
     /**
+     * Return the background data using the id
      * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,
