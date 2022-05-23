@@ -33,7 +33,7 @@ class AuthenticationSuccessListener
             'avatar' => $user->getAvatar() !== null ? [
                 'id' => $user->getAvatar()->getId(),
                 'name' => $user->getAvatar()->getName(),
-                'image_url' => $user->getAvatar()->getImageUrl()
+                'imageUrl' => $user->getAvatar()->getImageUrl()
             ]: null
         ];
 

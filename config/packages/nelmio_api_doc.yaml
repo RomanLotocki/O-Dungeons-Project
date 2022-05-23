@@ -62,7 +62,7 @@ nelmio_api_doc:
                                                                 type: int
                                                             name:
                                                                 type: string
-                                                            image_url:
+                                                            imageUrl:
                                                                 type: string
     areas: # to filter documented areas
         path_patterns:
