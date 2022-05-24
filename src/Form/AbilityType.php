@@ -18,10 +18,10 @@ class AbilityType extends AbstractType
                 "label" => "Nom"
             ])
             ->add('quickDescription', TextareaType::class, [
-                "label" => "Description rapide de la race"
+                "label" => "Description rapide du pouvoir"
             ])
             ->add('description', TextareaType::class, [
-                "label" => "Description de la race"
+                "label" => "Description du pouvoir"
             ])
             ->add('incantationTime', TextareaType::class, [
                 "label" => "Temps d'incantation"
