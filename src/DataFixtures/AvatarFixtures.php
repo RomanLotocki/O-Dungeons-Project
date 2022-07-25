@@ -13,6 +13,12 @@ class AvatarFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
+        $avatar = new Avatar;
+        $avatar->setName("Default");
+        $avatar->setImageUrl("https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png");
+
+        $manager->persist($avatar);
+
         for ($i=0; $i < 10; $i++) {
             $avatar = new Avatar();
             $avatar->setName($faker->lastName());
