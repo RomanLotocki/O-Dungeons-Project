@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * This is the controller for the BREAD methods managing the Subclass entity
  * @Route("/admin/sous-classe")
  */
 class SubclassController extends AbstractController

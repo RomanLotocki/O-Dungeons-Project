@@ -15,11 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
+ * This is the controller for the BREAD methods managing the User entity
+ * For the edit of the user, there are two different methods : one for the password and the other one for all the other properties
  * @Route("/admin/utilisateur")
  */
 class UserController extends AbstractController
 {
     /**
+     * Return all the users
      * @Route("/", name="app_admin_user_index", methods={"GET"})
      */
     public function index(EntityManagerInterface $entityManager): Response
@@ -35,15 +38,19 @@ class UserController extends AbstractController
     }
 
     /**
+     * Create a new user
      * @Route("/ajouter", name="app_admin_user_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $hasher): Response
     {
         $user = new User();
         $form = $this->createForm(UserAddType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Hashing the password of the user before adding the user in DB
+            $user->setPassword($hasher->hashPassword($user, $user->getPassword()));
+
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -58,6 +65,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * Show a specific user
      * @Route("/{id}", name="app_admin_user_show", methods={"GET"})
      */
     public function show(User $user): Response
@@ -69,6 +77,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * Edit user except password
      * @Route("/{id}/modifier", name="app_admin_user_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
@@ -90,18 +99,23 @@ class UserController extends AbstractController
     }
 
     /**
+     * Edit user password
      * @Route("/{id}/mot-de-passe", name="app_admin_user_edit_password", methods={"GET", "POST"})
      */
     public function editPassword(Request $request,User $user, UserPasswordHasherInterface $hasher, EntityManagerInterface $manager, ValidatorInterface $validator): Response
     {
+        // There are three visible fields in the form and one hidden for the CSRF protection
         $oldPassword = $request->get('password_old');
         $newPassword = $request->get('password_new');
         $passwordConfirmation = $request->get('password_new_confirmation');
 
+        // Checking if the form is submitted and if the CSRF token is valid
         if ($request->getMethod() === "POST" && $this->isCsrfTokenValid('password'.$user->getId(), $request->request->get('_token'))) {
             
+            // Checking if the field old password is the correct password and if the new password is the same in the two other fields
             if ($hasher->isPasswordValid($user, $oldPassword) && $newPassword === $passwordConfirmation) {
 
+                // Checking if the new password length is more than 8 characters (as we defined assert rule in the entity)
                 $user->setPassword($newPassword);
 
                 $errors = $validator->validate($user);
@@ -114,16 +128,19 @@ class UserController extends AbstractController
                             $error->getMessage()
                         );
                     }
-                } else {
+                }
+                // If the new password length is more than 8 characters, hashing it and store in database
+                else {
                     
                     $user->setPassword($hasher->hashPassword($user, $newPassword));
                     $manager->flush();
 
                     return $this->redirectToRoute('app_admin_user_show', ["id" => $user->getId()]);
-                }
-                
+                }                
 
-            } else {
+            }
+            // If the old password is wrong or if the new passwords are not the same, the user stay on form page and get an error message
+            else {
                 $this->addFlash(
                     'error',
                     'Mot de passe incorrecte'
@@ -131,6 +148,7 @@ class UserController extends AbstractController
             }
         }
 
+        // Rendering the template with the password form
         return $this->render('admin/user/edit_password.html.twig', [
             'user' => $user,
             'controller' => 'UserController'
@@ -138,6 +156,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * Delete a user
      * @Route("/{id}", name="app_admin_user_delete", methods={"POST"})
      */
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response

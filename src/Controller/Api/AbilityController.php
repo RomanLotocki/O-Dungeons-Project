@@ -19,7 +19,8 @@ use Nelmio\ApiDocBundle\Annotation\Security;
 class AbilityController extends AbstractController
 {
     /**
-     * Récupère le pouvoir avec cette id
+     * Return the ability data using the id
+     * Go to the Ability entity to see which properties are send (including relationship)
      * @Route("/{id}", name="read", methods={"GET"}, requirements={"id": "\d+"})
      * @OA\Response(
      *      response=200,

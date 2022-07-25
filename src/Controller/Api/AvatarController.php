@@ -20,10 +20,11 @@ use Nelmio\ApiDocBundle\Annotation\Security;
 class AvatarController extends AbstractController
 {
     /**
+     * Return avatars list
      * @Route("", name="browse", methods={"GET"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns avatars list",
+     *     description="Retourne la liste des avatars",
      *     @OA\JsonContent(
      *        type="array",
      *        @OA\Items(ref=@Model(type=Avatar::class, groups={"browse_avatars"}))

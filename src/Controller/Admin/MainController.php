@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * This is controller managing the home page of our back office
  * @Route("/admin/", name="app_admin_")
  */
 class MainController extends AbstractController

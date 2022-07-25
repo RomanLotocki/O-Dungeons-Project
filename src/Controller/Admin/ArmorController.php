@@ -12,11 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
+ * This is the controller for the BREAD methods managing the Armor entity
  * @Route("/admin/armor")
  */
 class ArmorController extends AbstractController
 {
     /**
+     * Return all armors
      * @Route("/", name="app_admin_armor_index", methods={"GET"})
      */
     public function index(EntityManagerInterface $entityManager): Response
@@ -32,6 +34,7 @@ class ArmorController extends AbstractController
     }
 
     /**
+     * Create a new armor
      * @Route("/ajouter", name="app_admin_armor_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -55,6 +58,7 @@ class ArmorController extends AbstractController
     }
 
     /**
+     * Show a specific armor
      * @Route("/{id}", name="app_admin_armor_show", methods={"GET"}, requirements={"id": "\d+"})
      */
     public function show(Armor $armor): Response
@@ -66,6 +70,7 @@ class ArmorController extends AbstractController
     }
 
     /**
+     * Edit an existing armor
      * @Route("/{id}/modifier", name="app_admin_armor_edit", methods={"GET", "POST"}, requirements={"id": "\d+"})
      */
     public function edit(Request $request, Armor $armor, EntityManagerInterface $entityManager): Response
@@ -87,6 +92,7 @@ class ArmorController extends AbstractController
     }
 
     /**
+     * Delete an existing armor
      * @Route("/{id}", name="app_admin_armor_delete", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function delete(Request $request, Armor $armor, EntityManagerInterface $entityManager): Response
