@@ -25,7 +25,7 @@ You will find here all the code related to the BackOffice, the relations with ou
 1. Clone this repository
 
   ```sh
-  git clone git@github.com:O-clock-apollo/projet-17-o-dungeons-back.git
+  git@github.com:RomanLotocki/O-Dungeons-Project.git
   ```
 
 2. Install dependencies and framework bundles
